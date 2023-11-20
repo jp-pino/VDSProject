@@ -37,7 +37,7 @@
   <br />
   Group #6
   <br />
-  Winter Semester 2024/2024
+  Winter Semester 2023/2024
   </h3>
 
   <p align="center">
