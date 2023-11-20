@@ -7,8 +7,6 @@
 
 #include "ManagerInterface.h"
 
-namespace ClassProject {
-
-}
+namespace ClassProject {}
 
 #endif
