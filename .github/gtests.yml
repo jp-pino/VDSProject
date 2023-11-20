@@ -1,0 +1,55 @@
+name: gtests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Install Packages
+        run: >
+          sudo apt update
+          && sudo apt install libgtest-dev
+      
+      # fmt
+      - name: Build and install fmt
+        uses: jp-pino/cached-checkout-build-action@v1
+        with:
+          repository: fmtlib/fmt
+          ref: 9.1.0
+          cmake-flags: -DBUILD_SHARED_LIBS=1
+
+      # spdlog
+      - name: Build and install spdlog
+        uses: jp-pino/cached-checkout-build-action@v1
+        with:
+          repository: gabime/spdlog
+          ref: v1.11.0
+          cmake-flags: -DBUILD_SHARED_LIBS=1
+
+      - uses: actions/checkout@v2
+        with:
+          path: vdsproject
+
+      - name: Build tests
+        run: >
+          cd $GITHUB_WORKSPACE/vdsproject 
+          && mkdir build 
+          && cd build 
+          && cmake .. 
+          && make
+
+      - name: Run Tests
+        run: >
+          export LOG_DICTIONARY_TESTING
+          && export LD_LIBRARY_PATH=/usr/local/lib
+          && cd $GITHUB_WORKSPACE/vdsproject/build 
+          && cd src/test
+          && ./VDSProject_test --gtest_output=xml:test-results.xml
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: "vdsproject/build/test-results.xml"
