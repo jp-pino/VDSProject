@@ -258,14 +258,14 @@ You might find helpful links below.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/TUK-EIS/VDSProject.svg?style=for-the-badge
-[contributors-url]: https://github.com/TUK-EIS/VDSProject/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/TUK-EIS/VDSProject.svg?style=for-the-badge
-[forks-url]: https://github.com/TUK-EIS/VDSProject/network/members
-[stars-shield]: https://img.shields.io/github/stars/TUK-EIS/VDSProject.svg?style=for-the-badge
-[stars-url]: https://github.com/TUK-EIS/VDSProject/stargazers
-[issues-shield]: https://img.shields.io/github/issues/TUK-EIS/VDSProject.svg?style=for-the-badge
-[issues-url]: https://github.com/TUK-EIS/VDSProject/issues
+[contributors-shield]: https://img.shields.io/github/contributors/jp-pino/VDSProject.svg?style=for-the-badge
+[contributors-url]: https://github.com/jp-pino/VDSProject/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/jp-pino/VDSProject.svg?style=for-the-badge
+[forks-url]: https://github.com/jp-pino/VDSProject/network/members
+[stars-shield]: https://img.shields.io/github/stars/jp-pino/VDSProject.svg?style=for-the-badge
+[stars-url]: https://github.com/jp-pino/VDSProject/stargazers
+[issues-shield]: https://img.shields.io/github/issues/jp-pino/VDSProject.svg?style=for-the-badge
+[issues-url]: https://github.com/jp-pino/VDSProject/issues
 <!--
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt

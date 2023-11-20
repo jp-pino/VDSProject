@@ -44,8 +44,7 @@ jobs:
         run: >
           export LOG_DICTIONARY_TESTING
           && export LD_LIBRARY_PATH=/usr/local/lib
-          && cd $GITHUB_WORKSPACE/vdsproject/build 
-          && cd src/test
+          && cd $GITHUB_WORKSPACE/vdsproject/build/src/test
           && ./VDSProject_test --gtest_output=xml:test-results.xml
 
       - name: Publish Test Results
