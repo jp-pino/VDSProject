@@ -15,7 +15,7 @@ namespace ClassProject {
     }
 
     bool Manager::isConstant(BDD_ID f) {
-        return nodes[f].id == NULL && nodes[f].id == NULL && nodes[f].id == NULL;
+        return nodes[f].high == NULL && nodes[f].low == NULL && nodes[f].top_var == NULL;
         // return nodes[f].id == nodes[f].high && nodes[f].id == nodes[f].low && nodes[f].id == nodes[f].top_var;
     }
 
