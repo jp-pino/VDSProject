@@ -51,4 +51,4 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
-          files: "vdsproject/build/test-results.xml"
+          files: "vdsproject/build/src/test/test-results.xml"
