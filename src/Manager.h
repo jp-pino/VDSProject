@@ -24,7 +24,40 @@ namespace ClassProject {
             std::vector<Node> nodes;
 
         public:
+            /**
+            * @brief Manager constructor
+            * Initializes False and True nodes
+            */
+            Manager() {
+                createVar("False");
+                createVar("True");
+            }
+
             BDD_ID createVar(const std::string& label) override;
+
+            // Not implemented yet
+            const BDD_ID& True() override { return nodes[0].id; }
+            const BDD_ID& False() override { return nodes[0].id; }
+            bool isConstant(BDD_ID f) override { return false; }
+            bool isVariable(BDD_ID x) override { return false; }
+            BDD_ID topVar(BDD_ID f) override { return 0; }
+            BDD_ID ite(BDD_ID i, BDD_ID t, BDD_ID e) override { return 0; }
+            BDD_ID coFactorTrue(BDD_ID f, BDD_ID x) override { return 0; }
+            BDD_ID coFactorFalse(BDD_ID f, BDD_ID x) override { return 0; }
+            BDD_ID coFactorTrue(BDD_ID f) override { return 0; }
+            BDD_ID coFactorFalse(BDD_ID f) override { return 0; }
+            BDD_ID and2(BDD_ID a, BDD_ID b) override { return 0; }
+            BDD_ID or2(BDD_ID a, BDD_ID b) override { return 0; }
+            BDD_ID xor2(BDD_ID a, BDD_ID b) override { return 0; }
+            BDD_ID neg(BDD_ID a) override { return 0; }
+            BDD_ID nand2(BDD_ID a, BDD_ID b) override { return 0; }
+            BDD_ID nor2(BDD_ID a, BDD_ID b) override { return 0; }
+            BDD_ID xnor2(BDD_ID a, BDD_ID b) override { return 0; }
+            std::string getTopVarName(const BDD_ID& root) override { return ""; }
+            void findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) override { }
+            void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) override { }
+            size_t uniqueTableSize() override { return 0; }
+            void visualizeBDD(std::string filepath, BDD_ID& root) override { }
 
     };
 }

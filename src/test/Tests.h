@@ -9,6 +9,6 @@
 TEST(ManagerTest, createVar) {
     ClassProject::Manager manager;
 
-    EXPECT_EQ(manager.createVar("False"), 0);
-    EXPECT_EQ(manager.createVar("True"), 1);
+    EXPECT_EQ(manager.createVar("A"), 2);
+    EXPECT_EQ(manager.createVar("B"), 3);
 }
