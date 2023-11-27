@@ -4,6 +4,7 @@
 #pragma once
 
 #include <gtest/gtest.h>
+
 #include "../Manager.h"
 
 TEST(ManagerTest, createVar) {
