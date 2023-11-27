@@ -130,10 +130,10 @@ $(document).ready(function(){initNavTree('Manager_8h_source.html',''); initResiz
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keyword">const</span> BDD_ID&amp; True() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keyword">const</span> BDD_ID&amp; False() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="comment">// Not implemented yet</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordtype">bool</span> isConstant(BDD_ID f)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordtype">bool</span> isVariable(BDD_ID x)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordtype">bool</span> isConstant(BDD_ID f) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordtype">bool</span> isVariable(BDD_ID x) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="comment">// Not implemented yet</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            BDD_ID topVar(BDD_ID f)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> 0; }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            BDD_ID ite(BDD_ID i, BDD_ID t, BDD_ID e)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> 0; }</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            BDD_ID coFactorTrue(BDD_ID f, BDD_ID x)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> 0; }</div>
