@@ -13,4 +13,12 @@ namespace ClassProject {
     const BDD_ID& Manager::False() { 
         return nodes[0].id; 
     }
+
+    bool Manager::isConstant(BDD_ID f) {
+        return nodes[f].id == nodes[f].high && nodes[f].id == nodes[f].low && nodes[f].id == nodes[f].top_var;
+    }
+
+    bool Manager::isVariable(BDD_ID x) {
+        return !isConstant(f);
+    }
 }

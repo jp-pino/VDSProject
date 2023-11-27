@@ -25,3 +25,22 @@ TEST(ManagerTest, False) {
 
     EXPECT_EQ(manager.False(), 0);
 }
+
+
+TEST(ManagerTest, isConstant) {
+    ClassProject::Manager manager;
+
+    EXPECT_TRUE(manager.isConstant(0));
+    EXPECT_TRUE(manager.isConstant(1));
+}
+
+
+TEST(ManagerTest, isVariable) {
+    ClassProject::Manager manager;    
+    
+    EXPECT_EQ(manager.createVar("A"), 2);
+    EXPECT_EQ(manager.createVar("B"), 3);
+
+    EXPECT_TRUE(manager.isVariable(2));
+    EXPECT_TRUE(manager.isVariable(3));
+}
