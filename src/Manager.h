@@ -4,6 +4,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include "ManagerInterface.h"
 
@@ -15,7 +16,7 @@ namespace ClassProject {
         BDD_ID top_var;
         std::string label;
 
-        explicit Node(BDD_ID id, std::string label) : id(id), label(label) {};
+        Node(BDD_ID id, std::string label) : id(id), label(label) {};
     };
 
     class Manager : public ManagerInterface {
