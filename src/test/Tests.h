@@ -12,3 +12,16 @@ TEST(ManagerTest, createVar) {
     EXPECT_EQ(manager.createVar("A"), 2);
     EXPECT_EQ(manager.createVar("B"), 3);
 }
+
+TEST(ManagerTest, True) {
+    ClassProject::Manager manager;
+
+    EXPECT_EQ(manager.True(), 1);
+}
+
+
+TEST(ManagerTest, False) {
+    ClassProject::Manager manager;
+
+    EXPECT_EQ(manager.False(), 0);
+}

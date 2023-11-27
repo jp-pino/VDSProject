@@ -35,9 +35,11 @@ namespace ClassProject {
 
             BDD_ID createVar(const std::string& label) override;
 
+            const BDD_ID& True() override;
+            const BDD_ID& False() override;
+
+
             // Not implemented yet
-            const BDD_ID& True() override { return nodes[0].id; }
-            const BDD_ID& False() override { return nodes[0].id; }
             bool isConstant(BDD_ID f) override { return false; }
             bool isVariable(BDD_ID x) override { return false; }
             BDD_ID topVar(BDD_ID f) override { return 0; }
