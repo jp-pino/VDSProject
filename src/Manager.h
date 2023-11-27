@@ -1,12 +1,29 @@
 // A minimalistic BDD library, following Wolfgang Kunz lecture slides
 //
 // Created by Markus Wedler 2014
+#pragma once
 
-#ifndef VDSPROJECT_MANAGER_H
-#define VDSPROJECT_MANAGER_H
+#include <string>
 
 #include "ManagerInterface.h"
 
-namespace ClassProject {}
+namespace ClassProject {
+    struct Node {
+        BDD_ID id;
+        BDD_ID high;
+        BDD_ID low;
+        BDD_ID top_var;
+        std::string label;
 
-#endif
+        explicit Node(BDD_ID id, std::string label) : id(id), label(label) {};
+    };
+
+    class Manager : public ManagerInterface {
+        private:
+            std::vector<Node> nodes;
+
+        public:
+            BDD_ID createVar(const std::string& label) override;
+
+    };
+}

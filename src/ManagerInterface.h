@@ -1,9 +1,7 @@
 //
 // Created by ludwig on 01.03.16
 //
-
-#ifndef VDSPROJECT_MANAGERINTERFACE_H
-#define VDSPROJECT_MANAGERINTERFACE_H
+#pragma once
 
 #include <set>
 #include <string>
@@ -62,5 +60,3 @@ class ManagerInterface {
   virtual void visualizeBDD(std::string filepath, BDD_ID& root) = 0;
 };
 }  // namespace ClassProject
-
-#endif
