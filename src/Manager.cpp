@@ -19,6 +19,6 @@ namespace ClassProject {
     }
 
     bool Manager::isVariable(BDD_ID x) {
-        return !isConstant(f);
+        return !isConstant(x);
     }
 }
