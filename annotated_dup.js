@@ -1,6 +1,8 @@
 var annotated_dup =
 [
     [ "ClassProject", null, [
-      [ "ManagerInterface", "classClassProject_1_1ManagerInterface.html", null ]
+      [ "Manager", "classClassProject_1_1Manager.html", null ],
+      [ "ManagerInterface", "classClassProject_1_1ManagerInterface.html", null ],
+      [ "Node", "structClassProject_1_1Node.html", null ]
     ] ]
 ];
