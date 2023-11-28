@@ -219,6 +219,7 @@ class Manager : public ManagerInterface {
 
   size_t uniqueTableSize() override { return 0; }
 
-  void visualizeBDD(std::string filepath, BDD_ID& root) override {}
+  void visualizeBDD_internal(std::ofstream& file, BDD_ID& root);
+  void visualizeBDD(std::string filepath, BDD_ID& root) override;
 };
 }  // namespace ClassProject

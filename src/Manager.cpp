@@ -1,6 +1,8 @@
 #include "Manager.h"
 
 #include <algorithm>
+#include <fstream>
+#include <iostream>
 
 namespace ClassProject {
 
@@ -189,5 +191,27 @@ void Manager::dump() {
         "\n  Low: {}",
         node.id, node.label, node.top, node.high, node.low);
   }
+}
+
+void Manager::visualizeBDD_internal(std::ofstream& file, BDD_ID& root) {
+  auto& node = unique_table[root];
+
+  file << fmt::format("n{} [label=\"{}\"]\n", node.id, node.label);
+
+  if (isConstant(root)) return;
+
+  visualizeBDD_internal(file, node.low);
+  file << fmt::format("n{} -> n{} [style=dotted]\n", node.id, node.low);
+
+  visualizeBDD_internal(file, node.high);
+  file << fmt::format("n{} -> n{} [style=dotted]\n", node.id, node.high);
+}
+
+void Manager::visualizeBDD(std::string filepath, BDD_ID& root) {
+  std::ofstream file(filepath);
+
+  file << "digraph A {\n";
+  visualizeBDD_internal(file, root);
+  file << "}\n";
 }
 }  // namespace ClassProject
