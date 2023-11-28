@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('classClassProject_1_1Manager.html','')
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classClassProject_1_1Manager-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ClassProject::Manager Class Reference</div></div>
 </div><!--header-->
@@ -229,6 +230,16 @@ virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>uniqueTable
 <tr class="memitem:a61d18e20e84ded068d71a2c755d0ed16"><td class="memItemLeft" align="right" valign="top"><a id="a61d18e20e84ded068d71a2c755d0ed16" name="a61d18e20e84ded068d71a2c755d0ed16"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, BDD_ID &amp;root)=0</td></tr>
 <tr class="separator:a61d18e20e84ded068d71a2c755d0ed16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac9c01323a8fc8026100b03114066f64a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ac9c01323a8fc8026100b03114066f64a">unique_table</a></td></tr>
+<tr class="memdesc:ac9c01323a8fc8026100b03114066f64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique table The unique table is a vector of nodes The index of the vector is the id of the node.  <a href="classClassProject_1_1Manager.html#ac9c01323a8fc8026100b03114066f64a">More...</a><br /></td></tr>
+<tr class="separator:ac9c01323a8fc8026100b03114066f64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76f541361b2b37eda472eeae04c69c0"><td class="memItemLeft" align="right" valign="top"><a id="ae76f541361b2b37eda472eeae04c69c0" name="ae76f541361b2b37eda472eeae04c69c0"></a>
+std::map&lt; std::tuple&lt; BDD_ID, BDD_ID, BDD_ID &gt;, BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computed_table</b></td></tr>
+<tr class="memdesc:ae76f541361b2b37eda472eeae04c69c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computed Table Used to improve run time. It stores for every triple (f, g, h) a pointer to function ite(f, g, h) in the unique table. In this way, repeated ite-computations of the same operands are avoided. <br /></td></tr>
+<tr class="separator:ae76f541361b2b37eda472eeae04c69c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a85fce20557dc45950ae3493d6f9f14ea" name="a85fce20557dc45950ae3493d6f9f14ea"></a>
@@ -1014,6 +1025,36 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac9c01323a8fc8026100b03114066f64a" name="ac9c01323a8fc8026100b03114066f64a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9c01323a8fc8026100b03114066f64a">&#9670;&#160;</a></span>unique_table</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structClassProject_1_1Node.html">Node</a>&gt; ClassProject::Manager::unique_table</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unique table The unique table is a vector of nodes The index of the vector is the id of the node. </p>
+<p >Contains for every node of the ROBDD an ID as well as a triple consisting of:</p><ul>
+<li>the top variable for this node</li>
+<li>the ID of the low successor</li>
+<li>the ID of the high successor </li>
+</ul>
 
 </div>
 </div>
