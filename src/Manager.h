@@ -3,6 +3,9 @@
 // Created by Markus Wedler 2014
 #pragma once
 
+#include <spdlog/spdlog.h>
+
+#include <map>
 #include <string>
 #include <vector>
 
@@ -28,7 +31,26 @@ struct Node {
 
 class Manager : public ManagerInterface {
  private:
-  std::vector<Node> nodes;
+  /**
+   * @brief Unique table
+   * The unique table is a vector of nodes
+   * The index of the vector is the id of the node
+   *
+   * Contains for every node of the ROBDD an ID as well as a triple consisting
+   * of:
+   * - the top variable for this node
+   * - the ID of the low successor
+   * - the ID of the high successor
+   */
+  std::vector<Node> unique_table;
+
+  /**
+   * @brief Computed Table
+   * Used to improve run time. It stores for every triple (f, g, h) a pointer to
+   * function ite(f, g, h) in the unique table. In this way, repeated
+   * ite-computations of the same operands are avoided.
+   */
+  std::map<std::tuple<BDD_ID, BDD_ID, BDD_ID>, BDD_ID> computed_table;
 
  public:
   /**
@@ -53,21 +75,17 @@ class Manager : public ManagerInterface {
   BDD_ID coFactorTrue(BDD_ID f) override;
   BDD_ID coFactorFalse(BDD_ID f) override;
 
+  BDD_ID and2(BDD_ID a, BDD_ID b) override;
+  BDD_ID or2(BDD_ID a, BDD_ID b) override;
+  BDD_ID xor2(BDD_ID a, BDD_ID b) override;
+  BDD_ID neg(BDD_ID a) override;
+  BDD_ID nand2(BDD_ID a, BDD_ID b) override;
+  BDD_ID nor2(BDD_ID a, BDD_ID b) override;
+  BDD_ID xnor2(BDD_ID a, BDD_ID b) override;
+
+  void dump();
+
   // Not implemented yet
-
-  BDD_ID and2(BDD_ID a, BDD_ID b) override { return 0; }
-
-  BDD_ID or2(BDD_ID a, BDD_ID b) override { return 0; }
-
-  BDD_ID xor2(BDD_ID a, BDD_ID b) override { return 0; }
-
-  BDD_ID neg(BDD_ID a) override { return 0; }
-
-  BDD_ID nand2(BDD_ID a, BDD_ID b) override { return 0; }
-
-  BDD_ID nor2(BDD_ID a, BDD_ID b) override { return 0; }
-
-  BDD_ID xnor2(BDD_ID a, BDD_ID b) override { return 0; }
 
   std::string getTopVarName(const BDD_ID& root) override { return ""; }
 
