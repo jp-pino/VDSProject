@@ -210,7 +210,7 @@ void Manager::visualizeBDD_internal(std::ofstream& file, BDD_ID& root) {
 void Manager::visualizeBDD(std::string filepath, BDD_ID& root) {
   std::ofstream file(filepath);
 
-  file << "digraph A {\n";
+  file << "strict digraph A {\n";
   visualizeBDD_internal(file, root);
   file << "}\n";
 }
