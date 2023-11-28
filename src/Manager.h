@@ -54,22 +54,96 @@ class Manager : public ManagerInterface {
 
  public:
   /**
-   * Constructor
+   * @brief Constructor
    * Creates the constant nodes True and False
    */
   Manager();
+
+  /**
+   * @brief Create a new variable
+   * Creates a new variable with the given label and returns its ID.
+   *
+   * @param label Label of the variable
+   * @return ID of the new variable
+   */
   BDD_ID createVar(const std::string& label) override;
 
+  /**
+   * @brief Get the ID of the constant True
+   * @return ID of the constant True
+   */
   const BDD_ID& True() override;
+
+  /**
+   * @brief Get the ID of the constant False
+   * @return ID of the constant False
+   */
   const BDD_ID& False() override;
 
+  /**
+   * @brief Check if a node is a constant
+   * @param f ID of the node
+   * @return True if the node is a constant, False otherwise
+   */
   bool isConstant(BDD_ID f) override;
+
+  /**
+   * @brief Check if a node is a variable
+   * @param x ID of the node
+   * @return True if the node is a variable, False otherwise
+   */
   bool isVariable(BDD_ID x) override;
 
+  /**
+   * @brief Get the top variable of a node
+   * @param f ID of the node
+   * @return ID of the top variable of the node
+   */
   BDD_ID topVar(BDD_ID f) override;
 
+  /**
+   * @brief Compute the if-then-else of three nodes
+   *
+   * Implements the if-then-else algorithm, which most of the following
+   * functions are based on. Returns the existing or new node that represents
+   * the given expression. Please refer to the lecture slides for a detailed
+   * description
+   *
+   * @param i ID of the if node
+   * @param t ID of the then node
+   * @param e ID of the else node
+   * @return ID of the result node
+   */
   BDD_ID ite(BDD_ID i, BDD_ID t, BDD_ID e) override;
+
+  /**
+   * @brief Compute the true co-factor of a node
+   *
+   * Returns the positive co-factor of the function represented by ID f w.r.t.
+   * variable x. The second parameter is optional. If x is not specified, the
+   * co-factor is determined w.r.t. the top variable of f. Example: f = a + (b
+   * ∗c) with alphabetical variable order coFactorTrue(f) = 1 =
+   * coFactorTrue(f, a) coFactorTrue(f, c) = a + b
+   *
+   * @param f ID of the node
+   * @param x ID of the variable
+   * @return ID of the true co-factor of the node
+   */
   BDD_ID coFactorTrue(BDD_ID f, BDD_ID x) override;
+
+  /**
+   * @brief Compute the false co-factor of a node
+   *
+   * Returns the negative co-factor of the function represented by ID f w.r.t.
+   * variable x. The second parameter is optional. If x is not specified, the
+   * co-factor is determined w.r.t. the top variable of f. Example: \f$f = a +
+   * (b ∗ c)\f$ with alphabetical variable order \f$coFactorFalse(f) = b ∗c =
+   * coFactorFalse(f, a)\f$ \f$coFactorFalse(f, c) = a + b\f$
+   *
+   * @param f ID of the node
+   * @param x ID of the variable
+   * @return ID of the false co-factor of the node
+   */
   BDD_ID coFactorFalse(BDD_ID f, BDD_ID x) override;
 
   BDD_ID coFactorTrue(BDD_ID f) override;
