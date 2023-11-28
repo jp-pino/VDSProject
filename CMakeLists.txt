@@ -8,6 +8,10 @@ if(NOT TARGET spdlog)
     find_package(spdlog REQUIRED)
 endif()
 
+if(NOT TARGET fmt::fmt)
+    # Stand-alone build
+    find_package(fmt REQUIRED)
+endif()
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in ${CMAKE_SOURCE_DIR}/gtest/googletest-download/CMakeLists.txt)
