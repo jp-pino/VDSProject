@@ -160,20 +160,22 @@ $(document).ready(function(){initNavTree('Manager_8h_source.html',''); initResiz
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="keywordtype">void</span> dump();</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="comment">// Not implemented yet</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structClassProject_1_1Node.html">Node</a> getNode(<span class="keyword">const</span> BDD_ID&amp; <span class="keywordtype">id</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classClassProject_1_1Manager.html#ac9c01323a8fc8026100b03114066f64a">unique_table</a>[id]; }</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  std::string getTopVarName(<span class="keyword">const</span> BDD_ID&amp; root)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>; }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="comment">// Not implemented yet</span></div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keywordtype">void</span> findNodes(<span class="keyword">const</span> BDD_ID&amp; root, std::set&lt;BDD_ID&gt;&amp; nodes_of_root)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="keywordtype">void</span> findVars(<span class="keyword">const</span> BDD_ID&amp; root, std::set&lt;BDD_ID&gt;&amp; vars_of_root)<span class="keyword"> override </span>{}</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  std::string getTopVarName(<span class="keyword">const</span> BDD_ID&amp; root)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>; }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <span class="keywordtype">void</span> findNodes(<span class="keyword">const</span> BDD_ID&amp; root, std::set&lt;BDD_ID&gt;&amp; nodes_of_root)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  }</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <span class="keywordtype">size_t</span> uniqueTableSize()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <span class="keywordtype">void</span> findVars(<span class="keyword">const</span> BDD_ID&amp; root, std::set&lt;BDD_ID&gt;&amp; vars_of_root)<span class="keyword"> override </span>{}</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keywordtype">void</span> visualizeBDD(std::string filepath, BDD_ID&amp; root)<span class="keyword"> override </span>{}</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>};</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}  <span class="comment">// namespace ClassProject</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keywordtype">size_t</span> uniqueTableSize()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  <span class="keywordtype">void</span> visualizeBDD(std::string filepath, BDD_ID&amp; root)<span class="keyword"> override </span>{}</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>};</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}  <span class="comment">// namespace ClassProject</span></div>
 <div class="ttc" id="aclassClassProject_1_1ManagerInterface_html"><div class="ttname"><a href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a></div><div class="ttdef"><b>Definition:</b> ManagerInterface.h:13</div></div>
 <div class="ttc" id="aclassClassProject_1_1Manager_html"><div class="ttname"><a href="classClassProject_1_1Manager.html">ClassProject::Manager</a></div><div class="ttdef"><b>Definition:</b> Manager.h:32</div></div>
 <div class="ttc" id="aclassClassProject_1_1Manager_html_a85fce20557dc45950ae3493d6f9f14ea"><div class="ttname"><a href="classClassProject_1_1Manager.html#a85fce20557dc45950ae3493d6f9f14ea">ClassProject::Manager::Manager</a></div><div class="ttdeci">Manager()</div><div class="ttdef"><b>Definition:</b> Manager.cpp:7</div></div>
