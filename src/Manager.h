@@ -85,6 +85,8 @@ class Manager : public ManagerInterface {
 
   void dump();
 
+  const Node getNode(const BDD_ID& id) const { return unique_table[id]; }
+
   // Not implemented yet
 
   std::string getTopVarName(const BDD_ID& root) override { return ""; }

@@ -74,8 +74,27 @@ TEST_F(ManagerTest, ite_example) {
   auto c = manager.createVar("C");
   auto d = manager.createVar("D");
 
-  auto f = manager.and2(manager.or2(a, b), manager.and2(c, d));
+  auto f = manager.getNode(manager.and2(manager.or2(a, b), manager.and2(c, d)));
+
   manager.dump();
 
-  // manager.dump();
+  EXPECT_EQ(f.id, 9);
+  EXPECT_EQ(f.high, 7);
+  EXPECT_EQ(f.low, 8);
+  EXPECT_EQ(f.top, 2);
+
+  auto node_8 = manager.getNode(8);
+  EXPECT_EQ(node_8.high, 7);
+  EXPECT_EQ(node_8.low, 0);
+  EXPECT_EQ(node_8.top, 3);
+
+  auto node_7 = manager.getNode(7);
+  EXPECT_EQ(node_7.high, 5);
+  EXPECT_EQ(node_7.low, 0);
+  EXPECT_EQ(node_7.top, 4);
+
+  auto node_6 = manager.getNode(6);
+  EXPECT_EQ(node_6.high, 1);
+  EXPECT_EQ(node_6.low, 3);
+  EXPECT_EQ(node_6.top, 2);
 }
