@@ -74,7 +74,11 @@ TEST_F(ManagerTest, ite_example) {
   auto c = manager.createVar("C");
   auto d = manager.createVar("D");
 
-  auto f = manager.getNode(manager.and2(manager.or2(a, b), manager.and2(c, d)));
+  auto a_or_b = manager.or2(a, b);
+  auto c_and_d = manager.and2(c, d);
+  auto a_or_b_AND_c_and_d = manager.and2(a_or_b, c_and_d);
+
+  auto f = manager.getNode(a_or_b_AND_c_and_d);
 
   manager.dump();
 
