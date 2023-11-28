@@ -136,9 +136,9 @@ class Manager : public ManagerInterface {
    *
    * Returns the negative co-factor of the function represented by ID f w.r.t.
    * variable x. The second parameter is optional. If x is not specified, the
-   * co-factor is determined w.r.t. the top variable of f. Example: \f$f = a +
-   * (b ∗ c)\f$ with alphabetical variable order \f$coFactorFalse(f) = b ∗c =
-   * coFactorFalse(f, a)\f$ \f$coFactorFalse(f, c) = a + b\f$
+   * co-factor is determined w.r.t. the top variable of f. Example: f = a +
+   * (b ∗ c) with alphabetical variable order coFactorFalse(f) = b ∗c =
+   * coFactorFalse(f, a) coFactorFalse(f, c) = a + b
    *
    * @param f ID of the node
    * @param x ID of the variable
@@ -149,12 +149,59 @@ class Manager : public ManagerInterface {
   BDD_ID coFactorTrue(BDD_ID f) override;
   BDD_ID coFactorFalse(BDD_ID f) override;
 
+  /**
+   * @brief Compute the AND of two nodes
+   * @param a ID of the first node
+   * @param b ID of the second node
+   * @return ID of the result node
+   */
   BDD_ID and2(BDD_ID a, BDD_ID b) override;
+
+  /**
+   * @brief Compute the OR of two nodes
+   * @param a ID of the first node
+   * @param b ID of the second node
+   * @return ID of the result node
+   */
   BDD_ID or2(BDD_ID a, BDD_ID b) override;
+
+  /**
+   * @brief Compute the XOR of two nodes
+   * @param a ID of the first node
+   * @param b ID of the second node
+   * @return ID of the result node
+   */
   BDD_ID xor2(BDD_ID a, BDD_ID b) override;
+
+  /**
+   * @brief Compute the negation of a node
+   * @param a ID of the node
+   * @return ID of the result node
+   */
   BDD_ID neg(BDD_ID a) override;
+
+  /**
+   * @brief Compute the NAND of two nodes
+   * @param a ID of the first node
+   * @param b ID of the second node
+   * @return ID of the result node
+   */
   BDD_ID nand2(BDD_ID a, BDD_ID b) override;
+
+  /**
+   * @brief Compute the NOR of two nodes
+   * @param a ID of the first node
+   * @param b ID of the second node
+   * @return ID of the result node
+   */
   BDD_ID nor2(BDD_ID a, BDD_ID b) override;
+
+  /**
+   * @brief Compute the XNOR of two nodes
+   * @param a ID of the first node
+   * @param b ID of the second node
+   * @return ID of the result node
+   */
   BDD_ID xnor2(BDD_ID a, BDD_ID b) override;
 
   void dump();
