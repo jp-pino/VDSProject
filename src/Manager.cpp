@@ -81,9 +81,11 @@ BDD_ID Manager::ite(BDD_ID i, BDD_ID t, BDD_ID e) {
 
   // Create new node
   spdlog::trace("Creating new node");
-  std::string label = "ite(" + top.label + "," + unique_table[t].label + "," +
-                      unique_table[e].label + ")";
-  auto& node = unique_table[createVar(label)];
+
+  auto& node = unique_table[createVar(fmt::format("{} ? {} : {}", top.label,
+                                                  unique_table[t].label,
+                                                  unique_table[e].label))];
+
   node.high = high;
   node.low = low;
   node.top = top.id;
@@ -124,7 +126,8 @@ BDD_ID Manager::coFactorTrue(BDD_ID f) { return unique_table[f].high; }
 BDD_ID Manager::coFactorFalse(BDD_ID f) { return unique_table[f].low; }
 
 BDD_ID Manager::and2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> and2({}, {})", a, b);
+  spdlog::trace(">>>>>>> and2({}, {})", unique_table[a].label,
+                unique_table[b].label);
   auto& node = unique_table[ite(a, b, False())];
   node.label =
       fmt::format("({} * {})", unique_table[a].label, unique_table[b].label);
@@ -132,7 +135,8 @@ BDD_ID Manager::and2(BDD_ID a, BDD_ID b) {
 }
 
 BDD_ID Manager::or2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> or2({}, {})", a, b);
+  spdlog::trace(">>>>>>> or2({}, {})", unique_table[a].label,
+                unique_table[b].label);
   auto& node = unique_table[ite(a, True(), b)];
   node.label =
       fmt::format("({} + {})", unique_table[a].label, unique_table[b].label);
@@ -140,7 +144,8 @@ BDD_ID Manager::or2(BDD_ID a, BDD_ID b) {
 }
 
 BDD_ID Manager::xor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> xor2({}, {})", a, b);
+  spdlog::trace(">>>>>>> xor2({}, {})", unique_table[a].label,
+                unique_table[b].label);
   auto& node = unique_table[ite(a, neg(b), b)];
   node.label =
       fmt::format("({} x {})", unique_table[a].label, unique_table[b].label);
@@ -148,22 +153,25 @@ BDD_ID Manager::xor2(BDD_ID a, BDD_ID b) {
 }
 
 BDD_ID Manager::neg(BDD_ID a) {
-  spdlog::trace(">>>>>>> neg({})", a);
+  spdlog::trace(">>>>>>> neg({})", unique_table[a].label);
   auto& node = unique_table[ite(a, False(), True())];
   node.label = fmt::format("!({})", unique_table[a].label);
   return node.id;
 }
 
 BDD_ID Manager::nand2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> nand2({}, {})", a, b);
+  spdlog::trace(">>>>>>> nand2({}, {})", unique_table[a].label,
+                unique_table[b].label);
   auto& node = unique_table[neg(and2(a, b))];
   node.label =
       fmt::format("!({} * {})", unique_table[a].label, unique_table[b].label);
+  dump();
   return node.id;
 }
 
 BDD_ID Manager::nor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> nor2({}, {})", a, b);
+  spdlog::trace(">>>>>>> nor2({}, {})", unique_table[a].label,
+                unique_table[b].label);
   auto& node = unique_table[neg(or2(a, b))];
   node.label =
       fmt::format("!({} + {})", unique_table[a].label, unique_table[b].label);
@@ -171,7 +179,8 @@ BDD_ID Manager::nor2(BDD_ID a, BDD_ID b) {
 }
 
 BDD_ID Manager::xnor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> xnor2({}, {})", a, b);
+  spdlog::trace(">>>>>>> xnor2({}, {})", unique_table[a].label,
+                unique_table[b].label);
   auto& node = unique_table[neg(xor2(a, b))];
   node.label =
       fmt::format("!({} x {})", unique_table[a].label, unique_table[b].label);
