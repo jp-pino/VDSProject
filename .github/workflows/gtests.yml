@@ -60,16 +60,16 @@ jobs:
           cd $GITHUB_WORKSPACE/vdsproject/build/src/test/graphs
           echo "# Successful tests" >> $GITHUB_STEP_SUMMARY
           for f in *.mmd; do 
-                echo "\`\`\`mermaid" >> $GITHUB_STEP_SUMMARY
                 echo "## $f" >> $GITHUB_STEP_SUMMARY
+                echo "\`\`\`mermaid" >> $GITHUB_STEP_SUMMARY
                 cat $f >> $GITHUB_STEP_SUMMARY
                 echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
                 done
           echo "---" >> $GITHUB_STEP_SUMMARY
           echo "# Failed tests" >> $GITHUB_STEP_SUMMARY
           for f in *.mmd.err; do 
-                echo "\`\`\`mermaid" >> $GITHUB_STEP_SUMMARY
                 echo "## $f" >> $GITHUB_STEP_SUMMARY
+                echo "\`\`\`mermaid" >> $GITHUB_STEP_SUMMARY
                 cat $f >> $GITHUB_STEP_SUMMARY
                 echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
                 done
