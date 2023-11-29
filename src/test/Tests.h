@@ -17,13 +17,16 @@ class ManagerTest : public ::testing::Test {
   }
 
   void TearDown() override {
-    if (HasFailure()) {
-      manager.dump();
-    }
     auto root = manager.getNode(manager.uniqueTableSize() - 1).id;
     auto name = ::testing::UnitTest::GetInstance()->current_test_info()->name();
-    manager.mermaidGraph(fmt::format("graphs/{}.mmd", name), root);
-    manager.visualizeBDD(fmt::format("graphs/{}.dot", name), root);
+    if (HasFailure()) {
+      manager.dump();
+      manager.mermaidGraph(fmt::format("graphs/{}.mmd.err", name), root);
+      manager.visualizeBDD(fmt::format("graphs/{}.dot.err", name), root);
+    } else {
+      manager.mermaidGraph(fmt::format("graphs/{}.mmd", name), root);
+      manager.visualizeBDD(fmt::format("graphs/{}.dot", name), root);
+    }
   }
 };
 

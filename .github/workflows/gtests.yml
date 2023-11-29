@@ -55,10 +55,17 @@ jobs:
           files: "vdsproject/build/src/test/test-results.xml"
 
       - name: Display mermaid graphs
-        run: >
+        if: always()
+        run: |
           cd $GITHUB_WORKSPACE/vdsproject/build/src/test/graphs
-          && for f in *.mmd; do 
-                echo "---" >> $GITHUB_STEP_SUMMARY;
-                echo "## $f" >> $GITHUB_STEP_SUMMARY;
-                cat $f >> $GITHUB_STEP_SUMMARY;
-                done;
+          echo "# Successful tests" >> $GITHUB_STEP_SUMMARY
+          for f in *.mmd; do 
+                echo "## $f" >> $GITHUB_STEP_SUMMARY
+                cat $f >> $GITHUB_STEP_SUMMARY
+                done
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "# Failed tests" >> $GITHUB_STEP_SUMMARY
+          for f in *.mmd.err; do 
+                echo "## $f" >> $GITHUB_STEP_SUMMARY
+                cat $f >> $GITHUB_STEP_SUMMARY
+                done
