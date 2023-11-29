@@ -206,20 +206,23 @@ class Manager : public ManagerInterface {
 
   void dump();
 
-  const Node getNode(const BDD_ID& id) const { return unique_table[id]; }
+  std::string getTopVarName(const BDD_ID& root) override;
+
+  void findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) override;
+
+  void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) override;
+
+  size_t uniqueTableSize() override;
 
   // Not implemented yet
 
-  std::string getTopVarName(const BDD_ID& root) override { return ""; }
-
-  void findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) override {
-  }
-
-  void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) override {}
-
-  size_t uniqueTableSize() override { return 0; }
-
   void visualizeBDD_internal(std::ofstream& file, BDD_ID& root);
   void visualizeBDD(std::string filepath, BDD_ID& root) override;
+
+  void mermaidGraph_internal(std::ofstream& file, BDD_ID& root,
+                             std::set<BDD_ID>& printed_nodes);
+  void mermaidGraph(std::string filepath, BDD_ID& root);
+
+  const Node getNode(const BDD_ID& id) const;
 };
 }  // namespace ClassProject

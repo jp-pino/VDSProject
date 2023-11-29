@@ -45,6 +45,7 @@ jobs:
           export LOG_DICTIONARY_TESTING
           && export LD_LIBRARY_PATH=/usr/local/lib
           && cd $GITHUB_WORKSPACE/vdsproject/build/src/test
+          && mkdir graphs
           && ./VDSProject_test --gtest_output=xml:test-results.xml
 
       - name: Publish Test Results
@@ -52,3 +53,12 @@ jobs:
         if: always()
         with:
           files: "vdsproject/build/src/test/test-results.xml"
+
+      - name: Display mermaid graphs
+        run: >
+          cd $GITHUB_WORKSPACE/vdsproject/build/src/test/graphs
+          && for f in *.mmd; do 
+                echo "---" >> $GITHUB_STEP_SUMMARY;
+                echo "## $f" >> $GITHUB_STEP_SUMMARY;
+                cat $f >> $GITHUB_STEP_SUMMARY;
+                done;

@@ -214,4 +214,61 @@ void Manager::visualizeBDD(std::string filepath, BDD_ID& root) {
   visualizeBDD_internal(file, root);
   file << "}\n";
 }
+
+void Manager::mermaidGraph_internal(std::ofstream& file, BDD_ID& root,
+                                    std::set<BDD_ID>& printed_nodes) {
+  auto& node = unique_table[root];
+
+  if (printed_nodes.find(node.id) != printed_nodes.end()) return;
+  file << fmt::format("n{}[\"{}\"]\n", node.id, node.label);
+  printed_nodes.insert(node.id);
+
+  if (isConstant(root)) return;
+
+  mermaidGraph_internal(file, node.low, printed_nodes);
+  file << fmt::format("n{} --> n{};\n", node.id, node.low);
+
+  mermaidGraph_internal(file, node.high, printed_nodes);
+  file << fmt::format("n{} --> n{};\n", node.id, node.high);
+}
+
+void Manager::mermaidGraph(std::string filepath, BDD_ID& root) {
+  std::ofstream file(filepath);
+  std::set<BDD_ID> printed_nodes;
+
+  file << "graph TD;\n";
+  mermaidGraph_internal(file, root, printed_nodes);
+}
+
+const Node Manager::getNode(const BDD_ID& id) const { return unique_table[id]; }
+
+std::string Manager::getTopVarName(const BDD_ID& root) {
+  auto& node = unique_table[root];
+  return unique_table[node.top].label;
+}
+
+void Manager::findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) {
+  auto& node = unique_table[root];
+
+  nodes_of_root.insert(root);
+
+  if (isConstant(root)) return;
+
+  findNodes(node.low, nodes_of_root);
+  findNodes(node.high, nodes_of_root);
+}
+
+void Manager::findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) {
+  auto& node = unique_table[root];
+
+  if (isConstant(root)) return;
+
+  vars_of_root.insert(node.top);
+
+  findVars(node.low, vars_of_root);
+  findVars(node.high, vars_of_root);
+}
+
+size_t Manager::uniqueTableSize() { return unique_table.size(); }
+
 }  // namespace ClassProject
