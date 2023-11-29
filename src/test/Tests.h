@@ -160,9 +160,10 @@ TEST_F(ManagerTest, nand2) {
 
   auto f = manager.getNode(manager.nand2(a.id, b.id));
   auto a_and_b = manager.getNode(4);
+  auto not_b = manager.getNode(5);
 
   EXPECT_EQ(f.id, 6);
-  EXPECT_EQ(f.high, a_and_b.id);
+  EXPECT_EQ(f.high, not_b.id);
   EXPECT_EQ(f.low, manager.True());
   EXPECT_EQ(f.top, a.id);
 
@@ -177,9 +178,16 @@ TEST_F(ManagerTest, nor2) {
   auto b = manager.getNode(manager.createVar("B"));
 
   auto f = manager.getNode(manager.nor2(a.id, b.id));
+  auto a_or_b = manager.getNode(4);
+  auto not_b = manager.getNode(5);
 
   EXPECT_EQ(f.id, 6);
   EXPECT_EQ(f.high, manager.False());
-  EXPECT_EQ(f.low, manager.True());
+  EXPECT_EQ(f.low, not_b.id);
   EXPECT_EQ(f.top, a.id);
+
+  EXPECT_EQ(a_or_b.id, 4);
+  EXPECT_EQ(a_or_b.high, manager.True());
+  EXPECT_EQ(a_or_b.low, b.id);
+  EXPECT_EQ(a_or_b.top, a.id);
 }

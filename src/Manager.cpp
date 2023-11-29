@@ -226,10 +226,10 @@ void Manager::mermaidGraph_internal(std::ofstream& file, BDD_ID& root,
   if (isConstant(root)) return;
 
   mermaidGraph_internal(file, node.low, printed_nodes);
-  file << fmt::format("n{} --> n{};\n", node.id, node.low);
+  file << fmt::format("n{} -- 0 --> n{};\n", node.id, node.low);
 
   mermaidGraph_internal(file, node.high, printed_nodes);
-  file << fmt::format("n{} --> n{};\n", node.id, node.high);
+  file << fmt::format("n{} -- 1 --> n{};\n", node.id, node.high);
 }
 
 void Manager::mermaidGraph(std::string filepath, BDD_ID& root) {
