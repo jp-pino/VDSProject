@@ -61,19 +61,33 @@ jobs:
           echo "# Successful tests" >> $GITHUB_STEP_SUMMARY
           if [ -n "$(ls -A *.mmd)" ]; then
             for f in *.mmd; do 
-                  echo "## $f" >> $GITHUB_STEP_SUMMARY
-                  echo "\`\`\`mermaid" >> $GITHUB_STEP_SUMMARY
-                  cat $f >> $GITHUB_STEP_SUMMARY
-                  echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+                  echo "## $f" >> "$f.md"
+                  echo "\`\`\`mermaid" >> "$f.md"
+                  cat $f >> "$f.md"
+                  echo "\`\`\`" >> "$f.md"
+                  cat $f.md >> $GITHUB_STEP_SUMMARY
                   done
           fi;
           echo "---" >> $GITHUB_STEP_SUMMARY
           if [ -n "$(ls -A *.mmd.err)" ]; then
-            echo "# Failed tests" >> $GITHUB_STEP_SUMMARY
+            echo "# Failed tests" >> "$f.md"
             for f in *.mmd.err; do 
-                  echo "## $f" >> $GITHUB_STEP_SUMMARY
-                  echo "\`\`\`mermaid" >> $GITHUB_STEP_SUMMARY
-                  cat $f >> $GITHUB_STEP_SUMMARY
-                  echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+                  echo "## $f" >> "$f.md"
+                  echo "\`\`\`mermaid" >> "$f.md"
+                  cat $f >> "$f.md"
+                  echo "\`\`\`" >> "$f.md"
+                  cat $f.md >> $GITHUB_STEP_SUMMARY
                   done;
           fi;
+      - name: Compile Docs
+        uses: mattnotmitt/doxygen-action@v1.9.5
+        with:
+          working-directory: '$GITHUB_WORKSPACE/vdsproject/doc'
+          doxyfile-path: './Doxygen'
+          enable-latex: true
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: $GITHUB_WORKSPACE/vdsproject/doc/html
+      
