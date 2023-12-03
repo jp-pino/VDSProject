@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['isconstant_0',['isConstant',['../classClassProject_1_1Manager.html#ae36938ae525ced7bdc16d3a7353827dd',1,'ClassProject::Manager']]],
-  ['isvariable_1',['isVariable',['../classClassProject_1_1Manager.html#a36a24053561d59b05e671a14e85d1965',1,'ClassProject::Manager']]],
-  ['ite_2',['ite',['../classClassProject_1_1Manager.html#a4d79fa44b2e066c3ab3ff0bdbb8716de',1,'ClassProject::Manager']]]
+  ['manager_0',['Manager',['../classClassProject_1_1Manager.html',1,'ClassProject::Manager'],['../classClassProject_1_1Manager.html#a85fce20557dc45950ae3493d6f9f14ea',1,'ClassProject::Manager::Manager()']]],
+  ['managerinterface_1',['ManagerInterface',['../classClassProject_1_1ManagerInterface.html',1,'ClassProject']]],
+  ['managertest_2',['ManagerTest',['../classManagerTest.html',1,'']]]
 ];
