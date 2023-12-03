@@ -80,6 +80,27 @@ jobs:
                   cat $f.md >> $GITHUB_STEP_SUMMARY
                   done;
           fi;
+
+      - name: Generate Doxygen Test Summary
+        if: always()
+        run: |
+          cd $GITHUB_WORKSPACE/vdsproject/build/src/test/graphs
+          echo "# Doxygen Test Summary" >> ../TESTS.md
+          if [ -n "$(ls -A *.dot)" ]; then
+            echo "# Successful tests" >> ../TESTS.md
+            for f in *.dot; do 
+                  echo "## $f" >> "../TESTS.md"
+                  echo "\\dotfile $f" >> "../TESTS.md"
+                  done
+          fi;
+          echo "---" >> ../TESTS.md
+          if [ -n "$(ls -A *.dot.err)" ]; then
+            echo "# Failed tests" >> "../TESTS.md"
+            for f in *.dot.err; do 
+                  echo "## $f" >> "../TESTS.md"
+                  echo "\\dotfile $f" >> "../TESTS.md"
+                  done;
+          fi;
   
       - name: Compile Docs
         uses: mattnotmitt/doxygen-action@v1.9.5
@@ -87,6 +108,7 @@ jobs:
           working-directory: ./vdsproject/doc
           doxyfile-path: ./Doxygen
           enable-latex: true
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
