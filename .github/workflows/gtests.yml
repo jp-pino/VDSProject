@@ -101,6 +101,7 @@ jobs:
                   echo "\\dotfile $f" >> "../TESTS.md"
                   done;
           fi;
+          cat ../TESTS.md
   
       - name: Compile Docs
         uses: mattnotmitt/doxygen-action@v1.9.5
