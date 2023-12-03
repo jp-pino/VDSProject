@@ -22,28 +22,47 @@ class ManagerTest : public ::testing::Test {
     if (HasFailure()) {
       manager.dump();
       manager.mermaidGraph(fmt::format("graphs/{}.mmd.err", name), root);
-      manager.visualizeBDD(fmt::format("graphs/{}.dot.err", name), root);
     } else {
       manager.mermaidGraph(fmt::format("graphs/{}.mmd", name), root);
-      manager.visualizeBDD(fmt::format("graphs/{}.dot", name), root);
     }
+    manager.visualizeBDD(fmt::format("graphs/{}.dot", name), root);
   }
 };
 
+/**
+ * @brief Test the creation of variables
+ * \dotfile createVar.dot "Graph of the test"
+ */
 TEST_F(ManagerTest, createVar) {
   EXPECT_EQ(manager.createVar("A"), 2);
   EXPECT_EQ(manager.createVar("B"), 3);
 }
 
+/**
+ * @brief Test True constant
+ * \dotfile True.dot "Graph of the test"
+ */
 TEST_F(ManagerTest, True) { EXPECT_EQ(manager.True(), manager.True()); }
 
+/**
+ * @brief Test False constant
+ * \dotfile False.dot "Graph of the test"
+ */
 TEST_F(ManagerTest, False) { EXPECT_EQ(manager.False(), manager.False()); }
 
+/**
+ * @brief Test that True and False are constants
+ * \dotfile isConstant.dot "Graph of the test"
+ */
 TEST_F(ManagerTest, isConstant) {
   EXPECT_TRUE(manager.isConstant(0));
   EXPECT_TRUE(manager.isConstant(1));
 }
 
+/**
+ * @brief Test that created variables are variables
+ * \dotfile isVariable.dot "Graph of the test"
+ */
 TEST_F(ManagerTest, isVariable) {
   EXPECT_EQ(manager.createVar("A"), 2);
   EXPECT_EQ(manager.createVar("B"), 3);
@@ -52,6 +71,10 @@ TEST_F(ManagerTest, isVariable) {
   EXPECT_TRUE(manager.isVariable(3));
 }
 
+/**
+ * @brief Test the topVar function
+ * \dotfile topVar.dot "Graph of the test"
+ */
 TEST_F(ManagerTest, topVar) {
   EXPECT_EQ(manager.topVar(manager.False()), manager.False());
   EXPECT_EQ(manager.topVar(manager.True()), manager.True());
