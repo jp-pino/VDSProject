@@ -25,7 +25,24 @@
 var NAVTREE =
 [
   [ "My Project", "index.html", [
-    [ "README", "md__github_workspace_README.html", null ],
+    [ "README", "md__github_workspace_vdsproject_README.html", null ],
+    [ "and2.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_and2_mmd.html", null ],
+    [ "createVar.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_createVar_mmd.html", null ],
+    [ "False.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_False_mmd.html", null ],
+    [ "isConstant.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_isConstant_mmd.html", null ],
+    [ "isVariable.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_isVariable_mmd.html", null ],
+    [ "ite_example.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_ite_example_mmd.html", null ],
+    [ "ite_false.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_ite_false_mmd.html", null ],
+    [ "ite_same.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_ite_same_mmd.html", null ],
+    [ "ite_true.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_ite_true_mmd.html", null ],
+    [ "ite_true_false.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_ite_true_false_mmd.html", null ],
+    [ "nand2.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_nand2_mmd.html", null ],
+    [ "neg.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_neg_mmd.html", null ],
+    [ "nor2.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_nor2_mmd.html", null ],
+    [ "or2.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_or2_mmd.html", null ],
+    [ "topVar.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_topVar_mmd.html", null ],
+    [ "True.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_True_mmd.html", null ],
+    [ "xor2.mmd", "md__github_workspace_vdsproject_build_src_test_graphs_xor2_mmd.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
