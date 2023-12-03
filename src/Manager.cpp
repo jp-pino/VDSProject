@@ -205,7 +205,8 @@ void Manager::dump() {
 void Manager::visualizeBDD_internal(std::ofstream& file, BDD_ID& root) {
   auto& node = unique_table[root];
 
-  file << fmt::format("n{} [label=\"{}\"]\n", node.id, node.label);
+  file << fmt::format("n{} [label=\"{}\" fillcolor=\"white\"]\n", node.id,
+                      node.label);
 
   if (isConstant(root)) return;
 
