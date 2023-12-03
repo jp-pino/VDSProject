@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unique_5ftable_0',['unique_table',['../classClassProject_1_1Manager.html#ac9c01323a8fc8026100b03114066f64a',1,'ClassProject::Manager']]]
+  ['topvar_0',['topVar',['../classClassProject_1_1Manager.html#aa6c0a7885a3dd6b4d7ffc646563cb01b',1,'ClassProject::Manager']]],
+  ['true_1',['True',['../classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7',1,'ClassProject::Manager']]]
 ];
