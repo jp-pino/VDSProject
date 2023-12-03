@@ -6,6 +6,7 @@ HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css \
 HTML_COLORSTYLE        = LIGHT # required with Doxygen >= 1.9.5
 INPUT                  = index.md ../src ../src/test/Tests.h
 DOTFILE_DIRS           = ../build/src/test/graphs
+HAVE_DOT               = YES
 EXTRACT_PRIVATE        = YES
 RECURSIVE              = YES
 MAIN_PAGE              = index.md 
