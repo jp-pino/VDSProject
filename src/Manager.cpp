@@ -223,6 +223,7 @@ void Manager::visualizeBDD(std::string filepath, BDD_ID& root,
   file << "strict digraph A {\n";
   file << "label=\"" << (test_result ? "PASSED" : "FAILED") << ": " << filepath
        << "\"\n";
+  file << "bgcolor=\"transparent\"\n";
   visualizeBDD_internal(file, root);
   file << "}\n";
 }
