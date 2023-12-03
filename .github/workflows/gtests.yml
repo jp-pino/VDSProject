@@ -31,6 +31,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: vdsproject
+          submodules: 'true'
 
       - name: Build tests
         run: >
@@ -79,15 +80,16 @@ jobs:
                   cat $f.md >> $GITHUB_STEP_SUMMARY
                   done;
           fi;
+  
       - name: Compile Docs
         uses: mattnotmitt/doxygen-action@v1.9.5
         with:
-          working-directory: '$GITHUB_WORKSPACE/vdsproject/doc'
-          doxyfile-path: './Doxygen'
+          working-directory: ${{github.workspace}}/vdsproject/doc
+          doxyfile-path: ./Doxygen
           enable-latex: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: $GITHUB_WORKSPACE/vdsproject/doc/html
+          publish_dir: ${{github.workspace}}/vdsproject/doc/html
       
