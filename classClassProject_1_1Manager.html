@@ -180,8 +180,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> ()</td></tr>
 <tr class="memitem:a530cc60bfb6c5f403e5500f65c83b856"><td class="memItemLeft" align="right" valign="top"><a id="a530cc60bfb6c5f403e5500f65c83b856" name="a530cc60bfb6c5f403e5500f65c83b856"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD_internal</b> (std::ofstream &amp;file, BDD_ID &amp;root)</td></tr>
 <tr class="separator:a530cc60bfb6c5f403e5500f65c83b856"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aaa80c8dd2370b4359ba155518110bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a1aaa80c8dd2370b4359ba155518110bc">visualizeBDD</a> (std::string filepath, BDD_ID &amp;root) override</td></tr>
-<tr class="separator:a1aaa80c8dd2370b4359ba155518110bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4618c45ca6d89e7c27e09203b64ad835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a4618c45ca6d89e7c27e09203b64ad835">visualizeBDD</a> (std::string filepath, BDD_ID &amp;root, bool test_result) override</td></tr>
+<tr class="separator:a4618c45ca6d89e7c27e09203b64ad835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e16c0f57a22c95ea2dd58c17f2ee4f"><td class="memItemLeft" align="right" valign="top"><a id="ac0e16c0f57a22c95ea2dd58c17f2ee4f" name="ac0e16c0f57a22c95ea2dd58c17f2ee4f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph_internal</b> (std::ofstream &amp;file, BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;printed_nodes)</td></tr>
 <tr class="separator:ac0e16c0f57a22c95ea2dd58c17f2ee4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,9 +241,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> 
 <tr class="memitem:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memItemLeft" align="right" valign="top"><a id="a85cac80444b26e5b80eb96b9f1231c0e" name="a85cac80444b26e5b80eb96b9f1231c0e"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>uniqueTableSize</b> ()=0</td></tr>
 <tr class="separator:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61d18e20e84ded068d71a2c755d0ed16"><td class="memItemLeft" align="right" valign="top"><a id="a61d18e20e84ded068d71a2c755d0ed16" name="a61d18e20e84ded068d71a2c755d0ed16"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, BDD_ID &amp;root)=0</td></tr>
-<tr class="separator:a61d18e20e84ded068d71a2c755d0ed16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memItemLeft" align="right" valign="top"><a id="a2db009b980a7225a5eb2e8c88eab5e5d" name="a2db009b980a7225a5eb2e8c88eab5e5d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, BDD_ID &amp;root, bool test_result)=0</td></tr>
+<tr class="separator:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -1034,8 +1034,8 @@ std::map&lt; std::tuple&lt; BDD_ID, BDD_ID, BDD_ID &gt;, BDD_ID &gt;&#160;</td><
 
 </div>
 </div>
-<a id="a1aaa80c8dd2370b4359ba155518110bc" name="a1aaa80c8dd2370b4359ba155518110bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1aaa80c8dd2370b4359ba155518110bc">&#9670;&#160;</a></span>visualizeBDD()</h2>
+<a id="a4618c45ca6d89e7c27e09203b64ad835" name="a4618c45ca6d89e7c27e09203b64ad835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4618c45ca6d89e7c27e09203b64ad835">&#9670;&#160;</a></span>visualizeBDD()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1053,7 +1053,13 @@ std::map&lt; std::tuple&lt; BDD_ID, BDD_ID, BDD_ID &gt;, BDD_ID &gt;&#160;</td><
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">BDD_ID &amp;&#160;</td>
-          <td class="paramname"><em>root</em>&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>test_result</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
