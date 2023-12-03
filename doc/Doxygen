@@ -4,7 +4,8 @@ FULL_SIDEBAR           = NO
 HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css \
                          doxygen-awesome-css/doxygen-awesome-sidebar-only.css
 HTML_COLORSTYLE        = LIGHT # required with Doxygen >= 1.9.5
-INPUT                  = ../README.md ../src
+INPUT                  = index.md ../src ../src/test/Tests.h
 DOTFILE_DIRS           = ../build/src/test/graphs
 EXTRACT_PRIVATE        = YES
 RECURSIVE              = YES
+MAIN_PAGE              = index.md 

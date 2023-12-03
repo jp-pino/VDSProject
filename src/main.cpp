@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 
   manager.dump();
 
-  manager.visualizeBDD("bdd.dot", f.id);
+  manager.visualizeBDD("bdd.dot", f.id, true);
 
   return 0;
 }

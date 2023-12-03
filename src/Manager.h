@@ -217,7 +217,8 @@ class Manager : public ManagerInterface {
   // Not implemented yet
 
   void visualizeBDD_internal(std::ofstream& file, BDD_ID& root);
-  void visualizeBDD(std::string filepath, BDD_ID& root) override;
+  void visualizeBDD(std::string filepath, BDD_ID& root,
+                    bool test_result) override;
 
   void mermaidGraph_internal(std::ofstream& file, BDD_ID& root,
                              std::set<BDD_ID>& printed_nodes);

@@ -216,10 +216,13 @@ void Manager::visualizeBDD_internal(std::ofstream& file, BDD_ID& root) {
   file << fmt::format("n{} -> n{} [style=dotted]\n", node.id, node.high);
 }
 
-void Manager::visualizeBDD(std::string filepath, BDD_ID& root) {
+void Manager::visualizeBDD(std::string filepath, BDD_ID& root,
+                           bool test_result) {
   std::ofstream file(filepath);
 
   file << "strict digraph A {\n";
+  file << "label=\"" << (test_result ? "PASSED" : "FAILED") << ": " << filepath
+       << "\"\n";
   visualizeBDD_internal(file, root);
   file << "}\n";
 }

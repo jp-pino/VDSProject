@@ -1,3 +1,4 @@
+/** \file */
 //
 // Created by tobias on 21.11.16.
 //
@@ -25,7 +26,8 @@ class ManagerTest : public ::testing::Test {
     } else {
       manager.mermaidGraph(fmt::format("graphs/{}.mmd", name), root);
     }
-    manager.visualizeBDD(fmt::format("graphs/{}.dot", name), root);
+    manager.visualizeBDD(fmt::format("graphs/{}.dot", name), root,
+                         !HasFailure());
   }
 };
 
@@ -44,14 +46,14 @@ TEST_F(ManagerTest, createVar) {
  * @brief Test True constant
  * \dotfile True.dot
  */
-TEST_F(ManagerTest, True) { EXPECT_EQ(manager.True(), manager.True()); }
+TEST_F(ManagerTest, True) { EXPECT_EQ(manager.True(), 1); }
 
 /**
  * @fn TEST_F(ManagerTest, False)
  * @brief Test False constant
  * \dotfile False.dot
  */
-TEST_F(ManagerTest, False) { EXPECT_EQ(manager.False(), manager.False()); }
+TEST_F(ManagerTest, False) { EXPECT_EQ(manager.False(), 0); }
 
 /**
  * @fn TEST_F(ManagerTest, isConstant)
@@ -86,26 +88,47 @@ TEST_F(ManagerTest, topVar) {
   EXPECT_EQ(manager.topVar(manager.True()), manager.True());
 }
 
+/**
+ * @fn TEST_F(ManagerTest, ite_true)
+ * @brief Test the ite function with true condition
+ */
 TEST_F(ManagerTest, ite_true) {
   EXPECT_EQ(manager.ite(manager.True(), manager.True(), manager.False()),
             manager.True());
 }
 
+/**
+ * @fn TEST_F(ManagerTest, ite_false)
+ * @brief Test the ite function with false condition
+ */
 TEST_F(ManagerTest, ite_false) {
   EXPECT_EQ(manager.ite(manager.False(), manager.True(), manager.False()),
             manager.False());
 }
 
+/**
+ * @fn TEST_F(ManagerTest, ite_same)
+ * @brief Test the ite function with same high and low values
+ */
 TEST_F(ManagerTest, ite_same) {
   auto a = manager.createVar("A");
   EXPECT_EQ(manager.ite(a, manager.True(), manager.True()), manager.True());
 }
 
+/**
+ * @fn TEST_F(ManagerTest, ite_true_false)
+ * @brief Test the ite function with true and false values
+ */
 TEST_F(ManagerTest, ite_true_false) {
   auto a = manager.createVar("A");
   EXPECT_EQ(manager.ite(a, manager.True(), manager.False()), a);
 }
 
+/**
+ * @fn TEST_F(ManagerTest, ite_example)
+ * @brief Test the ite function with an example
+ * \dotfile ite_example.dot
+ */
 TEST_F(ManagerTest, ite_example) {
   auto a = manager.getNode(manager.createVar("A"));
   auto b = manager.getNode(manager.createVar("B"));
@@ -135,6 +158,11 @@ TEST_F(ManagerTest, ite_example) {
   EXPECT_EQ(a_or_b.top, a.id);
 }
 
+/**
+ * @fn TEST_F(ManagerTest, and2)
+ * @brief Test the and2 function
+ * \dotfile and2.dot
+ */
 TEST_F(ManagerTest, and2) {
   auto a = manager.getNode(manager.createVar("A"));
   auto b = manager.getNode(manager.createVar("B"));
@@ -147,6 +175,11 @@ TEST_F(ManagerTest, and2) {
   EXPECT_EQ(f.top, a.id);
 }
 
+/**
+ * @fn TEST_F(ManagerTest, or2)
+ * @brief Test the or2 function
+ * \dotfile or2.dot
+ */
 TEST_F(ManagerTest, or2) {
   auto a = manager.getNode(manager.createVar("A"));
   auto b = manager.getNode(manager.createVar("B"));
@@ -159,6 +192,11 @@ TEST_F(ManagerTest, or2) {
   EXPECT_EQ(f.top, a.id);
 }
 
+/**
+ * @fn TEST_F(ManagerTest, xor2)
+ * @brief Test the xor2 function
+ * \dotfile xor2.dot
+ */
 TEST_F(ManagerTest, xor2) {
   auto a = manager.getNode(manager.createVar("A"));
   auto b = manager.getNode(manager.createVar("B"));
@@ -172,6 +210,11 @@ TEST_F(ManagerTest, xor2) {
   EXPECT_EQ(f.top, a.id);
 }
 
+/**
+ * @fn TEST_F(ManagerTest, neg)
+ * @brief Test the neg function
+ * \dotfile neg.dot
+ */
 TEST_F(ManagerTest, neg) {
   auto a = manager.getNode(manager.createVar("A"));
 
@@ -183,6 +226,11 @@ TEST_F(ManagerTest, neg) {
   EXPECT_EQ(f.top, a.id);
 }
 
+/**
+ * @fn TEST_F(ManagerTest, nand2)
+ * @brief Test the nand2 function
+ * \dotfile nand2.dot
+ */
 TEST_F(ManagerTest, nand2) {
   auto a = manager.getNode(manager.createVar("A"));
   auto b = manager.getNode(manager.createVar("B"));
@@ -202,6 +250,11 @@ TEST_F(ManagerTest, nand2) {
   EXPECT_EQ(a_and_b.top, a.id);
 }
 
+/**
+ * @fn TEST_F(ManagerTest, nor2)
+ * @brief Test the nor2 function
+ * \dotfile nor2.dot
+ */
 TEST_F(ManagerTest, nor2) {
   auto a = manager.getNode(manager.createVar("A"));
   auto b = manager.getNode(manager.createVar("B"));

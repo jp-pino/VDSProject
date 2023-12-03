@@ -1,2 +1,4 @@
 gtest/
 build/
+doc/html/
+doc/latex/
