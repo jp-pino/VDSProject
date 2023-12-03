@@ -30,8 +30,9 @@ class ManagerTest : public ::testing::Test {
 };
 
 /**
+ * @fn TEST_F(ManagerTest, createVar)
  * @brief Test the creation of variables
- * \dotfile createVar.dot "Graph of the test"
+ * \dotfile createVar.dot
  */
 TEST_F(ManagerTest, createVar) {
   EXPECT_EQ(manager.createVar("A"), 2);
@@ -39,20 +40,23 @@ TEST_F(ManagerTest, createVar) {
 }
 
 /**
+ * @fn TEST_F(ManagerTest, True)
  * @brief Test True constant
- * \dotfile True.dot "Graph of the test"
+ * \dotfile True.dot
  */
 TEST_F(ManagerTest, True) { EXPECT_EQ(manager.True(), manager.True()); }
 
 /**
+ * @fn TEST_F(ManagerTest, False)
  * @brief Test False constant
- * \dotfile False.dot "Graph of the test"
+ * \dotfile False.dot
  */
 TEST_F(ManagerTest, False) { EXPECT_EQ(manager.False(), manager.False()); }
 
 /**
+ * @fn TEST_F(ManagerTest, isConstant)
  * @brief Test that True and False are constants
- * \dotfile isConstant.dot "Graph of the test"
+ * \dotfile isConstant.dot
  */
 TEST_F(ManagerTest, isConstant) {
   EXPECT_TRUE(manager.isConstant(0));
@@ -60,8 +64,9 @@ TEST_F(ManagerTest, isConstant) {
 }
 
 /**
+ * @fn TEST_F(ManagerTest, isVariable)
  * @brief Test that created variables are variables
- * \dotfile isVariable.dot "Graph of the test"
+ * \dotfile isVariable.dot
  */
 TEST_F(ManagerTest, isVariable) {
   EXPECT_EQ(manager.createVar("A"), 2);
@@ -72,8 +77,9 @@ TEST_F(ManagerTest, isVariable) {
 }
 
 /**
+ * @fn TEST_F(ManagerTest, topVar)
  * @brief Test the topVar function
- * \dotfile topVar.dot "Graph of the test"
+ * \dotfile topVar.dot
  */
 TEST_F(ManagerTest, topVar) {
   EXPECT_EQ(manager.topVar(manager.False()), manager.False());
