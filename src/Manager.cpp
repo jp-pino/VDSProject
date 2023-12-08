@@ -32,7 +32,9 @@ const BDD_ID& Manager::False() { return unique_table[0].id; }
 
 bool Manager::isConstant(BDD_ID f) { return unique_table[f].isConstant(); }
 
-bool Manager::isVariable(BDD_ID x) { return !isConstant(x); }
+bool Manager::isVariable(BDD_ID x) {
+  return !isConstant(x) && unique_table[x].top == x;
+}
 
 BDD_ID Manager::topVar(BDD_ID f) { return unique_table[f].top; }
 
@@ -205,16 +207,15 @@ void Manager::dump() {
 void Manager::visualizeBDD_internal(std::ofstream& file, BDD_ID& root) {
   auto& node = unique_table[root];
 
-  file << fmt::format("n{} [label=\"{}\" fillcolor=\"white\"]\n", node.id,
-                      node.label);
+  file << fmt::format("n{} [label=\"{}\"]\n", node.id, node.label);
 
   if (isConstant(root)) return;
 
   visualizeBDD_internal(file, node.low);
-  file << fmt::format("n{} -> n{} [style=dotted]\n", node.id, node.low);
+  file << fmt::format("n{} -> n{} [style=solid]\n", node.id, node.low);
 
   visualizeBDD_internal(file, node.high);
-  file << fmt::format("n{} -> n{} [style=dotted]\n", node.id, node.high);
+  file << fmt::format("n{} -> n{} [style=solid]\n", node.id, node.high);
 }
 
 void Manager::visualizeBDD(std::string filepath, BDD_ID& root,
@@ -224,7 +225,8 @@ void Manager::visualizeBDD(std::string filepath, BDD_ID& root,
   file << "strict digraph A {\n";
   file << "label=\"" << (test_result ? "PASSED" : "FAILED") << ": " << filepath
        << "\"\n";
-  file << "bgcolor=\"transparent\"\n";
+  file << "graph [bgcolor=transparent]\n";
+  file << "node [fillcolor=white, shape=box, fontname=Arial]\n";
   visualizeBDD_internal(file, root);
   file << "}\n";
 }
