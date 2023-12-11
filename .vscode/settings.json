@@ -66,5 +66,9 @@
     "thread": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp"
-  }
+  },
+  "coverage-gutters.coverageReportFileName": "build/coverage/**/index.html",
+  "coverage-gutters.coverageFileNames": [
+    "coverage.info"
+  ]
 }
