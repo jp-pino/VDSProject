@@ -60,3 +60,14 @@ link_directories(${CMAKE_SOURCE_DIR}/src/verify/)
 add_subdirectory(src)
 add_executable(VDSProject src/main.cpp)
 target_link_libraries(VDSProject Manager spdlog::spdlog fmt::fmt)
+
+# Tests
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
+if(CMAKE_COMPILER_IS_GNUCXX)
+    include(CodeCoverage)
+    append_coverage_compiler_flags()
+    setup_target_for_coverage_lcov(
+        NAME coverage 
+        BASE_DIRECTORY ${PROJECT_SOURCE_DIR}/src
+        EXECUTABLE ${PROJECT_BINARY_DIR}/src/test/${PROJECT_NAME}_test)
+endif()
