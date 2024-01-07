@@ -20,4 +20,4 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 # [Optional] Uncomment this section to install additional packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends graphviz clang-format traceroute iputils-ping libspdlog-dev
+    && apt-get -y install --no-install-recommends graphviz clang-format traceroute iputils-ping libspdlog-dev libboost-all-dev lcov

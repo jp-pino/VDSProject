@@ -25,6 +25,10 @@ if(NOT TARGET fmt::fmt)
     find_package(fmt REQUIRED)
 endif()
 
+if(NOT TARGET Boost)
+    find_package(Boost REQUIRED)
+endif()
+
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in ${CMAKE_SOURCE_DIR}/gtest/googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
@@ -71,4 +75,4 @@ link_directories(${CMAKE_SOURCE_DIR}/src/verify/)
 
 add_subdirectory(src)
 add_executable(VDSProject src/main.cpp)
-target_link_libraries(VDSProject Manager spdlog::spdlog fmt::fmt)
+target_link_libraries(VDSProject Manager spdlog::spdlog fmt::fmt ${Boost_LIBRARIES})

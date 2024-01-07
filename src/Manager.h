@@ -6,6 +6,8 @@
 #include <spdlog/spdlog.h>
 
 #include <map>
+#include <memory>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -42,7 +44,7 @@ class Manager : public ManagerInterface {
    * - the ID of the low successor
    * - the ID of the high successor
    */
-  std::vector<Node> unique_table;
+  std::vector<std::shared_ptr<Node>> unique_table;
 
   /**
    * @brief Computed Table
@@ -50,7 +52,8 @@ class Manager : public ManagerInterface {
    * function ite(f, g, h) in the unique table. In this way, repeated
    * ite-computations of the same operands are avoided.
    */
-  std::map<std::tuple<BDD_ID, BDD_ID, BDD_ID>, BDD_ID> computed_table;
+  std::map<std::tuple<BDD_ID, BDD_ID, BDD_ID>, std::optional<BDD_ID>>
+      computed_table;
 
  public:
   /**
@@ -224,6 +227,6 @@ class Manager : public ManagerInterface {
                              std::set<BDD_ID>& printed_nodes);
   void mermaidGraph(std::string filepath, BDD_ID& root);
 
-  const Node getNode(const BDD_ID& id) const;
+  const std::shared_ptr<Node> getNode(const BDD_ID& id) const;
 };
 }  // namespace ClassProject

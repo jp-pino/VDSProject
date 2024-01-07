@@ -65,7 +65,13 @@
     "streambuf": "cpp",
     "thread": "cpp",
     "typeinfo": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "codecvt": "cpp",
+    "bitset": "cpp",
+    "complex": "cpp",
+    "cfenv": "cpp",
+    "cinttypes": "cpp",
+    "typeindex": "cpp"
   },
   "coverage-gutters.coverageReportFileName": "build/coverage/**/index.html",
   "coverage-gutters.coverageFileNames": [
