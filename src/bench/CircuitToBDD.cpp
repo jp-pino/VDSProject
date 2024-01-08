@@ -45,8 +45,10 @@ void CircuitToBDD::GenerateBDD(const list_of_circuit_t &circuit,
   std::cout << "\033[s" << std::flush;
 
   for (const auto &circuit_node : circuit) {
-    std::cout << "\033[u" << std::flush;
-    std::cout << circuit_node.id << std::flush;
+    // std::cout << "\033[u" << circuit_node.id << " - " << circuit_node.label
+    //           << " (" << bdd_manager->uniqueTableSize() << ", "
+    //           << bdd_manager->ucache_hits() << ", "
+    //           << bdd_manager->pcache_hits() << ")" << std::flush;
     if (circuit_node.gate_type == INPUT_GATE_T) {
       BDD_node = InputGate(circuit_node.label);
     } else if (circuit_node.gate_type == NOT_GATE_T) {

@@ -56,6 +56,8 @@ class ManagerInterface {
   virtual void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) = 0;
 
   virtual size_t uniqueTableSize() = 0;
+  virtual size_t ucache_hits() = 0;
+  virtual size_t pcache_hits() = 0;
 
   virtual void visualizeBDD(std::string filepath, BDD_ID& root,
                             bool test_result) = 0;

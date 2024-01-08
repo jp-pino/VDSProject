@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
   spdlog::cfg::load_env_levels();
 
 #if DEBUG
-  std::string bench_file = "../../../benchmarks/iscas85/c17.bench";
+  std::string bench_file = "../../../benchmarks/iscas85/c499.bench";
 #else
   if (2 > argc) {
     std::cout << "Must specify a filename!" << std::endl;

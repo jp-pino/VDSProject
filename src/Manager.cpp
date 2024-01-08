@@ -9,36 +9,51 @@
 namespace ClassProject {
 
 Manager::Manager() {
-  unique_table.push_back(std::make_shared<Node>(unique_table.size(), "False"));
-  unique_table.back()->top = unique_table.back()->id;
-  unique_table.back()->high = unique_table.back()->id;
-  unique_table.back()->low = unique_table.back()->id;
+  nodes.push_back(std::make_shared<Node>(nodes.size(), "False"));
+  auto node = nodes.back();
+  node->top = node->id;
+  node->high = node->id;
+  node->low = node->id;
+  unique_table[std::make_tuple(node->top, node->high, node->low)] = 0;
 
-  unique_table.push_back(std::make_shared<Node>(unique_table.size(), "True"));
-  unique_table.back()->top = unique_table.back()->id;
-  unique_table.back()->high = unique_table.back()->id;
-  unique_table.back()->low = unique_table.back()->id;
+  nodes.push_back(std::make_shared<Node>(nodes.size(), "True"));
+  node = nodes.back();
+  node->top = node->id;
+  node->high = node->id;
+  node->low = node->id;
+  unique_table[std::make_tuple(node->top, node->high, node->low)] = 1;
 }
 
 BDD_ID Manager::createVar(const std::string& label) {
-  unique_table.push_back(std::make_shared<Node>(unique_table.size(), label));
-  unique_table.back()->top = unique_table.back()->id;
-  unique_table.back()->high = True();
-  unique_table.back()->low = False();
-  return unique_table.back()->id;
+  nodes.push_back(std::make_shared<Node>(nodes.size(), label));
+  auto node = nodes.back();
+  node->top = node->id;
+  node->high = True();
+  node->low = False();
+  unique_table[std::make_tuple(node->top, node->high, node->low)] = node->id;
+  return node->id;
 }
 
-const BDD_ID& Manager::True() { return unique_table[1]->id; }
-
-const BDD_ID& Manager::False() { return unique_table[0]->id; }
-
-bool Manager::isConstant(BDD_ID f) { return unique_table[f]->isConstant(); }
-
-bool Manager::isVariable(BDD_ID x) {
-  return !isConstant(x) && unique_table[x]->top == x;
+BDD_ID Manager::createVar(const std::string& label, const BDD_ID& top,
+                          const BDD_ID& high, const BDD_ID& low) {
+  nodes.push_back(std::make_shared<Node>(nodes.size(), label));
+  auto node = nodes.back();
+  node->top = top;
+  node->high = high;
+  node->low = low;
+  unique_table[std::make_tuple(top, high, low)] = node->id;
+  return node->id;
 }
 
-BDD_ID Manager::topVar(BDD_ID f) { return unique_table[f]->top; }
+const BDD_ID& Manager::True() { return nodes[1]->id; }
+
+const BDD_ID& Manager::False() { return nodes[0]->id; }
+
+bool Manager::isConstant(BDD_ID f) { return nodes[f]->isConstant(); }
+
+bool Manager::isVariable(BDD_ID x) { return nodes[x]->isVariable(); }
+
+BDD_ID Manager::topVar(BDD_ID f) { return nodes[f]->top; }
 
 BDD_ID Manager::ite(BDD_ID i, BDD_ID t, BDD_ID e) {
   spdlog::trace("ite({}, {}, {})", i, t, e);
@@ -52,8 +67,11 @@ BDD_ID Manager::ite(BDD_ID i, BDD_ID t, BDD_ID e) {
 
   // Check if ite has already been computed
   spdlog::trace("Checking if ite has already been computed");
-  auto precomputed = computed_table[std::make_tuple(i, t, e)];
-  if (precomputed.has_value()) return precomputed.value();
+  auto tuple_ite = std::make_tuple(i, t, e);
+  if (computed_table.find(tuple_ite) != computed_table.end()) {
+    pcache_hit++;
+    return computed_table[tuple_ite];
+  }
 
   spdlog::trace("Computing ite");
 
@@ -64,8 +82,7 @@ BDD_ID Manager::ite(BDD_ID i, BDD_ID t, BDD_ID e) {
                                 [this](BDD_ID var) { return isConstant(var); }),
                  top_vars.end());
 
-  auto top = unique_table[top_vars.front()];
-
+  auto top = nodes[top_vars.front()];
   auto high = ite(coFactorTrue(i, top->id), coFactorTrue(t, top->id),
                   coFactorTrue(e, top->id));
   auto low = ite(coFactorFalse(i, top->id), coFactorFalse(t, top->id),
@@ -77,33 +94,26 @@ BDD_ID Manager::ite(BDD_ID i, BDD_ID t, BDD_ID e) {
 
   // Eliminate isomorphic sub-graphs
   spdlog::trace("Eliminating isomorphic sub-graphs");
-  // auto isomorphic = std::find_if(
-  //     unique_table.begin(), unique_table.end(),
-  //     [&](std::shared_ptr<Node> const& node) {
-  //       return node->top == top->id && node->high == high && node->low ==
-  //       low;
-  //     });
-  // if (isomorphic != unique_table.end()) return (*isomorphic)->id;
+  auto tuple_vgh = std::make_tuple(top->id, high, low);
+  if (unique_table.find(tuple_vgh) != unique_table.end()) {
+    ucache_hit++;
+    computed_table[tuple_ite] = unique_table[tuple_vgh];
+    return unique_table[tuple_vgh];
+  }
 
   // Create new node
   spdlog::trace("Creating new node");
-
-  auto node = unique_table[createVar(fmt::format("{} ? {} : {}", top->label,
-                                                 unique_table[t]->label,
-                                                 unique_table[e]->label))];
-
-  node->high = high;
-  node->low = low;
-  node->top = top->id;
+  auto id =
+      createVar(fmt::format("{} ? {} : {}", top->id, t, e), top->id, high, low);
 
   // Cache
-  computed_table[std::make_tuple(i, t, e)] = node->id;
+  computed_table[tuple_ite] = id;
 
-  return node->id;
+  return id;
 }
 
 BDD_ID Manager::coFactorTrue(BDD_ID f, BDD_ID x) {
-  auto f_node = unique_table[f];
+  auto f_node = nodes[f];
 
   if (isConstant(f) || isConstant(x) || f_node->top > x) return f;
 
@@ -116,7 +126,7 @@ BDD_ID Manager::coFactorTrue(BDD_ID f, BDD_ID x) {
 }
 
 BDD_ID Manager::coFactorFalse(BDD_ID f, BDD_ID x) {
-  auto f_node = unique_table[f];
+  auto f_node = nodes[f];
 
   if (isConstant(f) || isConstant(x) || f_node->top > x) return f;
 
@@ -128,87 +138,84 @@ BDD_ID Manager::coFactorFalse(BDD_ID f, BDD_ID x) {
   return ite(f_node->top, T, F);
 }
 
-BDD_ID Manager::coFactorTrue(BDD_ID f) { return unique_table[f]->high; }
-BDD_ID Manager::coFactorFalse(BDD_ID f) { return unique_table[f]->low; }
+BDD_ID Manager::coFactorTrue(BDD_ID f) { return nodes[f]->high; }
+BDD_ID Manager::coFactorFalse(BDD_ID f) { return nodes[f]->low; }
 
 BDD_ID Manager::and2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> and2({}, {})", unique_table[a]->label,
-                unique_table[b]->label);
-  auto node = unique_table[ite(a, b, False())];
-  node->label =
-      fmt::format("({} * {})", unique_table[a]->label, unique_table[b]->label);
+  spdlog::trace(">>>>>>> and2({}, {})", nodes[a]->id, nodes[b]->id);
+  auto node = nodes[ite(a, b, False())];
+  if (node->isConstant() || node->isVariable()) return node->id;
+  node->label = fmt::format("({} * {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::or2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> or2({}, {})", unique_table[a]->label,
-                unique_table[b]->label);
-  auto node = unique_table[ite(a, True(), b)];
-  node->label =
-      fmt::format("({} + {})", unique_table[a]->label, unique_table[b]->label);
+  spdlog::trace(">>>>>>> or2({}, {})", nodes[a]->id, nodes[b]->id);
+  auto node = nodes[ite(a, True(), b)];
+  if (node->isConstant() || node->isVariable()) return node->id;
+  node->label = fmt::format("({} + {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::xor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> xor2({}, {})", unique_table[a]->label,
-                unique_table[b]->label);
-  auto node = unique_table[ite(a, neg(b), b)];
-  node->label =
-      fmt::format("({} x {})", unique_table[a]->label, unique_table[b]->label);
+  spdlog::trace(">>>>>>> xor2({}, {})", nodes[a]->id, nodes[b]->id);
+  auto node = nodes[ite(a, neg(b), b)];
+  if (node->isConstant() || node->isVariable()) return node->id;
+  node->label = fmt::format("({} x {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::neg(BDD_ID a) {
-  spdlog::trace(">>>>>>> neg({})", unique_table[a]->label);
-  auto node = unique_table[ite(a, False(), True())];
-  node->label = fmt::format("!({})", unique_table[a]->label);
+  spdlog::trace(">>>>>>> neg({})", nodes[a]->id);
+  auto node = nodes[ite(a, False(), True())];
+  if (node->isConstant() || node->isVariable()) return node->id;
+  node->label = fmt::format("!({})", nodes[a]->id);
   return node->id;
 }
 
 BDD_ID Manager::nand2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> nand2({}, {})", unique_table[a]->label,
-                unique_table[b]->label);
-  auto node = unique_table[neg(and2(a, b))];
-  node->label =
-      fmt::format("!({} * {})", unique_table[a]->label, unique_table[b]->label);
+  spdlog::trace(">>>>>>> nand2({}, {})", nodes[a]->id, nodes[b]->id);
+  auto node = nodes[neg(and2(a, b))];
+  if (node->isConstant() || node->isVariable()) return node->id;
+  node->label = fmt::format("!({} * {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::nor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> nor2({}, {})", unique_table[a]->label,
-                unique_table[b]->label);
-  auto node = unique_table[neg(or2(a, b))];
-  node->label =
-      fmt::format("!({} + {})", unique_table[a]->label, unique_table[b]->label);
+  spdlog::trace(">>>>>>> nor2({}, {})", nodes[a]->id, nodes[b]->id);
+  auto node = nodes[neg(or2(a, b))];
+  if (node->isConstant() || node->isVariable()) return node->id;
+  node->label = fmt::format("!({} + {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::xnor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> xnor2({}, {})", unique_table[a]->label,
-                unique_table[b]->label);
-  auto node = unique_table[neg(xor2(a, b))];
-  node->label =
-      fmt::format("!({} x {})", unique_table[a]->label, unique_table[b]->label);
+  spdlog::trace(">>>>>>> xnor2({}, {})", nodes[a]->id, nodes[b]->id);
+  auto node = nodes[neg(xor2(a, b))];
+  if (node->isConstant() || node->isVariable()) return node->id;
+  node->label = fmt::format("!({} x {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 void Manager::dump() {
-  spdlog::trace("Unique table size: {}", unique_table.size());
-  spdlog::trace("Computed table size: {}", computed_table.size());
+  spdlog::info("Unique table size: {}", nodes.size());
+  spdlog::info("Computed table size: {}", computed_table.size());
 
-  for (auto node : unique_table) {
-    spdlog::trace(
+  for (auto node : nodes) {
+    spdlog::info(
         "Node: {}"
         "\n  Label: {}"
         "\n  Top: {}"
         "\n  High: {}"
         "\n  Low: {}",
-        node->id, node->label, node->top, node->high, node->low);
+        node->id,
+        node->label.size() > 50 ? node->label.substr(0, 20) : node->label,
+        node->top, node->high, node->low);
   }
 }
 
 void Manager::visualizeBDD_internal(std::ofstream& file, BDD_ID& root) {
-  auto node = unique_table[root];
+  auto node = nodes[root];
 
   file << fmt::format("n{} [label=\"{}\"]\n", node->id, node->label);
 
@@ -236,7 +243,7 @@ void Manager::visualizeBDD(std::string filepath, BDD_ID& root,
 
 void Manager::mermaidGraph_internal(std::ofstream& file, BDD_ID& root,
                                     std::set<BDD_ID>& printed_nodes) {
-  auto node = unique_table[root];
+  auto node = nodes[root];
 
   if (printed_nodes.find(node->id) != printed_nodes.end()) return;
   file << fmt::format("n{}[\"{}\"]\n", node->id, node->label);
@@ -260,16 +267,16 @@ void Manager::mermaidGraph(std::string filepath, BDD_ID& root) {
 }
 
 const std::shared_ptr<Node> Manager::getNode(const BDD_ID& id) const {
-  return unique_table[id];
+  return nodes[id];
 }
 
 std::string Manager::getTopVarName(const BDD_ID& root) {
-  auto node = unique_table[root];
-  return unique_table[node->top]->label;
+  auto node = nodes[root];
+  return nodes[node->top]->label;
 }
 
 void Manager::findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) {
-  auto node = unique_table[root];
+  auto node = nodes[root];
 
   nodes_of_root.insert(root);
 
@@ -280,7 +287,7 @@ void Manager::findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) {
 }
 
 void Manager::findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) {
-  auto node = unique_table[root];
+  auto node = nodes[root];
 
   if (isConstant(root)) return;
 
@@ -290,6 +297,6 @@ void Manager::findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) {
   findVars(node->high, vars_of_root);
 }
 
-size_t Manager::uniqueTableSize() { return unique_table.size(); }
+size_t Manager::uniqueTableSize() { return nodes.size(); }
 
 }  // namespace ClassProject

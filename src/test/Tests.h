@@ -22,13 +22,15 @@ class ManagerTest : public ::testing::Test {
     auto root = manager.getNode(manager.uniqueTableSize() - 1)->id;
     auto name = ::testing::UnitTest::GetInstance()->current_test_info()->name();
     if (HasFailure()) {
-      manager.dump();
+      // manager.dump();
       manager.mermaidGraph(fmt::format("graphs/{}.mmd.err", name), root);
     } else {
       manager.mermaidGraph(fmt::format("graphs/{}.mmd", name), root);
     }
     manager.visualizeBDD(fmt::format("graphs/{}.dot", name), root,
                          !HasFailure());
+
+    manager.dump();
   }
 };
 

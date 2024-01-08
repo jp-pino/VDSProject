@@ -5,6 +5,7 @@
 
 #include <spdlog/spdlog.h>
 
+#include <boost/functional/hash.hpp>
 #include <map>
 #include <memory>
 #include <set>
@@ -14,6 +15,9 @@
 #include "ManagerInterface.h"
 
 namespace ClassProject {
+
+// typedef std::tuple<BDD_ID, BDD_ID, BDD_ID> Key;
+
 struct Node {
   BDD_ID id;
   BDD_ID high;
@@ -24,15 +28,28 @@ struct Node {
   Node(BDD_ID id, std::string label) : id(id), label(label){};
 
   bool isConstant() { return id == high && id == low && id == top; }
-  bool isVariable() { return !isConstant(); }
+  bool isVariable() { return !isConstant() && top == id; }
 
   bool operator==(const Node& rhs) const {
     return high == rhs.high && low == rhs.low && top == rhs.top;
   }
 };
 
+// struct TupleHasher {
+//   std::size_t operator()(const Key& key) const {
+//     std::size_t seed = 0;
+
+//     boost::hash_combine(seed, boost::hash_value(std::get<0>(key)));
+//     boost::hash_combine(seed, boost::hash_value(std::get<1>(key)));
+//     boost::hash_combine(seed, boost::hash_value(std::get<2>(key)));
+
+//     return seed;
+//   }
+// };
+
 class Manager : public ManagerInterface {
  private:
+  size_t ucache_hit = 0, pcache_hit = 0;
   /**
    * @brief Unique table
    * The unique table is a vector of nodes
@@ -44,7 +61,9 @@ class Manager : public ManagerInterface {
    * - the ID of the low successor
    * - the ID of the high successor
    */
-  std::vector<std::shared_ptr<Node>> unique_table;
+  std::vector<std::shared_ptr<Node>> nodes;
+  // T       H       L
+  std::map<std::tuple<BDD_ID, BDD_ID, BDD_ID>, BDD_ID> unique_table;
 
   /**
    * @brief Computed Table
@@ -52,8 +71,8 @@ class Manager : public ManagerInterface {
    * function ite(f, g, h) in the unique table. In this way, repeated
    * ite-computations of the same operands are avoided.
    */
-  std::map<std::tuple<BDD_ID, BDD_ID, BDD_ID>, std::optional<BDD_ID>>
-      computed_table;
+  // I       T       E
+  std::map<std::tuple<BDD_ID, BDD_ID, BDD_ID>, BDD_ID> computed_table;
 
  public:
   /**
@@ -70,6 +89,8 @@ class Manager : public ManagerInterface {
    * @return ID of the new variable
    */
   BDD_ID createVar(const std::string& label) override;
+  BDD_ID Manager::createVar(const std::string& label, const BDD_ID& top,
+                            const BDD_ID& high, const BDD_ID& low);
 
   /**
    * @brief Get the ID of the constant True
@@ -216,6 +237,9 @@ class Manager : public ManagerInterface {
   void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) override;
 
   size_t uniqueTableSize() override;
+
+  size_t ucache_hits() override { return ucache_hit; }
+  size_t pcache_hits() override { return pcache_hit; }
 
   // Not implemented yet
 
