@@ -25,13 +25,7 @@ Manager::Manager() {
 }
 
 BDD_ID Manager::createVar(const std::string& label) {
-  nodes.push_back(std::make_shared<Node>(nodes.size(), label));
-  auto node = nodes.back();
-  node->top = node->id;
-  node->high = True();
-  node->low = False();
-  unique_table[std::make_tuple(node->top, node->high, node->low)] = node->id;
-  return node->id;
+  return createVar(label, nodes.size(), True(), False());
 }
 
 BDD_ID Manager::createVar(const std::string& label, const BDD_ID& top,

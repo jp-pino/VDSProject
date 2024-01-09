@@ -89,8 +89,8 @@ class Manager : public ManagerInterface {
    * @return ID of the new variable
    */
   BDD_ID createVar(const std::string& label) override;
-  BDD_ID Manager::createVar(const std::string& label, const BDD_ID& top,
-                            const BDD_ID& high, const BDD_ID& low);
+  BDD_ID createVar(const std::string& label, const BDD_ID& top,
+                   const BDD_ID& high, const BDD_ID& low);
 
   /**
    * @brief Get the ID of the constant True
