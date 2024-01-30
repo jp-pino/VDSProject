@@ -11,23 +11,8 @@
 namespace ClassProject {
 class ReachabilityInterface : public Manager {
  public:
-  ReachabilityInterface() = delete;
+  //   ReachabilityInterface() = delete;
   virtual ~ReachabilityInterface() = default;
-
-  /**
-   * The constructor initializes a default state machine with the given number
-   * of variables. All state variables should be created within the constructor.
-   * The default transition function for each state bit is the identity
-   * function. For the default initial state, all bits are assumed to be set to
-   * false. Hence, after calling the constructor, the only reachable state
-   * should be the initial state.
-   *
-   * @param stateSize vector specifying the number of bits
-   * @param inputSize number of boolean input bits, defaults to zero
-   * @throws std::runtime_error if stateSize is zero
-   */
-  explicit ReachabilityInterface(unsigned int stateSize,
-                                 unsigned int inputSize){};
 
   /**
    * Returns a vector containing all state bits of the state machine.

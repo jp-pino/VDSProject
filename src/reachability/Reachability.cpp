@@ -4,26 +4,23 @@
 
 namespace ClassProject {
 
-Reachability::Reachability(unsigned int stateSize, unsigned int inputSize = 0)
-    : ReachabilityInterface::ReachabilityInterface(stateSize, inputSize) {
+Reachability::Reachability(unsigned int stateSize, unsigned int inputSize)
+    : states(stateSize, 0),
+      inputs(inputSize, 0),
+      next_states(stateSize, 0),
+      init_state(stateSize, false),
+      transitions(stateSize, 0) {
   if (stateSize == 0) throw std::runtime_error(">>> stateSize is zero! <<<");
 
   for (int i = 0; i < stateSize; i++) {
-    states.push_back(createVar(fmt::format("s{}", i)));
-    next_states.push_back(createVar(fmt::format("s{}'", i)));
-    init_state.push_back(false);
+    transitions[i] = states[i] = createVar(fmt::format("s{}", i));
+    next_states[i] = createVar(fmt::format("s{}'", i));
   }
 
   for (int i = 0; i < inputSize; i++) {
-    inputs.push_back(createVar(fmt::format("i{}", i)));
+    inputs[i] = createVar(fmt::format("i{}", i));
   }
-
-  transitions = states;
 }
-
-const std::vector<BDD_ID> &Reachability::getStates() const { return states; }
-
-const std::vector<BDD_ID> &Reachability::getInputs() const { return inputs; }
 
 bool Reachability::isReachable(const std::vector<bool> &stateVector) {}
 
@@ -31,24 +28,23 @@ int Reachability::stateDistance(const std::vector<bool> &stateVector) {}
 
 void Reachability::setTransitionFunctions(
     const std::vector<BDD_ID> &transitionFunctions) {
-  if (transitionFunctions.size() != states.size()) {
+  if (transitionFunctions.size() != transitions.size()) {
     throw std::runtime_error(
         ">>> The number of given transition functions does not match the "
         "number of state bits! <<<");
   }
 
-  transitions = transitionFunctions;
+  for (auto &tf : transitionFunctions) {
+    if (tf > uniqueTableSize()) {
+      throw std::runtime_error(">>> An unknown ID is provided! <<<");
+    }
+  }
 
-  // check if An unknown ID is provided
-  // for (int i = 0; i < transitionFunctions.size(); i++) {
-  //     if (transitionFunctions[i] is not in unique_table) {
-  //         throw std::runtime_error(">>> An unknown ID is provided! <<<");
-  //     }
-  // }
+  transitions = transitionFunctions;
 }
 
 void Reachability::setInitState(const std::vector<bool> &stateVector) {
-  if (stateVector.size() != states.size()) {
+  if (stateVector.size() != init_state.size()) {
     throw std::runtime_error(
         ">>> StateVector size does not match with number of state bits! <<<");
   }

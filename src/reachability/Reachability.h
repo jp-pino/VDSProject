@@ -18,11 +18,27 @@ class Reachability : public ReachabilityInterface {
   std::vector<BDD_ID> transitions;
 
  public:
-  explicit Reachability(unsigned int stateSize, unsigned int inputSize);
+  /**
+   * The constructor initializes a default state machine with the given number
+   * of variables. All state variables should be created within the constructor.
+   * The default transition function for each state bit is the identity
+   * function. For the default initial state, all bits are assumed to be set to
+   * false. Hence, after calling the constructor, the only reachable state
+   * should be the initial state.
+   *
+   * @param stateSize vector specifying the number of bits
+   * @param inputSize number of boolean input bits, defaults to zero
+   * @throws std::runtime_error if stateSize is zero
+   */
+  explicit Reachability(unsigned int stateSize, unsigned int inputSize = 0);
 
-  const std::vector<BDD_ID> &getStates() const override;
+  inline const std::vector<BDD_ID> &getStates() const override {
+    return states;
+  }
 
-  const std::vector<BDD_ID> &getInputs() const override;
+  inline const std::vector<BDD_ID> &getInputs() const override {
+    return inputs;
+  }
 
   bool isReachable(const std::vector<bool> &stateVector) override;
 

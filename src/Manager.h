@@ -239,7 +239,7 @@ class Manager : public ManagerInterface {
 
   void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) override;
 
-  size_t uniqueTableSize() override;
+  inline size_t uniqueTableSize() override { return nodes.size(); }
 
   size_t ucache_hits() override { return ucache_hit; }
   size_t pcache_hits() override { return pcache_hit; }
