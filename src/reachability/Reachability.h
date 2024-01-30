@@ -5,33 +5,34 @@
 
 namespace ClassProject {
 
-   class Reachability : public ReachabilityInterface {
-    private:
-    std::vector<BDD_ID> states;
-    
-    std::vector<BDD_ID> inputs;
+class Reachability : public ReachabilityInterface {
+ private:
+  std::vector<BDD_ID> states;
 
-    std::vector<BDD_ID> next_states;
-    
-    std::vector<bool> init_state;
+  std::vector<BDD_ID> inputs;
 
-    std::vector<BDD_ID> transitions;
+  std::vector<BDD_ID> next_states;
 
-    public:
-    explicit Reachability(unsigned int stateSize, unsigned int inputSize);
-    
-    const std::vector<BDD_ID> &getStates() const override;
+  std::vector<bool> init_state;
 
-    const std::vector<BDD_ID> &getInputs() const override;
+  std::vector<BDD_ID> transitions;
 
-    bool isReachable(const std::vector<bool> &stateVector) override;
+ public:
+  explicit Reachability(unsigned int stateSize, unsigned int inputSize);
 
-    int stateDistance(const std::vector<bool> &stateVector) override;
+  const std::vector<BDD_ID> &getStates() const override;
 
-    void setTransitionFunctions(const std::vector<BDD_ID> &transitionFunctions) override;
+  const std::vector<BDD_ID> &getInputs() const override;
 
-    void setInitState(const std::vector<bool> &stateVector) override;
-   };
+  bool isReachable(const std::vector<bool> &stateVector) override;
 
-}
+  int stateDistance(const std::vector<bool> &stateVector) override;
+
+  void setTransitionFunctions(
+      const std::vector<BDD_ID> &transitionFunctions) override;
+
+  void setInitState(const std::vector<bool> &stateVector) override;
+};
+
+}  // namespace ClassProject
 #endif

@@ -16,7 +16,7 @@
 
 namespace ClassProject {
 
-// typedef std::tuple<BDD_ID, BDD_ID, BDD_ID> Key;
+typedef std::tuple<BDD_ID, BDD_ID, BDD_ID> Key;
 
 struct Node {
   BDD_ID id;
@@ -35,17 +35,18 @@ struct Node {
   }
 };
 
-// struct TupleHasher {
-//   std::size_t operator()(const Key& key) const {
-//     std::size_t seed = 0;
+struct TupleHasher {
+  std::size_t operator()(const Key& key) const {
+    std::size_t seed = 0;
 
-//     boost::hash_combine(seed, boost::hash_value(std::get<0>(key)));
-//     boost::hash_combine(seed, boost::hash_value(std::get<1>(key)));
-//     boost::hash_combine(seed, boost::hash_value(std::get<2>(key)));
+    // std::get<2>(key) << 21 | std::get<1>(key) << 42 | std::get<0>(key);
+    boost::hash_combine(seed, boost::hash_value(std::get<0>(key)));
+    boost::hash_combine(seed, boost::hash_value(std::get<1>(key)));
+    boost::hash_combine(seed, boost::hash_value(std::get<2>(key)));
 
-//     return seed;
-//   }
-// };
+    return seed;
+  }
+};
 
 class Manager : public ManagerInterface {
  private:
@@ -63,7 +64,8 @@ class Manager : public ManagerInterface {
    */
   std::vector<std::shared_ptr<Node>> nodes;
   // T       H       L
-  std::map<std::tuple<BDD_ID, BDD_ID, BDD_ID>, BDD_ID> unique_table;
+  std::unordered_map<Key, BDD_ID, TupleHasher> unique_table;
+  // std::map<Key, BDD_ID> unique_table;
 
   /**
    * @brief Computed Table
@@ -72,7 +74,8 @@ class Manager : public ManagerInterface {
    * ite-computations of the same operands are avoided.
    */
   // I       T       E
-  std::map<std::tuple<BDD_ID, BDD_ID, BDD_ID>, BDD_ID> computed_table;
+  std::unordered_map<Key, BDD_ID, TupleHasher> computed_table;
+  // std::map<Key, BDD_ID> computed_table;
 
  public:
   /**
