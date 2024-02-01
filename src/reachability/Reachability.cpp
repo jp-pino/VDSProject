@@ -22,7 +22,49 @@ Reachability::Reachability(unsigned int stateSize, unsigned int inputSize)
   }
 }
 
-bool Reachability::isReachable(const std::vector<bool> &stateVector) {}
+bool Reachability::isReachable(const std::vector<bool> &stateVector) {
+  // Compute Transition Relation τ
+  auto τ = True();
+  for (int i = 0; i < stateVector.size(); i++) {
+    τ = and2(τ, or2(and2(next_states[i], transitions[i]),
+                    and2(neg(next_states[i]), neg(transitions[i]))));
+  }
+
+  // Compute Characteristic Function Initial State CS0
+  auto cs0 = True();
+  for (int i = 0; i < stateVector.size(); i++) {
+    cs0 = and2(cs0, xnor2(states[i], False()));
+  }
+
+  auto cr_it = cs0;
+  auto cr = cr_it;
+
+  do {
+    cr = cr_it;
+    // Compute BBD for image of next states
+    auto temp = and2(cr, τ);
+    auto img_next = False();
+    for (int i = stateVector.size(); i >= 0; i--) {
+      temp = or2(coFactorTrue(temp, states[i]), coFactorTrue(temp, states[i]));
+      img_next = or2(img_next, temp);
+    }
+
+    // Compute BDD for image of current states
+    temp = True();
+    for (int i = 0; i < stateVector.size(); i++) {
+      temp = and2(temp, xnor2(states[i], next_states[i]));
+    }
+    temp = and2(temp, img_next);
+
+    auto img_current = False();
+    for (int i = stateVector.size(); i >= 0; i--) {
+      temp = or2(coFactorTrue(temp, states[i]), coFactorTrue(temp, states[i]));
+      img_current = or2(img_current, temp);
+    }
+
+    cr_it = or2(cr, img_current);
+  } while (cr_it != cr);
+}
 
 int Reachability::stateDistance(const std::vector<bool> &stateVector) {}
 
