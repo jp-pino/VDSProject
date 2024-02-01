@@ -64,6 +64,12 @@ bool Reachability::isReachable(const std::vector<bool> &stateVector) {
 
     cr_it = or2(cr, img_current);
   } while (cr_it != cr);
+
+  spdlog::info(">>> cr: {}", cr);
+
+  dump();
+
+  return cr == True();
 }
 
 int Reachability::stateDistance(const std::vector<bool> &stateVector) {}
