@@ -13,6 +13,12 @@ struct ReachabilityTest : testing::Test {
 
   std::vector<BDD_ID> stateVars2 = fsm2->getStates();
   std::vector<BDD_ID> transitionFunctions;
+
+  void TearDown() override {
+    if (HasFailure()) {
+      fsm2->dump();
+    }
+  }
 };
 
 TEST_F(ReachabilityTest, HowTo_Example) { /* NOLINT */

@@ -30,10 +30,10 @@ bool Reachability::isReachable(const std::vector<bool> &stateVector) {
                     and2(neg(next_states[i]), neg(transitions[i]))));
   }
 
-  // Compute Characteristic Function Initial State CS0
+  // Compute Characteristic Function for Initial State (CS0)
   auto cs0 = True();
   for (int i = 0; i < stateVector.size(); i++) {
-    cs0 = and2(cs0, xnor2(states[i], False()));
+    cs0 = and2(cs0, xnor2(states[i], init_state[i]));
   }
 
   auto cr_it = cs0;
@@ -42,32 +42,34 @@ bool Reachability::isReachable(const std::vector<bool> &stateVector) {
   do {
     cr = cr_it;
     // Compute BBD for image of next states
-    auto temp = and2(cr, τ);
-    auto img_next = False();
-    for (int i = stateVector.size(); i >= 0; i--) {
-      temp = or2(coFactorTrue(temp, states[i]), coFactorTrue(temp, states[i]));
-      img_next = or2(img_next, temp);
+    auto img_next = and2(cr, τ);
+    for (int i = stateVector.size() - 1; i >= 0; i--) {
+      img_next = or2(coFactorTrue(img_next, states[i]),
+                     coFactorFalse(img_next, states[i]));
     }
 
     // Compute BDD for image of current states
-    temp = True();
+    auto img = True();
     for (int i = 0; i < stateVector.size(); i++) {
-      temp = and2(temp, xnor2(states[i], next_states[i]));
+      img = and2(img, xnor2(states[i], next_states[i]));
     }
-    temp = and2(temp, img_next);
+    img = and2(img, img_next);
 
-    auto img_current = False();
-    for (int i = stateVector.size(); i >= 0; i--) {
-      temp = or2(coFactorTrue(temp, states[i]), coFactorTrue(temp, states[i]));
-      img_current = or2(img_current, temp);
+    for (int i = stateVector.size() - 1; i >= 0; i--) {
+      img = or2(coFactorTrue(img, next_states[i]),
+                coFactorFalse(img, next_states[i]));
     }
 
-    cr_it = or2(cr, img_current);
+    cr_it = or2(cr, img);
+
   } while (cr_it != cr);
 
-  spdlog::info(">>> cr: {}", cr);
+  spdlog::info(">>> cr: {} <<<", cr);
 
-  dump();
+  for (int i = 0; i < stateVector.size(); i++) {
+    cr = stateVector[i] ? coFactorTrue(cr, states[i])
+                        : coFactorFalse(cr, states[i]);
+  }
 
   return cr == True();
 }
