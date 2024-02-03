@@ -58,8 +58,8 @@ jobs:
         if: always()
         with:
           files: |
-            "vdsproject/build/src/test/test-results.xml"
-            "vdsproject/build/src/reachability/test-results.xml"
+            "/${{ env.GITHUB_WORKSPACE }}/vdsproject/build/src/test/test-results.xml"
+            "/${{ env.GITHUB_WORKSPACE }}/vdsproject/build/src/reachability/test-results.xml"
 
       - name: Display mermaid graphs
         if: always()
