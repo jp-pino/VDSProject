@@ -10,7 +10,7 @@ jobs:
       - name: Install Packages
         run: >
           sudo apt update
-          && sudo apt install libgtest-dev graphviz
+          && sudo apt install libgtest-dev graphviz lcov
       
       # fmt
       - name: Build and install fmt
@@ -43,17 +43,22 @@ jobs:
 
       - name: Run Tests
         run: >
-          export LOG_DICTIONARY_TESTING
-          && export LD_LIBRARY_PATH=/usr/local/lib
-          && cd $GITHUB_WORKSPACE/vdsproject/build/src/test
+          cd $GITHUB_WORKSPACE/vdsproject/build/src/test
           && mkdir graphs
           && ./VDSProject_test --gtest_output=xml:test-results.xml
+
+      - name: Run Reachability Tests
+        run: >
+          cd $GITHUB_WORKSPACE/vdsproject/build/src/reachability
+          && ./VDSProject_reachability --gtest_output=xml:test-results.xml
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
-          files: "vdsproject/build/src/test/test-results.xml"
+          files: |
+            "vdsproject/build/src/test/test-results.xml"
+            "vdsproject/build/src/reachability/test-results.xml"
 
       - name: Display mermaid graphs
         if: always()
