@@ -75,4 +75,20 @@ TEST_F(ReachabilityTest, StateDistanceTest) {
   ASSERT_EQ(fsm->stateDistance({true, true}), 4);
 }
 
+TEST_F(ReachabilityTest, ExceptionsTest) {
+  auto s0 = stateVars.at(0);
+  auto s1 = stateVars.at(1);
+
+  // FSM describes a counter
+  transitionFunctions.push_back(fsm->neg(s0));
+  transitionFunctions.push_back(fsm->neg(s0));
+  transitionFunctions.push_back(fsm->ite(s0, fsm->neg(s1), s1));
+
+  EXPECT_THROW(fsm->setTransitionFunctions(transitionFunctions),
+               std::runtime_error);
+  EXPECT_THROW(fsm->setInitState({false, false, true}), std::runtime_error);
+  EXPECT_THROW(fsm->isReachable({true, true, true}), std::runtime_error);
+  EXPECT_THROW(fsm->stateDistance({true, true, true}), std::runtime_error);
+}
+
 #endif
