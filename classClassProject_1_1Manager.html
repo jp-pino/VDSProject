@@ -189,6 +189,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> ()</td></tr>
 <tr class="separator:ae8fa8dd136cab3bcc13183106c24896f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeead829154e4476de425df06d94773af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aeead829154e4476de425df06d94773af">findVars</a> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;vars_of_root) override</td></tr>
 <tr class="separator:aeead829154e4476de425df06d94773af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5014bf88d1f0213bd732dc279baa65de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a5014bf88d1f0213bd732dc279baa65de">findVars</a> (const BDD_ID &amp;root) override</td></tr>
+<tr class="separator:a5014bf88d1f0213bd732dc279baa65de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0724a85292854fe2179b92d6c1aaf2ed"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a0724a85292854fe2179b92d6c1aaf2ed">uniqueTableSize</a> () override</td></tr>
 <tr class="separator:a0724a85292854fe2179b92d6c1aaf2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e1303f9b5f47c2361d7693e2e35dbf0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a8e1303f9b5f47c2361d7693e2e35dbf0">ucache_hits</a> () override</td></tr>
@@ -256,6 +258,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findNodes</b>
 <tr class="memitem:ab94feabca2125d334e542e502ae0186d"><td class="memItemLeft" align="right" valign="top"><a id="ab94feabca2125d334e542e502ae0186d" name="ab94feabca2125d334e542e502ae0186d"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;vars_of_root)=0</td></tr>
 <tr class="separator:ab94feabca2125d334e542e502ae0186d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf5bb1af5098f15257ff1733a8a39b61"><td class="memItemLeft" align="right" valign="top"><a id="aaf5bb1af5098f15257ff1733a8a39b61" name="aaf5bb1af5098f15257ff1733a8a39b61"></a>
+virtual std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const BDD_ID &amp;root)=0</td></tr>
+<tr class="separator:aaf5bb1af5098f15257ff1733a8a39b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memItemLeft" align="right" valign="top"><a id="a85cac80444b26e5b80eb96b9f1231c0e" name="a85cac80444b26e5b80eb96b9f1231c0e"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>uniqueTableSize</b> ()=0</td></tr>
 <tr class="separator:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -596,8 +601,36 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
+<a id="a5014bf88d1f0213bd732dc279baa65de" name="a5014bf88d1f0213bd732dc279baa65de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5014bf88d1f0213bd732dc279baa65de">&#9670;&#160;</a></span>findVars() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; BDD_ID &gt; ClassProject::Manager::findVars </td>
+          <td>(</td>
+          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
+
+</div>
+</div>
 <a id="aeead829154e4476de425df06d94773af" name="aeead829154e4476de425df06d94773af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeead829154e4476de425df06d94773af">&#9670;&#160;</a></span>findVars()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeead829154e4476de425df06d94773af">&#9670;&#160;</a></span>findVars() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
