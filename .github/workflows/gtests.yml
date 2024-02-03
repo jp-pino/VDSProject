@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Install Packages
-        run: >
-          sudo apt update
-          && sudo apt install libgtest-dev graphviz lcov
+     - name: Install Packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: libgtest-dev graphviz lcov libboost-all-dev
+          version: 1.0
       
       # fmt
       - name: Build and install fmt
