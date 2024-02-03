@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-     - name: Install Packages
+      - name: Install Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: libgtest-dev graphviz lcov libboost-all-dev
