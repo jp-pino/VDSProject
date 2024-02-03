@@ -1,6 +1,10 @@
 #ifndef VDSPROJECT_REACHABILITY_H
 #define VDSPROJECT_REACHABILITY_H
 
+#include <tuple>
+#include <vector>
+
+#include "../Manager.h"
 #include "ReachabilityInterface.h"
 
 namespace ClassProject {
@@ -8,14 +12,12 @@ namespace ClassProject {
 class Reachability : public ReachabilityInterface {
  private:
   std::vector<BDD_ID> states;
-
   std::vector<BDD_ID> inputs;
-
   std::vector<BDD_ID> next_states;
-
   std::vector<bool> init_state;
-
   std::vector<BDD_ID> transitions;
+  BDD_ID τ;
+  BDD_ID cs0;
 
  public:
   /**
@@ -41,13 +43,14 @@ class Reachability : public ReachabilityInterface {
   }
 
   bool isReachable(const std::vector<bool> &stateVector) override;
-
   int stateDistance(const std::vector<bool> &stateVector) override;
-
   void setTransitionFunctions(
       const std::vector<BDD_ID> &transitionFunctions) override;
-
   void setInitState(const std::vector<bool> &stateVector) override;
+
+ private:
+  BDD_ID existential_quantification(const BDD_ID &f,
+                                    const std::vector<BDD_ID> &v);
 };
 
 }  // namespace ClassProject

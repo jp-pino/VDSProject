@@ -8,34 +8,71 @@
 using namespace ClassProject;
 
 struct ReachabilityTest : testing::Test {
-  std::unique_ptr<ClassProject::ReachabilityInterface> fsm2 =
-      std::make_unique<ClassProject::Reachability>(2);
+  std::unique_ptr<ClassProject::ReachabilityInterface> fsm =
+      std::make_unique<ClassProject::Reachability>(2, 2);
 
-  std::vector<BDD_ID> stateVars2 = fsm2->getStates();
+  std::vector<BDD_ID> inputVars = fsm->getInputs();
+  std::vector<BDD_ID> stateVars = fsm->getStates();
   std::vector<BDD_ID> transitionFunctions;
 
   void TearDown() override {
     if (HasFailure()) {
-      fsm2->dump();
+      fsm->dump();
     }
   }
 };
 
-TEST_F(ReachabilityTest, HowTo_Example) { /* NOLINT */
+TEST_F(ReachabilityTest, HowTo_Example) {
+  auto s0 = stateVars.at(0);
+  auto s1 = stateVars.at(1);
 
-  BDD_ID s0 = stateVars2.at(0);
-  BDD_ID s1 = stateVars2.at(1);
+  transitionFunctions.push_back(fsm->neg(s0));  // s0' = not(s0)
+  transitionFunctions.push_back(fsm->neg(s1));  // s1' = not(s1)
+  fsm->setTransitionFunctions(transitionFunctions);
 
-  transitionFunctions.push_back(fsm2->neg(s0));  // s0' = not(s0)
-  transitionFunctions.push_back(fsm2->neg(s1));  // s1' = not(s1)
-  fsm2->setTransitionFunctions(transitionFunctions);
+  fsm->setInitState({false, false});
 
-  fsm2->setInitState({false, false});
+  ASSERT_TRUE(fsm->isReachable({false, false}));
+  ASSERT_FALSE(fsm->isReachable({false, true}));
+  ASSERT_FALSE(fsm->isReachable({true, false}));
+  ASSERT_TRUE(fsm->isReachable({true, true}));
+}
 
-  ASSERT_TRUE(fsm2->isReachable({false, false}));
-  ASSERT_FALSE(fsm2->isReachable({false, true}));
-  ASSERT_FALSE(fsm2->isReachable({true, false}));
-  ASSERT_TRUE(fsm2->isReachable({true, true}));
+TEST_F(ReachabilityTest, InputsTest) {
+  auto s0 = stateVars.at(0);
+  auto s1 = stateVars.at(1);
+  auto i0 = inputVars.at(0);
+  auto i1 = inputVars.at(1);
+
+  // s0' = not(s0) & i0
+  transitionFunctions.push_back(fsm->and2(fsm->neg(s0), i0));
+  // s1' = not(s1) & i0 & i1
+  transitionFunctions.push_back(fsm->and2(fsm->and2(fsm->neg(s1), i0), i1));
+
+  fsm->setTransitionFunctions(transitionFunctions);
+  fsm->setInitState({false, false});
+
+  ASSERT_TRUE(fsm->isReachable({false, false}));
+  ASSERT_FALSE(fsm->isReachable({false, true}));
+  ASSERT_TRUE(fsm->isReachable({true, false}));
+  ASSERT_TRUE(fsm->isReachable({true, true}));
+}
+
+TEST_F(ReachabilityTest, StateDistanceTest) {
+  auto s0 = stateVars.at(0);
+  auto s1 = stateVars.at(1);
+
+  // FSM describes a counter
+  transitionFunctions.push_back(fsm->neg(s0));
+  transitionFunctions.push_back(fsm->ite(s0, fsm->neg(s1), s1));
+
+  fsm->setTransitionFunctions(transitionFunctions);
+  fsm->setInitState({false, false});
+
+  ASSERT_EQ(fsm->stateDistance({false, false}), 1);
+  ASSERT_EQ(fsm->stateDistance({true, false}), 2);
+  ASSERT_EQ(fsm->stateDistance({false, true}), 3);
+  ASSERT_EQ(fsm->stateDistance({true, true}), 4);
 }
 
 #endif

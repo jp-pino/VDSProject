@@ -97,8 +97,9 @@ BDD_ID Manager::ite(BDD_ID i, BDD_ID t, BDD_ID e) {
 
   // Create new node
   spdlog::trace("Creating new node");
-  auto id =
-      createVar(fmt::format("{} ? {} : {}", top->id, t, e), top->id, high, low);
+  auto id = createVar(fmt::format("({} ? {} : {})", top->label,
+                                  getNode(t)->label, getNode(e)->label),
+                      top->id, high, low);
 
   // Cache
   computed_table[tuple_ite] = id;
