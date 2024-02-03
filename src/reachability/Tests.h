@@ -75,6 +75,24 @@ TEST_F(ReachabilityTest, StateDistanceTest) {
   ASSERT_EQ(fsm->stateDistance({true, true}), 4);
 }
 
+TEST_F(ReachabilityTest, StateDistanceTestWithInput) {
+  auto s0 = stateVars.at(0);
+  auto s1 = stateVars.at(1);
+  auto i0 = inputVars.at(0);
+
+  // FSM describes a counter
+  transitionFunctions.push_back(fsm->and2(fsm->neg(s0), i0));
+  transitionFunctions.push_back(fsm->ite(s0, fsm->and2(fsm->neg(s1), i0), s1));
+
+  fsm->setTransitionFunctions(transitionFunctions);
+  fsm->setInitState({false, false});
+
+  ASSERT_EQ(fsm->stateDistance({false, false}), 1);
+  ASSERT_EQ(fsm->stateDistance({true, false}), 2);
+  ASSERT_EQ(fsm->stateDistance({false, true}), 3);
+  ASSERT_EQ(fsm->stateDistance({true, true}), 4);
+}
+
 TEST_F(ReachabilityTest, ExceptionsTest) {
   auto s0 = stateVars.at(0);
   auto s1 = stateVars.at(1);

@@ -290,6 +290,12 @@ void Manager::findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) {
   findVars(node->high, vars_of_root);
 }
 
+std::vector<BDD_ID> Manager::findVars(const BDD_ID& root) {
+  std::set<BDD_ID> vars_of_root;
+  findVars(root, vars_of_root);
+  return std::vector<BDD_ID>(vars_of_root.begin(), vars_of_root.end());
+}
+
 size_t Manager::uniqueTableSize() { return nodes.size(); }
 
 }  // namespace ClassProject

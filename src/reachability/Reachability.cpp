@@ -2,6 +2,7 @@
 
 #include <fmt/format.h>
 
+#include <boost/dynamic_bitset.hpp>
 #include <cmath>
 
 namespace ClassProject {
@@ -49,31 +50,8 @@ bool Reachability::isReachable(const std::vector<bool> &stateVector) {
 
   spdlog::debug("cr: {}", cr);
 
-  for (size_t i = 0; i < stateVector.size(); i++) {
-    cr = stateVector[i] ? coFactorTrue(cr, states[i])
-                        : coFactorFalse(cr, states[i]);
-  }
-
-  spdlog::debug("cr (after state restriction): {}", cr);
-  if (inputs.size() == 0 || isConstant(cr)) return cr == True();
-
-  int possible_inputs = std::pow(2, inputs.size());
-
-  spdlog::debug("possible inputs: {}", possible_inputs);
-
-  for (int input = 0; input < possible_inputs; input++) {
-    auto temp_cr = cr;
-
-    for (size_t i = 0; i < inputs.size(); i++) {
-      temp_cr = input & (1 << i) ? coFactorTrue(temp_cr, inputs[i])
-                                 : coFactorFalse(temp_cr, inputs[i]);
-    }
-
-    spdlog::debug("cr (input {}): {}", input, temp_cr);
-    if (isConstant(temp_cr)) return true;
-  }
-
-  return false;
+  auto top_vars = findVars(cr);
+  return restrict_by_test(restrict(cr, stateVector, states), top_vars);
 }
 
 int Reachability::stateDistance(const std::vector<bool> &stateVector) {
@@ -102,13 +80,8 @@ int Reachability::stateDistance(const std::vector<bool> &stateVector) {
 
     spdlog::debug("cr: {}", cr);
 
-    auto cr_solved = cr;
-    for (size_t i = 0; i < stateVector.size(); i++) {
-      cr_solved = stateVector[i] ? coFactorTrue(cr_solved, states[i])
-                                 : coFactorFalse(cr_solved, states[i]);
-    }
-    spdlog::debug("cr_solved: {}", cr_solved);
-    if (cr_solved == True()) break;
+    auto top_vars = findVars(cr);
+    if (restrict_by_test(restrict(cr, stateVector, states), top_vars)) break;
   } while (cr_it != cr);
   return distance;
 }
@@ -158,6 +131,40 @@ BDD_ID Reachability::existential_quantification(const BDD_ID &f,
     eq = or2(coFactorTrue(eq, v[i]), coFactorFalse(eq, v[i]));
   }
   return eq;
+}
+
+BDD_ID Reachability::restrict(const BDD_ID &f,
+                              const std::vector<bool> &decision,
+                              const std::vector<BDD_ID> &vars) {
+  auto eq = f;
+  for (int64_t i = decision.size() - 1; i >= 0; i--) {
+    eq = decision[i] ? coFactorTrue(eq, vars[i]) : coFactorFalse(eq, vars[i]);
+  }
+  return eq;
+}
+
+bool Reachability::restrict_by_test(const BDD_ID &f,
+                                    const std::vector<BDD_ID> &vars) {
+  if (vars.size() == 0 || isConstant(f)) return f == True();
+
+  int possible_inputs = std::pow(2, vars.size());
+
+  for (int input = 0; input < possible_inputs; input++) {
+    auto eq = f;
+
+    // Convert input to a vector of bools
+    boost::dynamic_bitset<> input_bits(vars.size(), input);
+    std::vector<bool> input_vector;
+    for (size_t i = 0; i < vars.size(); i++) {
+      input_vector.push_back(input_bits[i]);
+    }
+
+    eq = restrict(eq, input_vector, vars);
+
+    if (eq == True()) return true;
+  }
+
+  return false;
 }
 
 }  // namespace ClassProject

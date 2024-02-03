@@ -51,6 +51,10 @@ class Reachability : public ReachabilityInterface {
  private:
   BDD_ID existential_quantification(const BDD_ID &f,
                                     const std::vector<BDD_ID> &v);
+
+  BDD_ID restrict(const BDD_ID &f, const std::vector<bool> &decision,
+                  const std::vector<BDD_ID> &vars);
+  bool restrict_by_test(const BDD_ID &f, const std::vector<BDD_ID> &vars);
 };
 
 }  // namespace ClassProject

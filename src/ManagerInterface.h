@@ -5,6 +5,7 @@
 
 #include <set>
 #include <string>
+#include <vector>
 
 namespace ClassProject {
 
@@ -54,6 +55,7 @@ class ManagerInterface {
                          std::set<BDD_ID>& nodes_of_root) = 0;
 
   virtual void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) = 0;
+  virtual std::vector<BDD_ID> findVars(const BDD_ID& root) = 0;
 
   virtual size_t uniqueTableSize() = 0;
   virtual size_t ucache_hits() = 0;
