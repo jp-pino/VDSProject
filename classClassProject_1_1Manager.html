@@ -104,7 +104,9 @@ Inheritance diagram for ClassProject::Manager:</div>
 <div class="center"><img src="classClassProject_1_1Manager__inherit__graph.png" border="0" usemap="#aClassProject_1_1Manager_inherit__map" alt="Inheritance graph"/></div>
 <map name="aClassProject_1_1Manager_inherit__map" id="aClassProject_1_1Manager_inherit__map">
 <area shape="rect" title=" " alt="" coords="31,79,183,104"/>
+<area shape="rect" href="classClassProject_1_1ReachabilityInterface.html" title=" " alt="" coords="21,152,193,192"/>
 <area shape="rect" href="classClassProject_1_1ManagerInterface.html" title=" " alt="" coords="5,5,208,31"/>
+<area shape="rect" href="classClassProject_1_1Reachability.html" title=" " alt="" coords="21,240,193,265"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -126,6 +128,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7d26cfdb6120d2a31fd5767f68ebe3c5"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a7d26cfdb6120d2a31fd5767f68ebe3c5">createVar</a> (const std::string &amp;label) override</td></tr>
 <tr class="memdesc:a7d26cfdb6120d2a31fd5767f68ebe3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new variable Creates a new variable with the given label and returns its ID.  <a href="classClassProject_1_1Manager.html#a7d26cfdb6120d2a31fd5767f68ebe3c5">More...</a><br /></td></tr>
 <tr class="separator:a7d26cfdb6120d2a31fd5767f68ebe3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d6ee5e91d44494dc1512ec40166e33"><td class="memItemLeft" align="right" valign="top"><a id="aa2d6ee5e91d44494dc1512ec40166e33" name="aa2d6ee5e91d44494dc1512ec40166e33"></a>
+BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>createVar</b> (const std::string &amp;label, const BDD_ID &amp;top, const BDD_ID &amp;high, const BDD_ID &amp;low)</td></tr>
+<tr class="separator:aa2d6ee5e91d44494dc1512ec40166e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26272d05caa88d6770484c0d4154fda7"><td class="memItemLeft" align="right" valign="top">const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7">True</a> () override</td></tr>
 <tr class="memdesc:a26272d05caa88d6770484c0d4154fda7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant True.  <a href="classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7">More...</a><br /></td></tr>
 <tr class="separator:a26272d05caa88d6770484c0d4154fda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,6 +191,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> ()</td></tr>
 <tr class="separator:aeead829154e4476de425df06d94773af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0724a85292854fe2179b92d6c1aaf2ed"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a0724a85292854fe2179b92d6c1aaf2ed">uniqueTableSize</a> () override</td></tr>
 <tr class="separator:a0724a85292854fe2179b92d6c1aaf2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e1303f9b5f47c2361d7693e2e35dbf0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a8e1303f9b5f47c2361d7693e2e35dbf0">ucache_hits</a> () override</td></tr>
+<tr class="separator:a8e1303f9b5f47c2361d7693e2e35dbf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae58d6671fadb240920533be3e0405ebf"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae58d6671fadb240920533be3e0405ebf">pcache_hits</a> () override</td></tr>
+<tr class="separator:ae58d6671fadb240920533be3e0405ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a530cc60bfb6c5f403e5500f65c83b856"><td class="memItemLeft" align="right" valign="top"><a id="a530cc60bfb6c5f403e5500f65c83b856" name="a530cc60bfb6c5f403e5500f65c83b856"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD_internal</b> (std::ofstream &amp;file, BDD_ID &amp;root)</td></tr>
 <tr class="separator:a530cc60bfb6c5f403e5500f65c83b856"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,9 +206,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph_internal
 <tr class="memitem:a2ed8c19320938888a02b72fc2601bdb8"><td class="memItemLeft" align="right" valign="top"><a id="a2ed8c19320938888a02b72fc2601bdb8" name="a2ed8c19320938888a02b72fc2601bdb8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph</b> (std::string filepath, BDD_ID &amp;root)</td></tr>
 <tr class="separator:a2ed8c19320938888a02b72fc2601bdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a0e260511d439a159a254c0de5e5608"><td class="memItemLeft" align="right" valign="top"><a id="a1a0e260511d439a159a254c0de5e5608" name="a1a0e260511d439a159a254c0de5e5608"></a>
-const <a class="el" href="structClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getNode</b> (const BDD_ID &amp;id) const</td></tr>
-<tr class="separator:a1a0e260511d439a159a254c0de5e5608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bffb683d1401e9de59e58e0ec7d75e5"><td class="memItemLeft" align="right" valign="top"><a id="a6bffb683d1401e9de59e58e0ec7d75e5" name="a6bffb683d1401e9de59e58e0ec7d75e5"></a>
+const std::shared_ptr&lt; <a class="el" href="structClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNode</b> (const BDD_ID &amp;id) const</td></tr>
+<tr class="separator:a6bffb683d1401e9de59e58e0ec7d75e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab101acd3fbe6a5e29973d88f9862b8b4"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ab101acd3fbe6a5e29973d88f9862b8b4">createVar</a> (const std::string &amp;label)=0</td></tr>
 <tr class="separator:ab101acd3fbe6a5e29973d88f9862b8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e65237eb52237387f677e76c8457e00"><td class="memItemLeft" align="right" valign="top">virtual const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e65237eb52237387f677e76c8457e00">True</a> ()=0</td></tr>
@@ -250,19 +259,34 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> 
 <tr class="memitem:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memItemLeft" align="right" valign="top"><a id="a85cac80444b26e5b80eb96b9f1231c0e" name="a85cac80444b26e5b80eb96b9f1231c0e"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>uniqueTableSize</b> ()=0</td></tr>
 <tr class="separator:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87dcd3feb3e740ee1625b2b1edbd1794"><td class="memItemLeft" align="right" valign="top"><a id="a87dcd3feb3e740ee1625b2b1edbd1794" name="a87dcd3feb3e740ee1625b2b1edbd1794"></a>
+virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucache_hits</b> ()=0</td></tr>
+<tr class="separator:a87dcd3feb3e740ee1625b2b1edbd1794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8fee09628ebd5492e72349d41a7fb35"><td class="memItemLeft" align="right" valign="top"><a id="ab8fee09628ebd5492e72349d41a7fb35" name="ab8fee09628ebd5492e72349d41a7fb35"></a>
+virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pcache_hits</b> ()=0</td></tr>
+<tr class="separator:ab8fee09628ebd5492e72349d41a7fb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memItemLeft" align="right" valign="top"><a id="a2db009b980a7225a5eb2e8c88eab5e5d" name="a2db009b980a7225a5eb2e8c88eab5e5d"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, BDD_ID &amp;root, bool test_result)=0</td></tr>
 <tr class="separator:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ac9c01323a8fc8026100b03114066f64a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ac9c01323a8fc8026100b03114066f64a">unique_table</a></td></tr>
-<tr class="memdesc:ac9c01323a8fc8026100b03114066f64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique table The unique table is a vector of nodes The index of the vector is the id of the node.  <a href="classClassProject_1_1Manager.html#ac9c01323a8fc8026100b03114066f64a">More...</a><br /></td></tr>
-<tr class="separator:ac9c01323a8fc8026100b03114066f64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae76f541361b2b37eda472eeae04c69c0"><td class="memItemLeft" align="right" valign="top"><a id="ae76f541361b2b37eda472eeae04c69c0" name="ae76f541361b2b37eda472eeae04c69c0"></a>
-std::map&lt; std::tuple&lt; BDD_ID, BDD_ID, BDD_ID &gt;, BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computed_table</b></td></tr>
-<tr class="memdesc:ae76f541361b2b37eda472eeae04c69c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computed Table Used to improve run time. It stores for every triple (f, g, h) a pointer to function ite(f, g, h) in the unique table. In this way, repeated ite-computations of the same operands are avoided. <br /></td></tr>
-<tr class="separator:ae76f541361b2b37eda472eeae04c69c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fc60206beaae31b4d95ae7d458512f8"><td class="memItemLeft" align="right" valign="top"><a id="a1fc60206beaae31b4d95ae7d458512f8" name="a1fc60206beaae31b4d95ae7d458512f8"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucache_hit</b> = 0</td></tr>
+<tr class="separator:a1fc60206beaae31b4d95ae7d458512f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3faf857f7af0c70e64d6f1b162936f80"><td class="memItemLeft" align="right" valign="top"><a id="a3faf857f7af0c70e64d6f1b162936f80" name="a3faf857f7af0c70e64d6f1b162936f80"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pcache_hit</b> = 0</td></tr>
+<tr class="separator:a3faf857f7af0c70e64d6f1b162936f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26973d2e91be545a2df82a771bbf0edd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="structClassProject_1_1Node.html">Node</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a26973d2e91be545a2df82a771bbf0edd">nodes</a></td></tr>
+<tr class="memdesc:a26973d2e91be545a2df82a771bbf0edd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique table The unique table is a vector of nodes The index of the vector is the id of the node.  <a href="classClassProject_1_1Manager.html#a26973d2e91be545a2df82a771bbf0edd">More...</a><br /></td></tr>
+<tr class="separator:a26973d2e91be545a2df82a771bbf0edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60df8f8ce892e5c1db4e0708033fd5c1"><td class="memItemLeft" align="right" valign="top"><a id="a60df8f8ce892e5c1db4e0708033fd5c1" name="a60df8f8ce892e5c1db4e0708033fd5c1"></a>
+std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1TupleHasher.html">TupleHasher</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>unique_table</b></td></tr>
+<tr class="separator:a60df8f8ce892e5c1db4e0708033fd5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a370543c0c019be0dea6271ab3eca46b8"><td class="memItemLeft" align="right" valign="top"><a id="a370543c0c019be0dea6271ab3eca46b8" name="a370543c0c019be0dea6271ab3eca46b8"></a>
+std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1TupleHasher.html">TupleHasher</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computed_table</b></td></tr>
+<tr class="memdesc:a370543c0c019be0dea6271ab3eca46b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computed Table Used to improve run time. It stores for every triple (f, g, h) a pointer to function ite(f, g, h) in the unique table. In this way, repeated ite-computations of the same operands are avoided. <br /></td></tr>
+<tr class="separator:a370543c0c019be0dea6271ab3eca46b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6779517434ccdf0daeadf3baecbb18a6" name="a6779517434ccdf0daeadf3baecbb18a6"></a>
@@ -949,6 +973,33 @@ std::map&lt; std::tuple&lt; BDD_ID, BDD_ID, BDD_ID &gt;, BDD_ID &gt;&#160;</td><
 
 </div>
 </div>
+<a id="ae58d6671fadb240920533be3e0405ebf" name="ae58d6671fadb240920533be3e0405ebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae58d6671fadb240920533be3e0405ebf">&#9670;&#160;</a></span>pcache_hits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ClassProject::Manager::pcache_hits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
+
+</div>
+</div>
 <a id="aa6c0a7885a3dd6b4d7ffc646563cb01b" name="aa6c0a7885a3dd6b4d7ffc646563cb01b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa6c0a7885a3dd6b4d7ffc646563cb01b">&#9670;&#160;</a></span>topVar()</h2>
 
@@ -1011,6 +1062,33 @@ std::map&lt; std::tuple&lt; BDD_ID, BDD_ID, BDD_ID &gt;, BDD_ID &gt;&#160;</td><
 
 <p>Get the ID of the constant True. </p>
 <dl class="section return"><dt>Returns</dt><dd>ID of the constant True </dd></dl>
+
+<p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
+
+</div>
+</div>
+<a id="a8e1303f9b5f47c2361d7693e2e35dbf0" name="a8e1303f9b5f47c2361d7693e2e35dbf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e1303f9b5f47c2361d7693e2e35dbf0">&#9670;&#160;</a></span>ucache_hits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ClassProject::Manager::ucache_hits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 <p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
 
@@ -1184,8 +1262,8 @@ std::map&lt; std::tuple&lt; BDD_ID, BDD_ID, BDD_ID &gt;, BDD_ID &gt;&#160;</td><
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac9c01323a8fc8026100b03114066f64a" name="ac9c01323a8fc8026100b03114066f64a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9c01323a8fc8026100b03114066f64a">&#9670;&#160;</a></span>unique_table</h2>
+<a id="a26973d2e91be545a2df82a771bbf0edd" name="a26973d2e91be545a2df82a771bbf0edd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26973d2e91be545a2df82a771bbf0edd">&#9670;&#160;</a></span>nodes</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1194,7 +1272,7 @@ std::map&lt; std::tuple&lt; BDD_ID, BDD_ID, BDD_ID &gt;, BDD_ID &gt;&#160;</td><
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="structClassProject_1_1Node.html">Node</a>&gt; ClassProject::Manager::unique_table</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="structClassProject_1_1Node.html">Node</a>&gt; &gt; ClassProject::Manager::nodes</td>
         </tr>
       </table>
   </td>

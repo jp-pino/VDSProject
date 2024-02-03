@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['or2_0',['or2',['../classClassProject_1_1Manager.html#ae72d444aa17398a80e00de65fc35681a',1,'ClassProject::Manager']]]
+  ['manager_0',['Manager',['../classClassProject_1_1Manager.html#a85fce20557dc45950ae3493d6f9f14ea',1,'ClassProject::Manager']]]
 ];

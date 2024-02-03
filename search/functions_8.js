@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['xnor2_0',['xnor2',['../classClassProject_1_1Manager.html#a8f92b481f60e904a80a664392ab73066',1,'ClassProject::Manager']]],
-  ['xor2_1',['xor2',['../classClassProject_1_1Manager.html#a3f2106e10b57fddc4c31a9e90e1846a9',1,'ClassProject::Manager']]]
+  ['or2_0',['or2',['../classClassProject_1_1Manager.html#ae72d444aa17398a80e00de65fc35681a',1,'ClassProject::Manager']]],
+  ['orgate_1',['OrGate',['../classCircuitToBDD.html#a29eb94a4f3da1edf145f6a7f6f7d8425',1,'CircuitToBDD']]]
 ];

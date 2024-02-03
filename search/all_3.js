@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['isconstant_0',['isConstant',['../classClassProject_1_1Manager.html#ae36938ae525ced7bdc16d3a7353827dd',1,'ClassProject::Manager']]],
-  ['isvariable_1',['isVariable',['../classClassProject_1_1Manager.html#a36a24053561d59b05e671a14e85d1965',1,'ClassProject::Manager']]],
-  ['ite_2',['ite',['../classClassProject_1_1Manager.html#a4d79fa44b2e066c3ab3ff0bdbb8716de',1,'ClassProject::Manager']]]
+  ['false_0',['False',['../classClassProject_1_1Manager.html#a6e95dba944ce72f9685f17a7b668f1c8',1,'ClassProject::Manager']]],
+  ['ff_5flabels_1',['ff_labels',['../classBenchParser.html#a7bde4e91d38da0320b9a732602311a93',1,'BenchParser']]],
+  ['findbddid_2',['findBddId',['../classCircuitToBDD.html#abb54b8e897dfa26c28601c0f87c4c721',1,'CircuitToBDD']]],
+  ['findoraddtocircuit_3',['findOrAddToCircuit',['../classBenchParser.html#aa4cdb91d1a79753de3cb09db7ccc5c49',1,'BenchParser']]],
+  ['findoraddtocircuitbylabel_4',['findOrAddToCircuitByLabel',['../classBenchParser.html#a2f2a85ac80c41196f0b131fafeb46372',1,'BenchParser']]]
 ];

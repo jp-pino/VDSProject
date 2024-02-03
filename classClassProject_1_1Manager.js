@@ -17,6 +17,6 @@ var classClassProject_1_1Manager =
     [ "True", "classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7", null ],
     [ "xnor2", "classClassProject_1_1Manager.html#a8f92b481f60e904a80a664392ab73066", null ],
     [ "xor2", "classClassProject_1_1Manager.html#a3f2106e10b57fddc4c31a9e90e1846a9", null ],
-    [ "computed_table", "classClassProject_1_1Manager.html#ae76f541361b2b37eda472eeae04c69c0", null ],
-    [ "unique_table", "classClassProject_1_1Manager.html#ac9c01323a8fc8026100b03114066f64a", null ]
+    [ "computed_table", "classClassProject_1_1Manager.html#a370543c0c019be0dea6271ab3eca46b8", null ],
+    [ "nodes", "classClassProject_1_1Manager.html#a26973d2e91be545a2df82a771bbf0edd", null ]
 ];
