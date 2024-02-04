@@ -306,15 +306,18 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ab085180e833de0160ecce09f06c82eea"><td class="memItemLeft" align="right" valign="top"><a id="ab085180e833de0160ecce09f06c82eea" name="ab085180e833de0160ecce09f06c82eea"></a>
-BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>existential_quantification</b> (const BDD_ID &amp;f, const std::vector&lt; BDD_ID &gt; &amp;v)</td></tr>
+<tr class="memitem:ab085180e833de0160ecce09f06c82eea"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#ab085180e833de0160ecce09f06c82eea">existential_quantification</a> (const BDD_ID &amp;f, const std::vector&lt; BDD_ID &gt; &amp;v)</td></tr>
+<tr class="memdesc:ab085180e833de0160ecce09f06c82eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Existential quantification operator.  <a href="classClassProject_1_1Reachability.html#ab085180e833de0160ecce09f06c82eea">More...</a><br /></td></tr>
 <tr class="separator:ab085180e833de0160ecce09f06c82eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c7f8e69ac5fba6f0d152e39d2a66fa5"><td class="memItemLeft" align="right" valign="top"><a id="a3c7f8e69ac5fba6f0d152e39d2a66fa5" name="a3c7f8e69ac5fba6f0d152e39d2a66fa5"></a>
-BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>restrict</b> (const BDD_ID &amp;f, const std::vector&lt; bool &gt; &amp;decision, const std::vector&lt; BDD_ID &gt; &amp;vars)</td></tr>
-<tr class="separator:a3c7f8e69ac5fba6f0d152e39d2a66fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadcc1d2dd8328108c1c8c10eec2699f0"><td class="memItemLeft" align="right" valign="top"><a id="aadcc1d2dd8328108c1c8c10eec2699f0" name="aadcc1d2dd8328108c1c8c10eec2699f0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>restrict_by_test</b> (const BDD_ID &amp;f, const std::vector&lt; BDD_ID &gt; &amp;vars)</td></tr>
-<tr class="separator:aadcc1d2dd8328108c1c8c10eec2699f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a814dfb37fa950931ccded9ee0429989d"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a814dfb37fa950931ccded9ee0429989d">restrict</a> (const BDD_ID &amp;f, const std::vector&lt; bool &gt; &amp;k, const std::vector&lt; BDD_ID &gt; &amp;v)</td></tr>
+<tr class="memdesc:a814dfb37fa950931ccded9ee0429989d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict operator.  <a href="classClassProject_1_1Reachability.html#a814dfb37fa950931ccded9ee0429989d">More...</a><br /></td></tr>
+<tr class="separator:a814dfb37fa950931ccded9ee0429989d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4619b81d0a4f439b7f3d5dcf378c7b"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; BDD_ID, std::unordered_map&lt; BDD_ID, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#ada4619b81d0a4f439b7f3d5dcf378c7b">try_restrict</a> (const BDD_ID &amp;f)</td></tr>
+<tr class="memdesc:ada4619b81d0a4f439b7f3d5dcf378c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to restrict a BDD to a constant.  <a href="classClassProject_1_1Reachability.html#ada4619b81d0a4f439b7f3d5dcf378c7b">More...</a><br /></td></tr>
+<tr class="separator:ada4619b81d0a4f439b7f3d5dcf378c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad43f70e326cb00cd2c316c7a0ef3771e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#ad43f70e326cb00cd2c316c7a0ef3771e">test_reachability</a> (const BDD_ID &amp;cr, const std::vector&lt; bool &gt; &amp;stateVector)</td></tr>
+<tr class="memdesc:ad43f70e326cb00cd2c316c7a0ef3771e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test reachability of a state.  <a href="classClassProject_1_1Reachability.html#ad43f70e326cb00cd2c316c7a0ef3771e">More...</a><br /></td></tr>
+<tr class="separator:ad43f70e326cb00cd2c316c7a0ef3771e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -330,12 +333,12 @@ std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <tr class="memitem:adb7fd0a0a15f48d6949cafde538cf568"><td class="memItemLeft" align="right" valign="top"><a id="adb7fd0a0a15f48d6949cafde538cf568" name="adb7fd0a0a15f48d6949cafde538cf568"></a>
 std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>init_state</b></td></tr>
 <tr class="separator:adb7fd0a0a15f48d6949cafde538cf568"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f47eb57e7f736eabe6251d7feb78297"><td class="memItemLeft" align="right" valign="top"><a id="a0f47eb57e7f736eabe6251d7feb78297" name="a0f47eb57e7f736eabe6251d7feb78297"></a>
-std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transitions</b></td></tr>
-<tr class="separator:a0f47eb57e7f736eabe6251d7feb78297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af19789855b60a856793adbc9f4279f89"><td class="memItemLeft" align="right" valign="top"><a id="af19789855b60a856793adbc9f4279f89" name="af19789855b60a856793adbc9f4279f89"></a>
-BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>τ</b></td></tr>
-<tr class="separator:af19789855b60a856793adbc9f4279f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c220ef0e384576d878bce2db6e2ee2"><td class="memItemLeft" align="right" valign="top"><a id="a59c220ef0e384576d878bce2db6e2ee2" name="a59c220ef0e384576d878bce2db6e2ee2"></a>
+std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transitionFunctions</b></td></tr>
+<tr class="separator:a59c220ef0e384576d878bce2db6e2ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4864bc2c9c694f1a4e22fa05a58d71a8"><td class="memItemLeft" align="right" valign="top"><a id="a4864bc2c9c694f1a4e22fa05a58d71a8" name="a4864bc2c9c694f1a4e22fa05a58d71a8"></a>
+BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>tau</b></td></tr>
+<tr class="separator:a4864bc2c9c694f1a4e22fa05a58d71a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5602fa18986c3bd6bd74cd8657fc40d"><td class="memItemLeft" align="right" valign="top"><a id="ae5602fa18986c3bd6bd74cd8657fc40d" name="ae5602fa18986c3bd6bd74cd8657fc40d"></a>
 BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 <tr class="separator:ae5602fa18986c3bd6bd74cd8657fc40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -392,6 +395,52 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab085180e833de0160ecce09f06c82eea" name="ab085180e833de0160ecce09f06c82eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab085180e833de0160ecce09f06c82eea">&#9670;&#160;</a></span>existential_quantification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BDD_ID ClassProject::Reachability::existential_quantification </td>
+          <td>(</td>
+          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; BDD_ID &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Existential quantification operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>BDD_ID Characteristic function </td></tr>
+    <tr><td class="paramname">v</td><td>std::vector&lt;BDD_ID&gt; Vector of variables to quantify </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>BDD_ID Disjunction of the cofactors of f w.r.t list of variables </dd></dl>
+
+</div>
+</div>
 <a id="aa50a9117d7a2873dee15f66deb46c708" name="aa50a9117d7a2873dee15f66deb46c708"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa50a9117d7a2873dee15f66deb46c708">&#9670;&#160;</a></span>getInputs()</h2>
 
@@ -489,6 +538,60 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="classClassProject_1_1ReachabilityInterface.html#a6528cd5862c24697a85b6d22152b6562">ClassProject::ReachabilityInterface</a>.</p>
+
+</div>
+</div>
+<a id="a814dfb37fa950931ccded9ee0429989d" name="a814dfb37fa950931ccded9ee0429989d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a814dfb37fa950931ccded9ee0429989d">&#9670;&#160;</a></span>restrict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BDD_ID ClassProject::Reachability::restrict </td>
+          <td>(</td>
+          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; BDD_ID &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Restrict operator. </p>
+<p >Shannon cofactor of f w.r.t variable v</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>BDD_ID Characteristic function to restrict </td></tr>
+    <tr><td class="paramname">k</td><td>std::vector&lt;bool&gt; Constants to restrict the function </td></tr>
+    <tr><td class="paramname">v</td><td>std::vector&lt;BDD_ID&gt; List of variables to restrict the function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>BDD_ID of the resulting BDD after the restriction </dd></dl>
 
 </div>
 </div>
@@ -615,6 +718,88 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="classClassProject_1_1ReachabilityInterface.html#a05972ef1ab85639d0fb64b868025cad3">ClassProject::ReachabilityInterface</a>.</p>
+
+</div>
+</div>
+<a id="ad43f70e326cb00cd2c316c7a0ef3771e" name="ad43f70e326cb00cd2c316c7a0ef3771e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad43f70e326cb00cd2c316c7a0ef3771e">&#9670;&#160;</a></span>test_reachability()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ClassProject::Reachability::test_reachability </td>
+          <td>(</td>
+          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramname"><em>cr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>stateVector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Test reachability of a state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cr</td><td>BDD_ID Characteristic function to restrict </td></tr>
+    <tr><td class="paramname">stateVector</td><td>std::vector&lt;bool&gt; State to test reachability </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the state is reachable, False otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ada4619b81d0a4f439b7f3d5dcf378c7b" name="ada4619b81d0a4f439b7f3d5dcf378c7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada4619b81d0a4f439b7f3d5dcf378c7b">&#9670;&#160;</a></span>try_restrict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; BDD_ID, std::unordered_map&lt; BDD_ID, bool &gt; &gt; ClassProject::Reachability::try_restrict </td>
+          <td>(</td>
+          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Try to restrict a BDD to a constant. </p>
+<p >The function tries to restrict the given BDD to the smallest BDD that's not False and returns the combination of variables that lead to this result. The variables it uses are the top variables of the BDD.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>BDD_ID Characteristic function to restrict </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::tuple&lt;BDD_ID, std::unordered_map&lt;BDD_ID, bool&gt;&gt; Resulting BDD and the values of the variables that result in the restriction </dd></dl>
 
 </div>
 </div>
