@@ -131,13 +131,11 @@ BDD_ID Reachability::existential_quantification(const BDD_ID &f,
   return temp;
 }
 
-BDD_ID Reachability::restrict(const BDD_ID &f,
-                              const std::vector<bool> &decision,
-                              const std::vector<BDD_ID> &vars) {
+BDD_ID Reachability::restrict(const BDD_ID &f, const std::vector<bool> &k,
+                              const std::vector<BDD_ID> &v) {
   auto temp = f;
-  for (int64_t i = decision.size() - 1; i >= 0; i--) {
-    temp = decision[i] ? coFactorTrue(temp, vars[i])
-                       : coFactorFalse(temp, vars[i]);
+  for (int64_t i = k.size() - 1; i >= 0; i--) {
+    temp = k[i] ? coFactorTrue(temp, v[i]) : coFactorFalse(temp, v[i]);
   }
   return temp;
 }
@@ -170,7 +168,8 @@ std::tuple<BDD_ID, std::unordered_map<BDD_ID, bool>> Reachability::try_restrict(
       lowest_input = input;
       lowest_var_count = findVars(temp).size();
     }
-    if (lowest == True()) return {lowest, {}};
+
+    if (lowest == True()) break;
   }
 
   // Convert lowest_input to a map of BDD_IDs -> bools

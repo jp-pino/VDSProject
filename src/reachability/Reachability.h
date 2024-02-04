@@ -42,6 +42,7 @@ class Reachability : public ReachabilityInterface {
     return inputs;
   }
 
+  // Overridden methods
   bool isReachable(const std::vector<bool> &stateVector) override;
   int stateDistance(const std::vector<bool> &stateVector) override;
   void setTransitionFunctions(
@@ -49,14 +50,50 @@ class Reachability : public ReachabilityInterface {
   void setInitState(const std::vector<bool> &stateVector) override;
 
  private:
+  /**
+   * @brief Existential quantification operator
+   * @param f BDD_ID Characteristic function
+   * @param v std::vector<BDD_ID> Vector of variables to quantify
+   * @return BDD_ID Disjunction of the cofactors of f w.r.t list of variables
+   */
   BDD_ID existential_quantification(const BDD_ID &f,
                                     const std::vector<BDD_ID> &v);
 
-  BDD_ID restrict(const BDD_ID &f, const std::vector<bool> &decision,
-                  const std::vector<BDD_ID> &vars);
+  /**
+   * @brief Restrict operator
+   *
+   * Shannon cofactor of f w.r.t variable v
+   *
+   * @param f BDD_ID Characteristic function to restrict
+   * @param k std::vector<bool> Constants to restrict the
+   * function
+   * @param v std::vector<BDD_ID> List of variables to restrict the function
+   * @return BDD_ID of the resulting BDD after the restriction
+   */
+  BDD_ID restrict(const BDD_ID &f, const std::vector<bool> &k,
+                  const std::vector<BDD_ID> &v);
+
+  /**
+   * @brief Try to restrict a BDD to a constant
+   *
+   * The function tries to restrict the given BDD to the smallest BDD that's not
+   * False and returns the combination of variables that lead to this result.
+   * The variables it uses are the top variables of the BDD.
+   *
+   * @param f BDD_ID Characteristic function to restrict
+   * @return std::tuple<BDD_ID, std::unordered_map<BDD_ID, bool>> Resulting BDD
+   * and the values of the variables that result in the restriction
+   */
   std::tuple<BDD_ID, std::unordered_map<BDD_ID, bool>> try_restrict(
       const BDD_ID &f);
 
+  /**
+   * @brief Test reachability of a state
+   *
+   * @param cr BDD_ID Characteristic function to restrict
+   * @param stateVector std::vector<bool> State to test reachability
+   * @return bool True if the state is reachable, False otherwise
+   */
   bool test_reachability(const BDD_ID &cr,
                          const std::vector<bool> &stateVector);
 };
