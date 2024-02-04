@@ -97,9 +97,9 @@ BDD_ID Manager::ite(BDD_ID i, BDD_ID t, BDD_ID e) {
 
   // Create new node
   spdlog::trace("Creating new node");
-  auto id = createVar(fmt::format("({} ? {} : {})", top->label,
-                                  getNode(t)->label, getNode(e)->label),
-                      top->id, high, low);
+  auto id = createVar(
+      fmt::format("({} ? {} : {})", top->id, getNode(t)->id, getNode(e)->id),
+      top->id, high, low);
 
   // Cache
   computed_table[tuple_ite] = id;
@@ -137,58 +137,58 @@ BDD_ID Manager::coFactorTrue(BDD_ID f) { return nodes[f]->high; }
 BDD_ID Manager::coFactorFalse(BDD_ID f) { return nodes[f]->low; }
 
 BDD_ID Manager::and2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> and2({}, {})", nodes[a]->label, nodes[b]->label);
+  spdlog::trace(">>>>>>> and2({}, {})", nodes[a]->id, nodes[b]->id);
   auto node = nodes[ite(a, b, False())];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("({} * {})", nodes[a]->label, nodes[b]->label);
+  node->label = fmt::format("({} * {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::or2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> or2({}, {})", nodes[a]->label, nodes[b]->label);
+  spdlog::trace(">>>>>>> or2({}, {})", nodes[a]->id, nodes[b]->id);
   auto node = nodes[ite(a, True(), b)];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("({} + {})", nodes[a]->label, nodes[b]->label);
+  node->label = fmt::format("({} + {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::xor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> xor2({}, {})", nodes[a]->label, nodes[b]->label);
+  spdlog::trace(">>>>>>> xor2({}, {})", nodes[a]->id, nodes[b]->id);
   auto node = nodes[ite(a, neg(b), b)];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("({} x {})", nodes[a]->label, nodes[b]->label);
+  node->label = fmt::format("({} x {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::neg(BDD_ID a) {
-  spdlog::trace(">>>>>>> neg({})", nodes[a]->label);
+  spdlog::trace(">>>>>>> neg({})", nodes[a]->id);
   auto node = nodes[ite(a, False(), True())];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("!({})", nodes[a]->label);
+  node->label = fmt::format("!({})", nodes[a]->id);
   return node->id;
 }
 
 BDD_ID Manager::nand2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> nand2({}, {})", nodes[a]->label, nodes[b]->label);
+  spdlog::trace(">>>>>>> nand2({}, {})", nodes[a]->id, nodes[b]->id);
   auto node = nodes[neg(and2(a, b))];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("!({} * {})", nodes[a]->label, nodes[b]->label);
+  node->label = fmt::format("!({} * {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::nor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> nor2({}, {})", nodes[a]->label, nodes[b]->label);
+  spdlog::trace(">>>>>>> nor2({}, {})", nodes[a]->id, nodes[b]->id);
   auto node = nodes[neg(or2(a, b))];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("!({} + {})", nodes[a]->label, nodes[b]->label);
+  node->label = fmt::format("!({} + {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 
 BDD_ID Manager::xnor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> xnor2({}, {})", nodes[a]->label, nodes[b]->label);
+  spdlog::trace(">>>>>>> xnor2({}, {})", nodes[a]->id, nodes[b]->id);
   auto node = nodes[neg(xor2(a, b))];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("!({} x {})", nodes[a]->label, nodes[b]->label);
+  node->label = fmt::format("!({} x {})", nodes[a]->id, nodes[b]->id);
   return node->id;
 }
 

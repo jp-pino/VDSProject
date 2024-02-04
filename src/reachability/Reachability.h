@@ -15,8 +15,8 @@ class Reachability : public ReachabilityInterface {
   std::vector<BDD_ID> inputs;
   std::vector<BDD_ID> next_states;
   std::vector<bool> init_state;
-  std::vector<BDD_ID> transitions;
-  BDD_ID τ;
+  std::vector<BDD_ID> transitionFunctions;
+  BDD_ID tau;
   BDD_ID cs0;
 
  public:
@@ -54,7 +54,11 @@ class Reachability : public ReachabilityInterface {
 
   BDD_ID restrict(const BDD_ID &f, const std::vector<bool> &decision,
                   const std::vector<BDD_ID> &vars);
-  bool restrict_by_test(const BDD_ID &f, const std::vector<BDD_ID> &vars);
+  std::tuple<BDD_ID, std::unordered_map<BDD_ID, bool>> try_restrict(
+      const BDD_ID &f);
+
+  bool test_reachability(const BDD_ID &cr,
+                         const std::vector<bool> &stateVector);
 };
 
 }  // namespace ClassProject
