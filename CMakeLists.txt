@@ -66,6 +66,8 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
     include_directories("${gtest_SOURCE_DIR}/include")
 endif()
 
+add_compile_definitions("DEBUG=$<CONFIG:Debug>")
+
 #Include dirs
 include_directories(${CMAKE_SOURCE_DIR}/lib)
 link_directories(${CMAKE_SOURCE_DIR}/lib)

@@ -6,6 +6,16 @@
 #include <fstream>
 #include <iostream>
 
+#ifndef DEBUG
+#define DEBUG 0
+#endif
+
+#if DEBUG
+#define GET_NAME(var) ((var)->label)
+#else
+#define GET_NAME(var) ((var)->id)
+#endif
+
 namespace ClassProject {
 
 Manager::Manager() {
@@ -97,9 +107,9 @@ BDD_ID Manager::ite(BDD_ID i, BDD_ID t, BDD_ID e) {
 
   // Create new node
   spdlog::trace("Creating new node");
-  auto id = createVar(
-      fmt::format("({} ? {} : {})", top->id, getNode(t)->id, getNode(e)->id),
-      top->id, high, low);
+  auto id = createVar(fmt::format("({} ? {} : {})", GET_NAME(top),
+                                  GET_NAME(getNode(t)), GET_NAME(getNode(e))),
+                      top->id, high, low);
 
   // Cache
   computed_table[tuple_ite] = id;
@@ -137,58 +147,66 @@ BDD_ID Manager::coFactorTrue(BDD_ID f) { return nodes[f]->high; }
 BDD_ID Manager::coFactorFalse(BDD_ID f) { return nodes[f]->low; }
 
 BDD_ID Manager::and2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> and2({}, {})", nodes[a]->id, nodes[b]->id);
+  spdlog::trace(">>>>>>> and2({}, {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   auto node = nodes[ite(a, b, False())];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("({} * {})", nodes[a]->id, nodes[b]->id);
+  node->label =
+      fmt::format("({} * {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   return node->id;
 }
 
 BDD_ID Manager::or2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> or2({}, {})", nodes[a]->id, nodes[b]->id);
+  spdlog::trace(">>>>>>> or2({}, {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   auto node = nodes[ite(a, True(), b)];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("({} + {})", nodes[a]->id, nodes[b]->id);
+  node->label =
+      fmt::format("({} + {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   return node->id;
 }
 
 BDD_ID Manager::xor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> xor2({}, {})", nodes[a]->id, nodes[b]->id);
+  spdlog::trace(">>>>>>> xor2({}, {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   auto node = nodes[ite(a, neg(b), b)];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("({} x {})", nodes[a]->id, nodes[b]->id);
+  node->label =
+      fmt::format("({} x {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   return node->id;
 }
 
 BDD_ID Manager::neg(BDD_ID a) {
-  spdlog::trace(">>>>>>> neg({})", nodes[a]->id);
+  spdlog::trace(">>>>>>> neg({})", GET_NAME(nodes[a]));
   auto node = nodes[ite(a, False(), True())];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("!({})", nodes[a]->id);
+  node->label = fmt::format("!({})", GET_NAME(nodes[a]));
   return node->id;
 }
 
 BDD_ID Manager::nand2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> nand2({}, {})", nodes[a]->id, nodes[b]->id);
+  spdlog::trace(">>>>>>> nand2({}, {})", GET_NAME(nodes[a]),
+                GET_NAME(nodes[b]));
   auto node = nodes[neg(and2(a, b))];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("!({} * {})", nodes[a]->id, nodes[b]->id);
+  node->label =
+      fmt::format("!({} * {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   return node->id;
 }
 
 BDD_ID Manager::nor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> nor2({}, {})", nodes[a]->id, nodes[b]->id);
+  spdlog::trace(">>>>>>> nor2({}, {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   auto node = nodes[neg(or2(a, b))];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("!({} + {})", nodes[a]->id, nodes[b]->id);
+  node->label =
+      fmt::format("!({} + {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   return node->id;
 }
 
 BDD_ID Manager::xnor2(BDD_ID a, BDD_ID b) {
-  spdlog::trace(">>>>>>> xnor2({}, {})", nodes[a]->id, nodes[b]->id);
+  spdlog::trace(">>>>>>> xnor2({}, {})", GET_NAME(nodes[a]),
+                GET_NAME(nodes[b]));
   auto node = nodes[neg(xor2(a, b))];
   if (node->isConstant() || node->isVariable()) return node->id;
-  node->label = fmt::format("!({} x {})", nodes[a]->id, nodes[b]->id);
+  node->label =
+      fmt::format("!({} x {})", GET_NAME(nodes[a]), GET_NAME(nodes[b]));
   return node->id;
 }
 
@@ -197,13 +215,7 @@ void Manager::dump() {
   spdlog::info("Computed table size: {}", computed_table.size());
 
   for (auto node : nodes) {
-    spdlog::info(
-        "Node: {}"
-        "\n  Label: {}"
-        "\n  Top: {}"
-        "\n  High: {}"
-        "\n  Low: {}",
-        node->id, node->label, node->top, node->high, node->low);
+    node->dump();
   }
 }
 

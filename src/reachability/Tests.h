@@ -42,20 +42,19 @@ TEST_F(ReachabilityTest, InputsTest) {
   auto s0 = stateVars.at(0);
   auto s1 = stateVars.at(1);
   auto i0 = inputVars.at(0);
-  auto i1 = inputVars.at(1);
 
-  // s0' = not(s0) & i0
-  transitionFunctions.push_back(fsm->and2(fsm->neg(s0), i0));
-  // s1' = not(s1) & i0 & i1
-  transitionFunctions.push_back(fsm->and2(fsm->and2(fsm->neg(s1), i0), i1));
+  // Counter up to 3: 00, 01, 10 and reset to 00
+  transitionFunctions.push_back(
+      fsm->and2(i0, fsm->ite(s1, fsm->False(), fsm->neg(s0))));
+  transitionFunctions.push_back(fsm->and2(i0, fsm->and2(s0, fsm->neg(s1))));
 
   fsm->setTransitionFunctions(transitionFunctions);
   fsm->setInitState({false, false});
 
   ASSERT_TRUE(fsm->isReachable({false, false}));
-  ASSERT_FALSE(fsm->isReachable({false, true}));
+  ASSERT_TRUE(fsm->isReachable({false, true}));
   ASSERT_TRUE(fsm->isReachable({true, false}));
-  ASSERT_TRUE(fsm->isReachable({true, true}));
+  ASSERT_FALSE(fsm->isReachable({true, true}));
 }
 
 TEST_F(ReachabilityTest, StateDistanceTest) {
@@ -80,9 +79,10 @@ TEST_F(ReachabilityTest, StateDistanceTestWithInput) {
   auto s1 = stateVars.at(1);
   auto i0 = inputVars.at(0);
 
-  // FSM describes a counter
-  transitionFunctions.push_back(fsm->and2(fsm->neg(s0), i0));
-  transitionFunctions.push_back(fsm->ite(s0, fsm->and2(fsm->neg(s1), i0), s1));
+  // Counter up to 3: 00, 01, 10 and reset to 00
+  transitionFunctions.push_back(
+      fsm->and2(i0, fsm->ite(s1, fsm->False(), fsm->neg(s0))));
+  transitionFunctions.push_back(fsm->and2(i0, fsm->and2(s0, fsm->neg(s1))));
 
   fsm->setTransitionFunctions(transitionFunctions);
   fsm->setInitState({false, false});
@@ -90,14 +90,13 @@ TEST_F(ReachabilityTest, StateDistanceTestWithInput) {
   ASSERT_EQ(fsm->stateDistance({false, false}), 1);
   ASSERT_EQ(fsm->stateDistance({true, false}), 2);
   ASSERT_EQ(fsm->stateDistance({false, true}), 3);
-  ASSERT_EQ(fsm->stateDistance({true, true}), 4);
+  ASSERT_EQ(fsm->stateDistance({true, true}), -1);
 }
 
 TEST_F(ReachabilityTest, ExceptionsTest) {
   auto s0 = stateVars.at(0);
   auto s1 = stateVars.at(1);
 
-  // FSM describes a counter
   transitionFunctions.push_back(fsm->neg(s0));
   transitionFunctions.push_back(fsm->neg(s0));
   transitionFunctions.push_back(fsm->ite(s0, fsm->neg(s1), s1));

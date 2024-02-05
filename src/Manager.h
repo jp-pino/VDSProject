@@ -33,6 +33,16 @@ struct Node {
   bool operator==(const Node& rhs) const {
     return high == rhs.high && low == rhs.low && top == rhs.top;
   }
+
+  void dump() {
+    spdlog::debug(
+        "Node: {}"
+        "\n  Label: {}"
+        "\n  Top: {}"
+        "\n  High: {}"
+        "\n  Low: {}",
+        id, label, top, high, low);
+  }
 };
 
 struct TupleHasher {

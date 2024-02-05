@@ -14,7 +14,9 @@
 #include "CircuitToBDD.hpp"
 #include "Manager.h"
 
+#ifndef DEBUG
 #define DEBUG 0
+#endif
 
 int main(int argc, char *argv[]) {
   spdlog::cfg::load_env_levels();
