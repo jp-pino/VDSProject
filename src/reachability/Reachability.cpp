@@ -85,9 +85,10 @@ int Reachability::stateDistance(const std::vector<bool> &stateVector) {
     distance++;
 
     // Check if the state is reachable at this iteration
+    spdlog::debug("cr: {}", cr);
   } while (!test_reachability(cr, stateVector) && cr_it != cr);
 
-  return test_reachability(cr, stateVector) ? distance : -1;
+  return test_reachability(cr, stateVector) ? distance - 1 : -1;
 }
 
 void Reachability::setTransitionFunctions(
@@ -147,61 +148,14 @@ BDD_ID Reachability::restrict(const BDD_ID &f, const std::vector<bool> &k,
   return temp;
 }
 
-std::tuple<BDD_ID, std::unordered_map<BDD_ID, bool>> Reachability::try_restrict(
-    const BDD_ID &f) {
-  const std::vector<BDD_ID> vars = findVars(f);
-  if (vars.size() == 0 || isConstant(f)) {
-    spdlog::warn(">>> No variables to restrict! <<<");
-    return {f, {}};
-  };
-
-  size_t possible_inputs = std::pow(2, vars.size());
-
-  BDD_ID lowest = f;
-  size_t lowest_input = 0;
-  size_t lowest_var_count = vars.size();
-
-  for (size_t input = 0; input < possible_inputs; input++) {
-    auto temp = f;
-
-    // Convert input to a vector of bools
-    boost::dynamic_bitset<> input_bits(vars.size(), input);
-    std::vector<bool> input_vector;
-    for (size_t i = 0; i < vars.size(); i++) {
-      input_vector.push_back(input_bits[i]);
-    }
-
-    temp = restrict(temp, input_vector, vars);
-
-    if (findVars(temp).size() < lowest_var_count && temp != False()) {
-      lowest = temp;
-      lowest_input = input;
-      lowest_var_count = findVars(temp).size();
-    }
-
-    if (lowest == True()) break;
-  }
-
-  // Convert lowest_input to a map of BDD_IDs -> bools
-  boost::dynamic_bitset<> input_bits(vars.size(), lowest_input);
-  std::unordered_map<BDD_ID, bool> input_map;
-  for (size_t i = 0; i < vars.size(); i++) {
-    input_map[vars[i]] = input_bits[i];
-  }
-
-  return {lowest, input_map};
-}
-
 bool Reachability::test_reachability(const BDD_ID &cr,
                                      const std::vector<bool> &stateVector) {
-  auto temp = restrict(cr, stateVector, states);
-  auto [result, input_map] = try_restrict(temp);
+  auto result = restrict(cr, stateVector, states);
 
   spdlog::debug(
       "\n  incoming cr:             {}"
-      "\n  restrict cr on states:   {}"
-      "\n  try_restrict cr on vars: {}",
-      cr, temp, result);
+      "\n  restrict cr on states:   {}",
+      cr, result);
 
   return result == True();
 }
