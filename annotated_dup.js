@@ -20,5 +20,6 @@ var annotated_dup =
     [ "CircuitToBDD", "classCircuitToBDD.html", "classCircuitToBDD" ],
     [ "ManagerTest", "classManagerTest.html", null ],
     [ "node", "structnode.html", null ],
-    [ "ReachabilityTest", "structReachabilityTest.html", null ]
+    [ "ReachabilityTest", "structReachabilityTest.html", null ],
+    [ "ReachabilityTest3States", "structReachabilityTest3States.html", null ]
 ];

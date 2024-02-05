@@ -19,7 +19,8 @@ var hierarchy =
     [ "node", "structnode.html", null ],
     [ "testing::Test", null, [
       [ "ManagerTest", "classManagerTest.html", null ],
-      [ "ReachabilityTest", "structReachabilityTest.html", null ]
+      [ "ReachabilityTest", "structReachabilityTest.html", null ],
+      [ "ReachabilityTest3States", "structReachabilityTest3States.html", null ]
     ] ],
     [ "ClassProject::TupleHasher", "structClassProject_1_1TupleHasher.html", null ]
 ];
