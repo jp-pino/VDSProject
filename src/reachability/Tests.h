@@ -148,6 +148,13 @@ TEST_F(ReachabilityTest3States, StateDistance) {
   ASSERT_EQ(fsm->stateDistance({true, true, true}), 7);
 }
 
+TEST(Group06_Test, DefaultStates) {
+  std::unique_ptr<ClassProject::ReachabilityInterface> fsm1 =
+      std::make_unique<ClassProject::Reachability>(1);
+  ASSERT_TRUE(fsm1->isReachable({false}));
+  ASSERT_FALSE(fsm1->isReachable({true}));
+}
+
 TEST(Group06_Test, threeStateTwoInputDistanceExample) { /* NOLINT */
 
   std::unique_ptr<ClassProject::Reachability> threestateDistance = std::make_unique<ClassProject::Reachability>(3,2);
