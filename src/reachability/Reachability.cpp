@@ -31,35 +31,7 @@ Reachability::Reachability(unsigned int stateSize, unsigned int inputSize)
 }
 
 bool Reachability::isReachable(const std::vector<bool> &stateVector) {
-  if (stateVector.size() != init_state.size()) {
-    throw std::runtime_error(
-        ">>> StateVector size does not match with number of state bits! <<<");
-  }
-  spdlog::debug(">>> isReachable");
-
-  auto cr_it = cs0;
-  auto cr = cr_it;
-  do {
-    spdlog::debug("cr: {}", cr);
-    cr = cr_it;
-    // Compute BBD for image of next states
-    auto img_next = existential_quantification(
-        existential_quantification(and2(cr, tau), states), inputs);
-
-    // Compute BDD for image of current states
-    auto img = True();
-    for (size_t i = 0; i < stateVector.size(); i++) {
-      img = and2(img, xnor2(states[i], next_states[i]));
-    }
-    img = existential_quantification(
-        existential_quantification(and2(img, img_next), next_states), inputs);
-
-    cr_it = or2(cr, img);
-  } while (cr_it != cr);
-
-  spdlog::debug("FINAL cr: {}", cr);
-
-  return test_reachability(cr, stateVector);
+  return stateDistance(stateVector) >= 0;
 }
 
 int Reachability::stateDistance(const std::vector<bool> &stateVector) {
@@ -67,7 +39,6 @@ int Reachability::stateDistance(const std::vector<bool> &stateVector) {
     throw std::runtime_error(
         ">>> StateVector size does not match with number of state bits! <<<");
   }
-  spdlog::debug(">>> stateDistance");
 
   auto cr_it = cs0;
   auto cr = cr_it;
