@@ -157,7 +157,8 @@ TEST(Group06_Test, DefaultStates) {
 
 TEST(Group06_Test, threeStateTwoInputDistanceExample) { /* NOLINT */
 
-  std::unique_ptr<ClassProject::Reachability> threestateDistance = std::make_unique<ClassProject::Reachability>(3,2);
+  std::unique_ptr<ClassProject::Reachability> threestateDistance =
+      std::make_unique<ClassProject::Reachability>(3, 2);
   std::vector<BDD_ID> stateVars7 = threestateDistance->getStates();
   std::vector<BDD_ID> transitionFunctions;
 
@@ -184,14 +185,15 @@ TEST(Group06_Test, threeStateTwoInputDistanceExample) { /* NOLINT */
    *  G:  1   1   0
    *  H:  1   1   1
    */
-  auto A = threestateDistance->and2(threestateDistance->and2(nots0,nots1),nots2);
-  auto B = threestateDistance->and2(threestateDistance->and2(s0,nots1),nots2);
-  auto C = threestateDistance->and2(threestateDistance->and2(nots0,s1),nots2);
-  auto D = threestateDistance->and2(threestateDistance->and2(s0,s1),nots2);
-  auto E = threestateDistance->and2(threestateDistance->and2(nots0,nots1),s2);
-  auto F = threestateDistance->and2(threestateDistance->and2(s0,nots1),s2);
-  auto G = threestateDistance->and2(threestateDistance->and2(nots0,s1),s2);
-  auto H = threestateDistance->and2(threestateDistance->and2(s0,s1),s2);
+  auto A =
+      threestateDistance->and2(threestateDistance->and2(nots0, nots1), nots2);
+  auto B = threestateDistance->and2(threestateDistance->and2(s0, nots1), nots2);
+  auto C = threestateDistance->and2(threestateDistance->and2(nots0, s1), nots2);
+  auto D = threestateDistance->and2(threestateDistance->and2(s0, s1), nots2);
+  auto E = threestateDistance->and2(threestateDistance->and2(nots0, nots1), s2);
+  auto F = threestateDistance->and2(threestateDistance->and2(s0, nots1), s2);
+  auto G = threestateDistance->and2(threestateDistance->and2(nots0, s1), s2);
+  auto H = threestateDistance->and2(threestateDistance->and2(s0, s1), s2);
 
   /**         i1  i0
    * inp0     0   0
@@ -200,12 +202,12 @@ TEST(Group06_Test, threeStateTwoInputDistanceExample) { /* NOLINT */
    * inp3     1   1
    *
    */
-  auto inp0 = threestateDistance->and2(noti0,noti1);
-  auto inp1 = threestateDistance->and2(i0,noti1);
-  auto inp2 = threestateDistance->and2(noti0,i1);
-  auto inp3 = threestateDistance->and2(i0,i1);
+  auto inp0 = threestateDistance->and2(noti0, noti1);
+  auto inp1 = threestateDistance->and2(i0, noti1);
+  auto inp2 = threestateDistance->and2(noti0, i1);
+  auto inp3 = threestateDistance->and2(i0, i1);
 
-  //s0' = not(s1)*not(s0)*not(i) + !s1*s0*!i + s1*!s0*!i
+  // s0' = not(s1)*not(s0)*not(i) + !s1*s0*!i + s1*!s0*!i
   auto AtoB = threestateDistance->and2(A, inp3);
   auto AtoE = threestateDistance->and2(A, inp2);
   auto AtoH = threestateDistance->and2(A, inp1);
@@ -214,24 +216,43 @@ TEST(Group06_Test, threeStateTwoInputDistanceExample) { /* NOLINT */
   auto BtoD = threestateDistance->and2(B, inp2);
   auto BtoC = threestateDistance->and2(B, inp1);
 
-  auto s0trans = threestateDistance->or2(AtoB, threestateDistance->or2(AtoH,
-                                                                       threestateDistance->or2(BtoB, threestateDistance->or2(BtoD, threestateDistance->or2(E,
-                                                                                                                                                           threestateDistance->or2(D,threestateDistance->or2(G, threestateDistance->or2(C,H))))))));
+  auto s0trans = threestateDistance->or2(
+      AtoB,
+      threestateDistance->or2(
+          AtoH,
+          threestateDistance->or2(
+              BtoB, threestateDistance->or2(
+                        BtoD, threestateDistance->or2(
+                                  E, threestateDistance->or2(
+                                         D, threestateDistance->or2(
+                                                G, threestateDistance->or2(
+                                                       C, H))))))));
 
-  auto s1trans = threestateDistance->or2(BtoG, threestateDistance->or2(AtoH,
-                                                                       threestateDistance->or2(F, threestateDistance->or2(BtoD, threestateDistance->or2(BtoC,
-                                                                                                                                                        threestateDistance->or2(D,threestateDistance->or2(C,threestateDistance->or2(G,H))))))));
-  //s1' = !s1*!s0 + s1*!s0*i + s1s0i
-  auto s2trans = threestateDistance->or2(AtoE, threestateDistance->or2(AtoH,
-                                                                       threestateDistance->or2(BtoG, threestateDistance->or2(E, threestateDistance->or2(F,
-                                                                                                                                                        threestateDistance->or2(G,H))))));
+  auto s1trans = threestateDistance->or2(
+      BtoG,
+      threestateDistance->or2(
+          AtoH,
+          threestateDistance->or2(
+              F, threestateDistance->or2(
+                     BtoD, threestateDistance->or2(
+                               BtoC, threestateDistance->or2(
+                                         D, threestateDistance->or2(
+                                                C, threestateDistance->or2(
+                                                       G, H))))))));
+  // s1' = !s1*!s0 + s1*!s0*i + s1s0i
+  auto s2trans = threestateDistance->or2(
+      AtoE,
+      threestateDistance->or2(
+          AtoH, threestateDistance->or2(
+                    BtoG, threestateDistance->or2(
+                              E, threestateDistance->or2(
+                                     F, threestateDistance->or2(G, H))))));
 
   transitionFunctions.push_back(s0trans);
   transitionFunctions.push_back(s1trans);
   transitionFunctions.push_back(s2trans);
-  //s1' = not(s3) and (s3 or (s3 nand (s0 and s1)))
+  // s1' = not(s3) and (s3 or (s3 nand (s0 and s1)))
   threestateDistance->setTransitionFunctions(transitionFunctions);
-
 
   /**     s2  s1  s0
    *  A:  0   0   0
@@ -269,66 +290,63 @@ TEST(Group06_Test, threeStateTwoInputDistanceExample) { /* NOLINT */
 
    */
 
-  ASSERT_TRUE (threestateDistance->isReachable({false, false, false})); //!A
-  ASSERT_TRUE (threestateDistance->isReachable({true, false, false})); //!B
-  ASSERT_TRUE (threestateDistance->isReachable({false, true, false})); //!C
-  ASSERT_TRUE (threestateDistance->isReachable({true, true, false})); //!D
-  ASSERT_TRUE (threestateDistance->isReachable({false, false, true})); //!E
-  ASSERT_TRUE (threestateDistance->isReachable({true, false, true}));//!F
-  ASSERT_TRUE (threestateDistance->isReachable({false, true, true}));//!G
-  ASSERT_TRUE (threestateDistance->isReachable({true, true, true}));//!H
+  ASSERT_TRUE(threestateDistance->isReachable({false, false, false}));  //! A
+  ASSERT_TRUE(threestateDistance->isReachable({true, false, false}));   //! B
+  ASSERT_TRUE(threestateDistance->isReachable({false, true, false}));   //! C
+  ASSERT_TRUE(threestateDistance->isReachable({true, true, false}));    //! D
+  ASSERT_TRUE(threestateDistance->isReachable({false, false, true}));   //! E
+  ASSERT_TRUE(threestateDistance->isReachable({true, false, true}));    //! F
+  ASSERT_TRUE(threestateDistance->isReachable({false, true, true}));    //! G
+  ASSERT_TRUE(threestateDistance->isReachable({true, true, true}));     //! H
 
-  ASSERT_EQ (threestateDistance->stateDistance({false, false, false}), 0);//!A
-  ASSERT_EQ (threestateDistance->stateDistance({true, false, false}), 1);//!B
-  ASSERT_EQ (threestateDistance->stateDistance({false, true, false}), 2);//!C
-  ASSERT_EQ (threestateDistance->stateDistance({true, true, false}), 2);//!D
-  ASSERT_EQ (threestateDistance->stateDistance({false, false, true}), 1);//!E
-  ASSERT_EQ (threestateDistance->stateDistance({true, false, true}), 2);//!F
-  ASSERT_EQ (threestateDistance->stateDistance({false, true, true}), 2);//!G
-  ASSERT_EQ (threestateDistance->stateDistance({true, true, true}), 1);//!H
+  ASSERT_EQ(threestateDistance->stateDistance({false, false, false}), 0);  //! A
+  ASSERT_EQ(threestateDistance->stateDistance({true, false, false}), 1);   //! B
+  ASSERT_EQ(threestateDistance->stateDistance({false, true, false}), 2);   //! C
+  ASSERT_EQ(threestateDistance->stateDistance({true, true, false}), 2);    //! D
+  ASSERT_EQ(threestateDistance->stateDistance({false, false, true}), 1);   //! E
+  ASSERT_EQ(threestateDistance->stateDistance({true, false, true}), 2);    //! F
+  ASSERT_EQ(threestateDistance->stateDistance({false, true, true}), 2);    //! G
+  ASSERT_EQ(threestateDistance->stateDistance({true, true, true}), 1);     //! H
 
+  threestateDistance->setInitState({true, false, false});                //! B
+  ASSERT_FALSE(threestateDistance->isReachable({false, false, false}));  //! A
+  ASSERT_TRUE(threestateDistance->isReachable({true, false, false}));    //! B
+  ASSERT_TRUE(threestateDistance->isReachable({false, true, false}));    //! C
+  ASSERT_TRUE(threestateDistance->isReachable({true, true, false}));     //! D
+  ASSERT_FALSE(threestateDistance->isReachable({false, false, true}));   //! E
+  ASSERT_FALSE(threestateDistance->isReachable({true, false, true}));    //! F
+  ASSERT_TRUE(threestateDistance->isReachable({false, true, true}));     //! G
+  ASSERT_TRUE(threestateDistance->isReachable({true, true, true}));      //! H
 
-  threestateDistance->setInitState({true, false, false});//!B
-  ASSERT_FALSE(threestateDistance->isReachable({false, false, false})); //!A
-  ASSERT_TRUE (threestateDistance->isReachable({true, false, false})); //!B
-  ASSERT_TRUE (threestateDistance->isReachable({false, true, false})); //!C
-  ASSERT_TRUE (threestateDistance->isReachable({true, true, false})); //!D
-  ASSERT_FALSE (threestateDistance->isReachable({false, false, true})); //!E
-  ASSERT_FALSE (threestateDistance->isReachable({true, false, true}));//!F
-  ASSERT_TRUE (threestateDistance->isReachable({false, true, true}));//!G
-  ASSERT_TRUE (threestateDistance->isReachable({true, true, true}));//!H
+  ASSERT_EQ(threestateDistance->stateDistance({false, false, false}),
+            -1);                                                           //! A
+  ASSERT_EQ(threestateDistance->stateDistance({true, false, false}), 0);   //! B
+  ASSERT_EQ(threestateDistance->stateDistance({false, true, false}), 1);   //! C
+  ASSERT_EQ(threestateDistance->stateDistance({true, true, false}), 1);    //! D
+  ASSERT_EQ(threestateDistance->stateDistance({false, false, true}), -1);  //! E
+  ASSERT_EQ(threestateDistance->stateDistance({true, false, true}), -1);   //! F
+  ASSERT_EQ(threestateDistance->stateDistance({false, true, true}), 1);    //! G
+  ASSERT_EQ(threestateDistance->stateDistance({true, true, true}), 2);     //! H
 
-  ASSERT_EQ (threestateDistance->stateDistance({false, false, false}), -1);//!A
-  ASSERT_EQ (threestateDistance->stateDistance({true, false, false}), 0);//!B
-  ASSERT_EQ (threestateDistance->stateDistance({false, true, false}), 1);//!C
-  ASSERT_EQ (threestateDistance->stateDistance({true, true, false}), 1);//!D
-  ASSERT_EQ (threestateDistance->stateDistance({false, false, true}), -1);//!E
-  ASSERT_EQ (threestateDistance->stateDistance({true, false, true}), -1);//!F
-  ASSERT_EQ (threestateDistance->stateDistance({false, true, true}), 1);//!G
-  ASSERT_EQ (threestateDistance->stateDistance({true, true, true}), 2);//!H
+  threestateDistance->setInitState({false, false, true});                //! E
+  ASSERT_FALSE(threestateDistance->isReachable({false, false, false}));  //! A
+  ASSERT_FALSE(threestateDistance->isReachable({true, false, false}));   //! B
+  ASSERT_FALSE(threestateDistance->isReachable({false, true, false}));   //! C
+  ASSERT_FALSE(threestateDistance->isReachable({true, true, false}));    //! D
+  ASSERT_TRUE(threestateDistance->isReachable({false, false, true}));    //! E
+  ASSERT_TRUE(threestateDistance->isReachable({true, false, true}));     //! F
+  ASSERT_TRUE(threestateDistance->isReachable({false, true, true}));     //! G
+  ASSERT_TRUE(threestateDistance->isReachable({true, true, true}));      //! H
 
-  threestateDistance->setInitState({false, false, true});//!E
-  ASSERT_FALSE(threestateDistance->isReachable({false, false, false})); //!A
-  ASSERT_FALSE (threestateDistance->isReachable({true, false, false})); //!B
-  ASSERT_FALSE (threestateDistance->isReachable({false, true, false})); //!C
-  ASSERT_FALSE (threestateDistance->isReachable({true, true, false})); //!D
-  ASSERT_TRUE (threestateDistance->isReachable({false, false, true})); //!E
-  ASSERT_TRUE (threestateDistance->isReachable({true, false, true}));//!F
-  ASSERT_TRUE (threestateDistance->isReachable({false, true, true}));//!G
-  ASSERT_TRUE (threestateDistance->isReachable({true, true, true}));//!H
-
-  ASSERT_EQ (threestateDistance->stateDistance({false, false, false}), -1);//!A
-  ASSERT_EQ (threestateDistance->stateDistance({true, false, false}), -1);//!B
-  ASSERT_EQ (threestateDistance->stateDistance({false, true, false}), -1);//!C
-  ASSERT_EQ (threestateDistance->stateDistance({true, true, false}), -1);//!D
-  ASSERT_EQ (threestateDistance->stateDistance({false, false, true}), 0);//!E
-  ASSERT_EQ (threestateDistance->stateDistance({true, false, true}), 1);//!F
-  ASSERT_EQ (threestateDistance->stateDistance({false, true, true}), 2);//!G
-  ASSERT_EQ (threestateDistance->stateDistance({true, true, true}), 3);//!H
-
-
-
+  ASSERT_EQ(threestateDistance->stateDistance({false, false, false}),
+            -1);                                                           //! A
+  ASSERT_EQ(threestateDistance->stateDistance({true, false, false}), -1);  //! B
+  ASSERT_EQ(threestateDistance->stateDistance({false, true, false}), -1);  //! C
+  ASSERT_EQ(threestateDistance->stateDistance({true, true, false}), -1);   //! D
+  ASSERT_EQ(threestateDistance->stateDistance({false, false, true}), 0);   //! E
+  ASSERT_EQ(threestateDistance->stateDistance({true, false, true}), 1);    //! F
+  ASSERT_EQ(threestateDistance->stateDistance({false, true, true}), 2);    //! G
+  ASSERT_EQ(threestateDistance->stateDistance({true, true, true}), 3);     //! H
 }
-
 
 #endif

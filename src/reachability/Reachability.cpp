@@ -12,7 +12,9 @@ Reachability::Reachability(unsigned int stateSize, unsigned int inputSize)
       inputs(inputSize, 0),
       next_states(stateSize, 0),
       init_state(stateSize, false),
-      transitionFunctions(stateSize, 0) {
+      transitionFunctions(stateSize, 0),
+      tau(True()),
+      cs0(True()) {
   if (stateSize == 0) throw std::runtime_error(">>> stateSize is zero! <<<");
 
   for (unsigned int i = 0; i < stateSize; i++) {
@@ -23,6 +25,9 @@ Reachability::Reachability(unsigned int stateSize, unsigned int inputSize)
   for (unsigned int i = 0; i < inputSize; i++) {
     inputs[i] = createVar(fmt::format("i{}", i));
   }
+
+  setInitState(std::vector<bool>(stateSize, false));
+  setTransitionFunctions(std::vector<BDD_ID>(stateSize, 0));
 }
 
 bool Reachability::isReachable(const std::vector<bool> &stateVector) {
