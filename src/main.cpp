@@ -15,11 +15,11 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
   auto c = manager.createVar("C");
   auto d = manager.createVar("D");
 
-  auto f = manager.getNode(manager.and2(manager.or2(a, b), manager.and2(c, d)));
+  auto f = (a + b) * (c * d);
 
   manager.dump();
 
-  manager.visualizeBDD("bdd.dot", f->id, true);
+  manager.visualizeBDD("bdd.dot", f, true);
 
   return 0;
 }

@@ -8,11 +8,11 @@
 namespace ClassProject {
 
 Reachability::Reachability(unsigned int stateSize, unsigned int inputSize)
-    : states(stateSize, 0),
-      inputs(inputSize, 0),
-      next_states(stateSize, 0),
+    : states(stateSize, False()),
+      inputs(inputSize, False()),
+      next_states(stateSize, False()),
       init_state(stateSize, false),
-      transitionFunctions(stateSize, 0),
+      transitionFunctions(stateSize, False()),
       tau(True()),
       cs0(True()) {
   if (stateSize == 0) throw std::runtime_error(">>> stateSize is zero! <<<");
@@ -27,7 +27,7 @@ Reachability::Reachability(unsigned int stateSize, unsigned int inputSize)
   }
 
   setInitState(std::vector<bool>(stateSize, false));
-  setTransitionFunctions(std::vector<BDD_ID>(stateSize, 0));
+  setTransitionFunctions(std::vector<Node>(stateSize, False()));
 }
 
 bool Reachability::isReachable(const std::vector<bool> &stateVector) {
@@ -40,35 +40,38 @@ int Reachability::stateDistance(const std::vector<bool> &stateVector) {
         ">>> StateVector size does not match with number of state bits! <<<");
   }
 
-  auto cr_it = cs0;
-  auto cr = cr_it;
+  auto prev = cs0;
+  auto cr = cs0;
   auto distance = 0;
+  spdlog::debug("cr: {}", cr.id());
   do {
-    cr = cr_it;
     // Compute BBD for image of next states
     auto img_next = existential_quantification(
-        existential_quantification(and2(cr, tau), states), inputs);
+        existential_quantification(cr * tau, states), inputs);
 
-    // Compute BDD for image of current states
+    // Rename next state as current state
     auto img = True();
     for (size_t i = 0; i < stateVector.size(); i++) {
-      img = and2(img, xnor2(states[i], next_states[i]));
+      img *= !(states[i] ^ next_states[i]);
     }
-    img = existential_quantification(
-        existential_quantification(and2(img, img_next), next_states), inputs);
 
-    cr_it = or2(cr, img);
+    img = existential_quantification(
+        existential_quantification(img * img_next, next_states), inputs);
+
+    prev = cr;
+    cr += img;
     distance++;
 
     // Check if the state is reachable at this iteration
-    spdlog::debug("cr: {}", cr);
-  } while (!test_reachability(cr, stateVector) && cr_it != cr);
+    spdlog::info("cr: {}", cr.id());
+    spdlog::info("prev: {}", prev.id());
+  } while (!test_reachability(prev, stateVector) && cr != prev);
 
   return test_reachability(cr, stateVector) ? distance - 1 : -1;
 }
 
 void Reachability::setTransitionFunctions(
-    const std::vector<BDD_ID> &transitionFunctions) {
+    const std::vector<Node> &transitionFunctions) {
   if (this->transitionFunctions.size() != transitionFunctions.size()) {
     throw std::runtime_error(
         ">>> The number of given transition functions does not match the "
@@ -86,9 +89,7 @@ void Reachability::setTransitionFunctions(
   // Compute Transition Relation tau
   tau = True();
   for (size_t i = 0; i < this->transitionFunctions.size(); i++) {
-    tau = and2(
-        tau, or2(and2(next_states[i], this->transitionFunctions[i]),
-                 and2(neg(next_states[i]), neg(this->transitionFunctions[i]))));
+    tau *= !(next_states[i] ^ this->transitionFunctions[i]);
   }
 }
 
@@ -102,37 +103,38 @@ void Reachability::setInitState(const std::vector<bool> &stateVector) {
   // Compute Characteristic Function for Initial State (CS0)
   cs0 = True();
   for (size_t i = 0; i < init_state.size(); i++) {
-    cs0 = and2(cs0, xnor2(states[i], init_state[i]));
+    cs0 = cs0 * !(states[i] ^ (init_state[i] ? True() : False()));
   }
 }
 
-BDD_ID Reachability::existential_quantification(const BDD_ID &f,
-                                                const std::vector<BDD_ID> &v) {
+const Node Reachability::existential_quantification(
+    const Node &f, const std::vector<Node> &v) {
   auto temp = f;
   for (int64_t i = v.size() - 1; i >= 0; i--) {
-    temp = or2(coFactorTrue(temp, v[i]), coFactorFalse(temp, v[i]));
+    temp = (temp << v[i]) + (temp >> v[i]);
   }
   return temp;
 }
 
-BDD_ID Reachability::restrict(const BDD_ID &f, const std::vector<bool> &k,
-                              const std::vector<BDD_ID> &v) {
+const Node Reachability::restrict(const Node &f, const std::vector<bool> &k,
+                                  const std::vector<Node> &v) {
   auto temp = f;
   for (int64_t i = k.size() - 1; i >= 0; i--) {
-    temp = k[i] ? coFactorTrue(temp, v[i]) : coFactorFalse(temp, v[i]);
+    temp = k[i] ? (temp << v[i]) : (temp >> v[i]);
   }
   return temp;
 }
 
-bool Reachability::test_reachability(const BDD_ID &cr,
+bool Reachability::test_reachability(const Node &cr,
                                      const std::vector<bool> &stateVector) {
   auto result = restrict(cr, stateVector, states);
 
   spdlog::debug(
       "\n  incoming cr:             {}"
       "\n  restrict cr on states:   {}",
-      cr, result);
+      cr.id(), result.id());
 
+  spdlog::debug("  result == True(): {}", result == True());
   return result == True();
 }
 

@@ -18,32 +18,7 @@ namespace ClassProject {
 
 typedef std::tuple<BDD_ID, BDD_ID, BDD_ID> Key;
 
-struct Node {
-  BDD_ID id;
-  BDD_ID high;
-  BDD_ID low;
-  BDD_ID top;
-  std::string label;
-
-  Node(BDD_ID id, std::string label) : id(id), label(label){};
-
-  bool isConstant() { return id == high && id == low && id == top; }
-  bool isVariable() { return !isConstant() && top == id; }
-
-  bool operator==(const Node& rhs) const {
-    return high == rhs.high && low == rhs.low && top == rhs.top;
-  }
-
-  void dump() {
-    spdlog::debug(
-        "Node: {}"
-        "\n  Label: {}"
-        "\n  Top: {}"
-        "\n  High: {}"
-        "\n  Low: {}",
-        id, label, top, high, low);
-  }
-};
+class Node;
 
 struct TupleHasher {
   std::size_t operator()(const Key& key) const {
@@ -101,42 +76,21 @@ class Manager : public ManagerInterface {
    * @param label Label of the variable
    * @return ID of the new variable
    */
-  BDD_ID createVar(const std::string& label) override;
-  BDD_ID createVar(const std::string& label, const BDD_ID& top,
-                   const BDD_ID& high, const BDD_ID& low);
+  const Node createVar(const std::string& label) override;
+  const Node createVar(const std::string& label, const BDD_ID& top,
+                       const BDD_ID& high, const BDD_ID& low);
 
   /**
    * @brief Get the ID of the constant True
    * @return ID of the constant True
    */
-  const BDD_ID& True() override;
+  const Node True() override;
 
   /**
    * @brief Get the ID of the constant False
    * @return ID of the constant False
    */
-  const BDD_ID& False() override;
-
-  /**
-   * @brief Check if a node is a constant
-   * @param f ID of the node
-   * @return True if the node is a constant, False otherwise
-   */
-  bool isConstant(BDD_ID f) override;
-
-  /**
-   * @brief Check if a node is a variable
-   * @param x ID of the node
-   * @return True if the node is a variable, False otherwise
-   */
-  bool isVariable(BDD_ID x) override;
-
-  /**
-   * @brief Get the top variable of a node
-   * @param f ID of the node
-   * @return ID of the top variable of the node
-   */
-  BDD_ID topVar(BDD_ID f) override;
+  const Node False() override;
 
   /**
    * @brief Compute the if-then-else of three nodes
@@ -151,7 +105,7 @@ class Manager : public ManagerInterface {
    * @param e ID of the else node
    * @return ID of the result node
    */
-  BDD_ID ite(BDD_ID i, BDD_ID t, BDD_ID e) override;
+  const Node ite(const Node& i, const Node& t, const Node& e) override;
 
   /**
    * @brief Compute the true co-factor of a node
@@ -166,7 +120,7 @@ class Manager : public ManagerInterface {
    * @param x ID of the variable
    * @return ID of the true co-factor of the node
    */
-  BDD_ID coFactorTrue(BDD_ID f, BDD_ID x) override;
+  const Node coFactorTrue(const Node& f, const Node& x) override;
 
   /**
    * @brief Compute the false co-factor of a node
@@ -181,10 +135,7 @@ class Manager : public ManagerInterface {
    * @param x ID of the variable
    * @return ID of the false co-factor of the node
    */
-  BDD_ID coFactorFalse(BDD_ID f, BDD_ID x) override;
-
-  BDD_ID coFactorTrue(BDD_ID f) override;
-  BDD_ID coFactorFalse(BDD_ID f) override;
+  const Node coFactorFalse(const Node& f, const Node& x) override;
 
   /**
    * @brief Compute the AND of two nodes
@@ -192,7 +143,7 @@ class Manager : public ManagerInterface {
    * @param b ID of the second node
    * @return ID of the result node
    */
-  BDD_ID and2(BDD_ID a, BDD_ID b) override;
+  const Node and2(const Node& a, const Node& b) override;
 
   /**
    * @brief Compute the OR of two nodes
@@ -200,7 +151,7 @@ class Manager : public ManagerInterface {
    * @param b ID of the second node
    * @return ID of the result node
    */
-  BDD_ID or2(BDD_ID a, BDD_ID b) override;
+  const Node or2(const Node& a, const Node& b) override;
 
   /**
    * @brief Compute the XOR of two nodes
@@ -208,14 +159,14 @@ class Manager : public ManagerInterface {
    * @param b ID of the second node
    * @return ID of the result node
    */
-  BDD_ID xor2(BDD_ID a, BDD_ID b) override;
+  const Node xor2(const Node& a, const Node& b) override;
 
   /**
    * @brief Compute the negation of a node
    * @param a ID of the node
    * @return ID of the result node
    */
-  BDD_ID neg(BDD_ID a) override;
+  const Node neg(const Node& a) override;
 
   /**
    * @brief Compute the NAND of two nodes
@@ -223,7 +174,7 @@ class Manager : public ManagerInterface {
    * @param b ID of the second node
    * @return ID of the result node
    */
-  BDD_ID nand2(BDD_ID a, BDD_ID b) override;
+  const Node nand2(const Node& a, const Node& b) override;
 
   /**
    * @brief Compute the NOR of two nodes
@@ -231,7 +182,7 @@ class Manager : public ManagerInterface {
    * @param b ID of the second node
    * @return ID of the result node
    */
-  BDD_ID nor2(BDD_ID a, BDD_ID b) override;
+  const Node nor2(const Node& a, const Node& b) override;
 
   /**
    * @brief Compute the XNOR of two nodes
@@ -239,16 +190,16 @@ class Manager : public ManagerInterface {
    * @param b ID of the second node
    * @return ID of the result node
    */
-  BDD_ID xnor2(BDD_ID a, BDD_ID b) override;
+  const Node xnor2(const Node& a, const Node& b) override;
 
   void dump();
 
-  std::string getTopVarName(const BDD_ID& root) override;
-
+  void findNodes(const Node& root, std::set<Node>& nodes_of_root) override;
   void findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) override;
 
+  void findVars(const Node& root, std::set<Node>& vars_of_root) override;
   void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) override;
-  std::vector<BDD_ID> findVars(const BDD_ID& root) override;
+  std::vector<Node> findVars(const Node& root) override;
 
   size_t uniqueTableSize() override;
 
@@ -257,14 +208,15 @@ class Manager : public ManagerInterface {
 
   // Not implemented yet
 
-  void visualizeBDD_internal(std::ofstream& file, BDD_ID& root);
-  void visualizeBDD(std::string filepath, BDD_ID& root,
+  void visualizeBDD_internal(std::ofstream& file, const Node& root);
+  void visualizeBDD(std::string filepath, const Node& root,
                     bool test_result) override;
 
-  void mermaidGraph_internal(std::ofstream& file, BDD_ID& root,
-                             std::set<BDD_ID>& printed_nodes);
-  void mermaidGraph(std::string filepath, BDD_ID& root);
+  void mermaidGraph_internal(std::ofstream& file, const Node& root,
+                             std::set<Node>& printed_nodes);
+  void mermaidGraph(std::string filepath, const Node& root);
 
-  const std::shared_ptr<Node> getNode(const BDD_ID& id) const;
+  const Node getNode(const BDD_ID& id) const;
 };
+
 }  // namespace ClassProject

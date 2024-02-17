@@ -95,12 +95,12 @@ ClassProject::BDD_ID CircuitToBDD::findBddId(unique_ID_t circuit_node) {
 }
 
 ClassProject::BDD_ID CircuitToBDD::InputGate(const label_t &label) {
-  return bdd_manager->createVar(label);
+  return bdd_manager->createVar(label).id();
 }
 
 ClassProject::BDD_ID CircuitToBDD::NotGate(const set_of_circuit_t &inputNodes) {
   unique_ID_t node = *inputNodes.begin();
-  return bdd_manager->neg(findBddId(node));
+  return bdd_manager->neg(bdd_manager->getNode(findBddId(node))).id();
 }
 
 ClassProject::BDD_ID CircuitToBDD::AndGate(set_of_circuit_t inputNodes) {
@@ -116,7 +116,8 @@ ClassProject::BDD_ID CircuitToBDD::AndGate(set_of_circuit_t inputNodes) {
     second_op = findBddId(*it);
     inputNodes.erase(it);
 
-    first_op = bdd_manager->and2(first_op, second_op);
+    first_op =
+        (bdd_manager->getNode(first_op) * bdd_manager->getNode(second_op)).id();
   }
 
   /* Return the ClassProject::BDD_ID equivalent to the AND of all inputs */
@@ -136,7 +137,8 @@ ClassProject::BDD_ID CircuitToBDD::OrGate(set_of_circuit_t inputNodes) {
     second_op = findBddId(*it);
     inputNodes.erase(it);
 
-    first_op = bdd_manager->or2(first_op, second_op);
+    first_op =
+        (bdd_manager->getNode(first_op) + bdd_manager->getNode(second_op)).id();
   }
 
   /* Return the ClassProject::BDD_ID equivalent to the OR of all inputs */
@@ -158,12 +160,16 @@ ClassProject::BDD_ID CircuitToBDD::NandGate(set_of_circuit_t inputNodes) {
     inputNodes.erase(it);
 
     /* Create the NAND BDD node for the first two elements */
-    first_op = bdd_manager->nand2(first_op, second_op);
+    first_op =
+        (!(bdd_manager->getNode(first_op) & bdd_manager->getNode(second_op)))
+            .id();
   } else {
     /* AND of all inputs, to use as the second operator of the NAND gate */
     second_op = AndGate(inputNodes);
     /* Create the NAND BDD node */
-    first_op = bdd_manager->nand2(first_op, second_op);
+    first_op =
+        (!(bdd_manager->getNode(first_op) & bdd_manager->getNode(second_op)))
+            .id();
   }
 
   /* Return the ClassProject::BDD_ID equivalent to the NAND of all inputs */
@@ -185,12 +191,16 @@ ClassProject::BDD_ID CircuitToBDD::NorGate(set_of_circuit_t inputNodes) {
     inputNodes.erase(it);
 
     /* Create the NOR BDD node for the first two elements */
-    first_op = bdd_manager->nor2(first_op, second_op);
+    first_op =
+        (!(bdd_manager->getNode(first_op) + bdd_manager->getNode(second_op)))
+            .id();
   } else {
     /* OR of all inputs, to use as the second operator of the NAND gate */
     second_op = OrGate(inputNodes);
     /* Create the NOR BDD node */
-    first_op = bdd_manager->nor2(first_op, second_op);
+    first_op =
+        (!(bdd_manager->getNode(first_op) + bdd_manager->getNode(second_op)))
+            .id();
   }
 
   /* Return the ClassProject::BDD_ID equivalent to the NOR of all inputs */
@@ -210,7 +220,9 @@ ClassProject::BDD_ID CircuitToBDD::XorGate(set_of_circuit_t inputNodes) {
     second_op = findBddId(*it);
     inputNodes.erase(it);
 
-    first_op = bdd_manager->xor2(first_op, second_op);
+    first_op =
+        (!(bdd_manager->getNode(first_op) ^ bdd_manager->getNode(second_op)))
+            .id();
   }
 
   /* Return the ClassProject::BDD_ID equivalent to the XOR of all inputs */
@@ -262,14 +274,14 @@ void CircuitToBDD::PrintBDD(const std::set<label_t> &output_labels) {
 
 void CircuitToBDD::dumpBddText(std::ostream &out) {
   for (auto it = output_nodes.rbegin(); it != output_nodes.rend(); ++it) {
-    if (bdd_manager->isConstant(*it)) {
+    if (bdd_manager->getNode(*it).isConstant()) {
       out << "Terminal Node: " << (*it) << "\n";
     } else {
       out << "Variable Node: " << (*it)
-          << " Top Var Id: " << bdd_manager->topVar(*it) << " Top Var Name: "
-          << bdd_manager->getTopVarName(bdd_manager->topVar(*it))
-          << " Low: " << bdd_manager->coFactorFalse(*it)
-          << " High: " << bdd_manager->coFactorTrue(*it) << "\n";
+          << " Top Var Id: " << bdd_manager->getNode(*it).top().id()
+          << " Top Var Name: " << bdd_manager->getNode(*it).top().top().label()
+          << " Low: " << bdd_manager->getNode(*it).low().id()
+          << " High: " << bdd_manager->getNode(*it).high().id() << "\n";
     }
   }
 }
@@ -282,9 +294,9 @@ void CircuitToBDD::dumpBddDot(std::ostream &out) {
   out << "  { node [shape=box,fontsize=12]; \"1\"; }\n}\n";
   for (const auto var : output_vars) {
     out << R"({ rank=same; { node [shape=plaintext,fontname="Times Italic",fontsize=12] ")"
-        << bdd_manager->getTopVarName(var) << "\" };";
+        << bdd_manager->getNode(var).top().top().label() << "\" };";
     for (unsigned long node : output_nodes) {
-      if (bdd_manager->topVar(node) == var) {
+      if (bdd_manager->getNode(node).top().id() == var) {
         out << "\"" << node << "\";";
       }
     }
@@ -292,14 +304,15 @@ void CircuitToBDD::dumpBddDot(std::ostream &out) {
   }
   out << "edge [style = invis]; {";
   for (const auto var : output_vars) {
-    out << "\"" << bdd_manager->getTopVarName(var) << "\" -> ";
+    out << "\"" << bdd_manager->getNode(var).top().top().label() << "\" -> ";
   }
   out << "\"T\"; }\n";
   for (const auto node : output_nodes) {
-    if (!bdd_manager->isConstant(node)) {
-      out << "\"" << node << "\" -> \"" << bdd_manager->coFactorTrue(node)
+    if (!bdd_manager->getNode(node).isConstant()) {
+      out << "\"" << node << "\" -> \""
+          << bdd_manager->getNode(node).high().id()
           << "\" [style=solid,arrowsize=\".75\"];\n";
-      out << "\"" << node << "\" -> \"" << bdd_manager->coFactorFalse(node)
+      out << "\"" << node << "\" -> \"" << bdd_manager->getNode(node).low().id()
           << "\" [style=dashed,arrowsize=\".75\"];\n";
     }
   }

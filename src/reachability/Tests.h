@@ -11,9 +11,9 @@ struct ReachabilityTest : testing::Test {
   std::unique_ptr<ClassProject::ReachabilityInterface> fsm =
       std::make_unique<ClassProject::Reachability>(2, 2);
 
-  std::vector<BDD_ID> inputVars = fsm->getInputs();
-  std::vector<BDD_ID> stateVars = fsm->getStates();
-  std::vector<BDD_ID> transitionFunctions;
+  std::vector<Node> inputVars = fsm->getInputs();
+  std::vector<Node> stateVars = fsm->getStates();
+  std::vector<Node> transitionFunctions;
 
   void TearDown() override {
     if (HasFailure()) {
@@ -26,8 +26,8 @@ TEST_F(ReachabilityTest, HowTo_Example) {
   auto s0 = stateVars.at(0);
   auto s1 = stateVars.at(1);
 
-  transitionFunctions.push_back(fsm->neg(s0));  // s0' = not(s0)
-  transitionFunctions.push_back(fsm->neg(s1));  // s1' = not(s1)
+  transitionFunctions.push_back(!s0);  // s0' = not(s0)
+  transitionFunctions.push_back(!s1);  // s1' = not(s1)
   fsm->setTransitionFunctions(transitionFunctions);
 
   fsm->setInitState({false, false});
@@ -44,9 +44,8 @@ TEST_F(ReachabilityTest, InputsTest) {
   auto i0 = inputVars.at(0);
 
   // Counter up to 3: 00, 01, 10 and reset to 00
-  transitionFunctions.push_back(
-      fsm->and2(i0, fsm->ite(s1, fsm->False(), fsm->neg(s0))));
-  transitionFunctions.push_back(fsm->and2(i0, fsm->and2(s0, fsm->neg(s1))));
+  transitionFunctions.push_back(i0 * fsm->ite(s1, fsm->False(), (!s0)));
+  transitionFunctions.push_back(i0 * s0 * !s1);
 
   fsm->setTransitionFunctions(transitionFunctions);
   fsm->setInitState({false, false});
@@ -62,8 +61,8 @@ TEST_F(ReachabilityTest, StateDistanceTest) {
   auto s1 = stateVars.at(1);
 
   // FSM describes a counter
-  transitionFunctions.push_back(fsm->neg(s0));
-  transitionFunctions.push_back(fsm->ite(s0, fsm->neg(s1), s1));
+  transitionFunctions.push_back(!s0);
+  transitionFunctions.push_back(fsm->ite(s0, (!s1), s1));
 
   fsm->setTransitionFunctions(transitionFunctions);
   fsm->setInitState({false, false});
@@ -80,9 +79,8 @@ TEST_F(ReachabilityTest, StateDistanceTestWithInput) {
   auto i0 = inputVars.at(0);
 
   // Counter up to 3: 00, 01, 10 and reset to 00
-  transitionFunctions.push_back(
-      fsm->and2(i0, fsm->ite(s1, fsm->False(), fsm->neg(s0))));
-  transitionFunctions.push_back(fsm->and2(i0, fsm->and2(s0, fsm->neg(s1))));
+  transitionFunctions.push_back(i0 * fsm->ite(s1, fsm->False(), (!s0)));
+  transitionFunctions.push_back(i0 * s0 * !s1);
 
   fsm->setTransitionFunctions(transitionFunctions);
   fsm->setInitState({false, false});
@@ -97,9 +95,9 @@ TEST_F(ReachabilityTest, ExceptionsTest) {
   auto s0 = stateVars.at(0);
   auto s1 = stateVars.at(1);
 
-  transitionFunctions.push_back(fsm->neg(s0));
-  transitionFunctions.push_back(fsm->neg(s0));
-  transitionFunctions.push_back(fsm->ite(s0, fsm->neg(s1), s1));
+  transitionFunctions.push_back(!s0);
+  transitionFunctions.push_back(!s0);
+  transitionFunctions.push_back(fsm->ite(s0, (!s1), s1));
 
   EXPECT_THROW(fsm->setTransitionFunctions(transitionFunctions),
                std::runtime_error);
@@ -112,9 +110,9 @@ struct ReachabilityTest3States : testing::Test {
   std::unique_ptr<ClassProject::ReachabilityInterface> fsm =
       std::make_unique<ClassProject::Reachability>(3);
 
-  std::vector<BDD_ID> inputVars = fsm->getInputs();
-  std::vector<BDD_ID> stateVars = fsm->getStates();
-  std::vector<BDD_ID> transitionFunctions;
+  std::vector<Node> inputVars = fsm->getInputs();
+  std::vector<Node> stateVars = fsm->getStates();
+  std::vector<Node> transitionFunctions;
 
   void TearDown() override {
     if (HasFailure()) {
@@ -128,12 +126,11 @@ TEST_F(ReachabilityTest3States, StateDistance) {
   auto s1 = stateVars.at(1);
   auto s2 = stateVars.at(2);
 
-  transitionFunctions.push_back(fsm->neg(s0));  // s0'
+  transitionFunctions.push_back(!s0);  // s0'
   // s1 = s0 ? !s1 : s1
-  transitionFunctions.push_back(fsm->ite(s0, fsm->neg(s1), s1));  // s1'
+  transitionFunctions.push_back(fsm->ite(s0, (!s1), s1));  // s1'
   // s2 = s1 & s0 ? !s2 : s2
-  transitionFunctions.push_back(
-      fsm->ite(fsm->and2(s1, s0), fsm->neg(s2), s2));  // s2'
+  transitionFunctions.push_back(fsm->ite((s1 * s0), !(s2), s2));  // s2'
   fsm->setTransitionFunctions(transitionFunctions);
 
   fsm->setInitState({false, false, false});
@@ -159,8 +156,8 @@ TEST(Group06_Test, threeStateTwoInputDistanceExample) { /* NOLINT */
 
   std::unique_ptr<ClassProject::Reachability> threestateDistance =
       std::make_unique<ClassProject::Reachability>(3, 2);
-  std::vector<BDD_ID> stateVars7 = threestateDistance->getStates();
-  std::vector<BDD_ID> transitionFunctions;
+  std::vector<Node> stateVars7 = threestateDistance->getStates();
+  std::vector<Node> transitionFunctions;
 
   auto s0 = stateVars7.at(0);
   auto s1 = stateVars7.at(1);

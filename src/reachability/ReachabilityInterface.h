@@ -17,16 +17,16 @@ class ReachabilityInterface : public Manager {
   /**
    * Returns a vector containing all state bits of the state machine.
    *
-   * @returns vector with the BDD_ID of each state bit
+   * @returns vector with the Node of each state bit
    */
-  virtual const std::vector<BDD_ID> &getStates() const = 0;
+  virtual const std::vector<Node> &getStates() const = 0;
 
   /**
    * Returns a vector containing all input bits of the state machine.
    *
-   * @returns vector with the BDD_ID of each input bit
+   * @returns vector with the Node of each input bit
    */
-  virtual const std::vector<BDD_ID> &getInputs() const = 0;
+  virtual const std::vector<Node> &getInputs() const = 0;
 
   /**
    * This function computes whether a specific state is in the reachable state
@@ -76,7 +76,7 @@ class ReachabilityInterface : public Manager {
    * @throws std::runtime_error
    */
   virtual void setTransitionFunctions(
-      const std::vector<BDD_ID> &transitionFunctions) = 0;
+      const std::vector<Node> &transitionFunctions) = 0;
 
   /**
    * Provides an initial state for the system as a vector of boolean values.
