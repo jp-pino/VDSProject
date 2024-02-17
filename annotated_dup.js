@@ -6,7 +6,7 @@ var annotated_dup =
     [ "ClassProject", null, [
       [ "Manager", "classClassProject_1_1Manager.html", "classClassProject_1_1Manager" ],
       [ "ManagerInterface", "classClassProject_1_1ManagerInterface.html", null ],
-      [ "Node", "structClassProject_1_1Node.html", null ],
+      [ "Node", "classClassProject_1_1Node.html", "classClassProject_1_1Node" ],
       [ "Reachability", "classClassProject_1_1Reachability.html", "classClassProject_1_1Reachability" ],
       [ "ReachabilityInterface", "classClassProject_1_1ReachabilityInterface.html", "classClassProject_1_1ReachabilityInterface" ],
       [ "TupleHasher", "structClassProject_1_1TupleHasher.html", null ]

@@ -15,7 +15,7 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
-    [ "ClassProject::Node", "structClassProject_1_1Node.html", null ],
+    [ "ClassProject::Node", "classClassProject_1_1Node.html", null ],
     [ "node", "structnode.html", null ],
     [ "testing::Test", null, [
       [ "ManagerTest", "classManagerTest.html", null ],

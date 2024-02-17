@@ -125,142 +125,121 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Manager</b> ()</td></tr>
 <tr class="memdesc:a85fce20557dc45950ae3493d6f9f14ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor Creates the constant nodes True and False. <br /></td></tr>
 <tr class="separator:a85fce20557dc45950ae3493d6f9f14ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d26cfdb6120d2a31fd5767f68ebe3c5"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a7d26cfdb6120d2a31fd5767f68ebe3c5">createVar</a> (const std::string &amp;label) override</td></tr>
-<tr class="memdesc:a7d26cfdb6120d2a31fd5767f68ebe3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new variable Creates a new variable with the given label and returns its ID.  <a href="classClassProject_1_1Manager.html#a7d26cfdb6120d2a31fd5767f68ebe3c5">More...</a><br /></td></tr>
-<tr class="separator:a7d26cfdb6120d2a31fd5767f68ebe3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2d6ee5e91d44494dc1512ec40166e33"><td class="memItemLeft" align="right" valign="top"><a id="aa2d6ee5e91d44494dc1512ec40166e33" name="aa2d6ee5e91d44494dc1512ec40166e33"></a>
-BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>createVar</b> (const std::string &amp;label, const BDD_ID &amp;top, const BDD_ID &amp;high, const BDD_ID &amp;low)</td></tr>
-<tr class="separator:aa2d6ee5e91d44494dc1512ec40166e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26272d05caa88d6770484c0d4154fda7"><td class="memItemLeft" align="right" valign="top">const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7">True</a> () override</td></tr>
-<tr class="memdesc:a26272d05caa88d6770484c0d4154fda7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant True.  <a href="classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7">More...</a><br /></td></tr>
-<tr class="separator:a26272d05caa88d6770484c0d4154fda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e95dba944ce72f9685f17a7b668f1c8"><td class="memItemLeft" align="right" valign="top">const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a6e95dba944ce72f9685f17a7b668f1c8">False</a> () override</td></tr>
-<tr class="memdesc:a6e95dba944ce72f9685f17a7b668f1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant False.  <a href="classClassProject_1_1Manager.html#a6e95dba944ce72f9685f17a7b668f1c8">More...</a><br /></td></tr>
-<tr class="separator:a6e95dba944ce72f9685f17a7b668f1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae36938ae525ced7bdc16d3a7353827dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae36938ae525ced7bdc16d3a7353827dd">isConstant</a> (BDD_ID f) override</td></tr>
-<tr class="memdesc:ae36938ae525ced7bdc16d3a7353827dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a node is a constant.  <a href="classClassProject_1_1Manager.html#ae36938ae525ced7bdc16d3a7353827dd">More...</a><br /></td></tr>
-<tr class="separator:ae36938ae525ced7bdc16d3a7353827dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36a24053561d59b05e671a14e85d1965"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a36a24053561d59b05e671a14e85d1965">isVariable</a> (BDD_ID x) override</td></tr>
-<tr class="memdesc:a36a24053561d59b05e671a14e85d1965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a node is a variable.  <a href="classClassProject_1_1Manager.html#a36a24053561d59b05e671a14e85d1965">More...</a><br /></td></tr>
-<tr class="separator:a36a24053561d59b05e671a14e85d1965"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6c0a7885a3dd6b4d7ffc646563cb01b"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aa6c0a7885a3dd6b4d7ffc646563cb01b">topVar</a> (BDD_ID f) override</td></tr>
-<tr class="memdesc:aa6c0a7885a3dd6b4d7ffc646563cb01b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the top variable of a node.  <a href="classClassProject_1_1Manager.html#aa6c0a7885a3dd6b4d7ffc646563cb01b">More...</a><br /></td></tr>
-<tr class="separator:aa6c0a7885a3dd6b4d7ffc646563cb01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d79fa44b2e066c3ab3ff0bdbb8716de"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a4d79fa44b2e066c3ab3ff0bdbb8716de">ite</a> (BDD_ID i, BDD_ID t, BDD_ID e) override</td></tr>
-<tr class="memdesc:a4d79fa44b2e066c3ab3ff0bdbb8716de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the if-then-else of three nodes.  <a href="classClassProject_1_1Manager.html#a4d79fa44b2e066c3ab3ff0bdbb8716de">More...</a><br /></td></tr>
-<tr class="separator:a4d79fa44b2e066c3ab3ff0bdbb8716de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1301b7b2ff95d997f95d907370cac068"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a1301b7b2ff95d997f95d907370cac068">coFactorTrue</a> (BDD_ID f, BDD_ID x) override</td></tr>
-<tr class="memdesc:a1301b7b2ff95d997f95d907370cac068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the true co-factor of a node.  <a href="classClassProject_1_1Manager.html#a1301b7b2ff95d997f95d907370cac068">More...</a><br /></td></tr>
-<tr class="separator:a1301b7b2ff95d997f95d907370cac068"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c5433d4af6b5670c6f2ddc240dbdeb7"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a6c5433d4af6b5670c6f2ddc240dbdeb7">coFactorFalse</a> (BDD_ID f, BDD_ID x) override</td></tr>
-<tr class="memdesc:a6c5433d4af6b5670c6f2ddc240dbdeb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the false co-factor of a node.  <a href="classClassProject_1_1Manager.html#a6c5433d4af6b5670c6f2ddc240dbdeb7">More...</a><br /></td></tr>
-<tr class="separator:a6c5433d4af6b5670c6f2ddc240dbdeb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af83bf8daea4d95af8f151e5605172a12"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af83bf8daea4d95af8f151e5605172a12">coFactorTrue</a> (BDD_ID f) override</td></tr>
-<tr class="separator:af83bf8daea4d95af8f151e5605172a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af008f4e40323c448d02f5d48776fed7b"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af008f4e40323c448d02f5d48776fed7b">coFactorFalse</a> (BDD_ID f) override</td></tr>
-<tr class="separator:af008f4e40323c448d02f5d48776fed7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6779517434ccdf0daeadf3baecbb18a6"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a6779517434ccdf0daeadf3baecbb18a6">and2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:a6779517434ccdf0daeadf3baecbb18a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the AND of two nodes.  <a href="classClassProject_1_1Manager.html#a6779517434ccdf0daeadf3baecbb18a6">More...</a><br /></td></tr>
-<tr class="separator:a6779517434ccdf0daeadf3baecbb18a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae72d444aa17398a80e00de65fc35681a"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae72d444aa17398a80e00de65fc35681a">or2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:ae72d444aa17398a80e00de65fc35681a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the OR of two nodes.  <a href="classClassProject_1_1Manager.html#ae72d444aa17398a80e00de65fc35681a">More...</a><br /></td></tr>
-<tr class="separator:ae72d444aa17398a80e00de65fc35681a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f2106e10b57fddc4c31a9e90e1846a9"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a3f2106e10b57fddc4c31a9e90e1846a9">xor2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:a3f2106e10b57fddc4c31a9e90e1846a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the XOR of two nodes.  <a href="classClassProject_1_1Manager.html#a3f2106e10b57fddc4c31a9e90e1846a9">More...</a><br /></td></tr>
-<tr class="separator:a3f2106e10b57fddc4c31a9e90e1846a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a2163b4373123d53bc7e4a7073f416d"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a8a2163b4373123d53bc7e4a7073f416d">neg</a> (BDD_ID a) override</td></tr>
-<tr class="memdesc:a8a2163b4373123d53bc7e4a7073f416d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the negation of a node.  <a href="classClassProject_1_1Manager.html#a8a2163b4373123d53bc7e4a7073f416d">More...</a><br /></td></tr>
-<tr class="separator:a8a2163b4373123d53bc7e4a7073f416d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a223561e193b8b718420be9982c9ef256"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a223561e193b8b718420be9982c9ef256">nand2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:a223561e193b8b718420be9982c9ef256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the NAND of two nodes.  <a href="classClassProject_1_1Manager.html#a223561e193b8b718420be9982c9ef256">More...</a><br /></td></tr>
-<tr class="separator:a223561e193b8b718420be9982c9ef256"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae09155687f57f9f919a7b8f54d7b4739"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae09155687f57f9f919a7b8f54d7b4739">nor2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:ae09155687f57f9f919a7b8f54d7b4739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the NOR of two nodes.  <a href="classClassProject_1_1Manager.html#ae09155687f57f9f919a7b8f54d7b4739">More...</a><br /></td></tr>
-<tr class="separator:ae09155687f57f9f919a7b8f54d7b4739"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f92b481f60e904a80a664392ab73066"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a8f92b481f60e904a80a664392ab73066">xnor2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:a8f92b481f60e904a80a664392ab73066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the XNOR of two nodes.  <a href="classClassProject_1_1Manager.html#a8f92b481f60e904a80a664392ab73066">More...</a><br /></td></tr>
-<tr class="separator:a8f92b481f60e904a80a664392ab73066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a589cf02b078a0aeae807470f1610d4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a7a589cf02b078a0aeae807470f1610d4">createVar</a> (const std::string &amp;label) override</td></tr>
+<tr class="memdesc:a7a589cf02b078a0aeae807470f1610d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new variable Creates a new variable with the given label and returns its ID.  <a href="classClassProject_1_1Manager.html#a7a589cf02b078a0aeae807470f1610d4">More...</a><br /></td></tr>
+<tr class="separator:a7a589cf02b078a0aeae807470f1610d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a7f1f69eb6bb5ca2ca501a011d898e"><td class="memItemLeft" align="right" valign="top"><a id="a18a7f1f69eb6bb5ca2ca501a011d898e" name="a18a7f1f69eb6bb5ca2ca501a011d898e"></a>
+const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>createVar</b> (const std::string &amp;label, const BDD_ID &amp;top, const BDD_ID &amp;high, const BDD_ID &amp;low)</td></tr>
+<tr class="separator:a18a7f1f69eb6bb5ca2ca501a011d898e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8db5f653120b73ff4ec90214fb10eb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a6c8db5f653120b73ff4ec90214fb10eb">True</a> () override</td></tr>
+<tr class="memdesc:a6c8db5f653120b73ff4ec90214fb10eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant True.  <a href="classClassProject_1_1Manager.html#a6c8db5f653120b73ff4ec90214fb10eb">More...</a><br /></td></tr>
+<tr class="separator:a6c8db5f653120b73ff4ec90214fb10eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00c55375e32dfbc7da2cca12e71d38a6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a00c55375e32dfbc7da2cca12e71d38a6">False</a> () override</td></tr>
+<tr class="memdesc:a00c55375e32dfbc7da2cca12e71d38a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant False.  <a href="classClassProject_1_1Manager.html#a00c55375e32dfbc7da2cca12e71d38a6">More...</a><br /></td></tr>
+<tr class="separator:a00c55375e32dfbc7da2cca12e71d38a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e9ff82c1dea0b823b54c4c0db122669"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a2e9ff82c1dea0b823b54c4c0db122669">ite</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;i, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;t, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;e) override</td></tr>
+<tr class="memdesc:a2e9ff82c1dea0b823b54c4c0db122669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the if-then-else of three nodes.  <a href="classClassProject_1_1Manager.html#a2e9ff82c1dea0b823b54c4c0db122669">More...</a><br /></td></tr>
+<tr class="separator:a2e9ff82c1dea0b823b54c4c0db122669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5512ac5b9639f343c4705b57ca56408"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aa5512ac5b9639f343c4705b57ca56408">coFactorTrue</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x) override</td></tr>
+<tr class="memdesc:aa5512ac5b9639f343c4705b57ca56408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the true co-factor of a node.  <a href="classClassProject_1_1Manager.html#aa5512ac5b9639f343c4705b57ca56408">More...</a><br /></td></tr>
+<tr class="separator:aa5512ac5b9639f343c4705b57ca56408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f1dc66e51e6a96203cd18b59d1524a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a93f1dc66e51e6a96203cd18b59d1524a">coFactorFalse</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x) override</td></tr>
+<tr class="memdesc:a93f1dc66e51e6a96203cd18b59d1524a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the false co-factor of a node.  <a href="classClassProject_1_1Manager.html#a93f1dc66e51e6a96203cd18b59d1524a">More...</a><br /></td></tr>
+<tr class="separator:a93f1dc66e51e6a96203cd18b59d1524a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac85cb1a20e33d3b5a3b729e3f1161b47"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ac85cb1a20e33d3b5a3b729e3f1161b47">and2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:ac85cb1a20e33d3b5a3b729e3f1161b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the AND of two nodes.  <a href="classClassProject_1_1Manager.html#ac85cb1a20e33d3b5a3b729e3f1161b47">More...</a><br /></td></tr>
+<tr class="separator:ac85cb1a20e33d3b5a3b729e3f1161b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af766318df6562f0b8faf4bc441bd9f2c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af766318df6562f0b8faf4bc441bd9f2c">or2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:af766318df6562f0b8faf4bc441bd9f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the OR of two nodes.  <a href="classClassProject_1_1Manager.html#af766318df6562f0b8faf4bc441bd9f2c">More...</a><br /></td></tr>
+<tr class="separator:af766318df6562f0b8faf4bc441bd9f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e985579f616b3f66dbd9ea229bba39"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a17e985579f616b3f66dbd9ea229bba39">xor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:a17e985579f616b3f66dbd9ea229bba39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the XOR of two nodes.  <a href="classClassProject_1_1Manager.html#a17e985579f616b3f66dbd9ea229bba39">More...</a><br /></td></tr>
+<tr class="separator:a17e985579f616b3f66dbd9ea229bba39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4396d944f265fc4998b9644940cc590"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af4396d944f265fc4998b9644940cc590">neg</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a) override</td></tr>
+<tr class="memdesc:af4396d944f265fc4998b9644940cc590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the negation of a node.  <a href="classClassProject_1_1Manager.html#af4396d944f265fc4998b9644940cc590">More...</a><br /></td></tr>
+<tr class="separator:af4396d944f265fc4998b9644940cc590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0131a4789d8aa407bd02a92681792215"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a0131a4789d8aa407bd02a92681792215">nand2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:a0131a4789d8aa407bd02a92681792215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the NAND of two nodes.  <a href="classClassProject_1_1Manager.html#a0131a4789d8aa407bd02a92681792215">More...</a><br /></td></tr>
+<tr class="separator:a0131a4789d8aa407bd02a92681792215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab45b0dd75caa03b82e65117aca6f404"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aab45b0dd75caa03b82e65117aca6f404">nor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:aab45b0dd75caa03b82e65117aca6f404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the NOR of two nodes.  <a href="classClassProject_1_1Manager.html#aab45b0dd75caa03b82e65117aca6f404">More...</a><br /></td></tr>
+<tr class="separator:aab45b0dd75caa03b82e65117aca6f404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe34cf4ef036b17ce6e03f7fc5df44c7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#afe34cf4ef036b17ce6e03f7fc5df44c7">xnor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:afe34cf4ef036b17ce6e03f7fc5df44c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the XNOR of two nodes.  <a href="classClassProject_1_1Manager.html#afe34cf4ef036b17ce6e03f7fc5df44c7">More...</a><br /></td></tr>
+<tr class="separator:afe34cf4ef036b17ce6e03f7fc5df44c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3f3402334e2ca7a96c3732d6c89f08"><td class="memItemLeft" align="right" valign="top"><a id="aae3f3402334e2ca7a96c3732d6c89f08" name="aae3f3402334e2ca7a96c3732d6c89f08"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> ()</td></tr>
 <tr class="separator:aae3f3402334e2ca7a96c3732d6c89f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2dc7afe27497b80c5f1f3f63977f69a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af2dc7afe27497b80c5f1f3f63977f69a">getTopVarName</a> (const BDD_ID &amp;root) override</td></tr>
-<tr class="separator:af2dc7afe27497b80c5f1f3f63977f69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe7a8f2bc25a358a6ba4d4d44e57dfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a4fe7a8f2bc25a358a6ba4d4d44e57dfa">findNodes</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;nodes_of_root) override</td></tr>
+<tr class="separator:a4fe7a8f2bc25a358a6ba4d4d44e57dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8fa8dd136cab3bcc13183106c24896f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae8fa8dd136cab3bcc13183106c24896f">findNodes</a> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;nodes_of_root) override</td></tr>
 <tr class="separator:ae8fa8dd136cab3bcc13183106c24896f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87e816bcaf33463b24e0ef8feed07392"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a87e816bcaf33463b24e0ef8feed07392">findVars</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;vars_of_root) override</td></tr>
+<tr class="separator:a87e816bcaf33463b24e0ef8feed07392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeead829154e4476de425df06d94773af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aeead829154e4476de425df06d94773af">findVars</a> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;vars_of_root) override</td></tr>
 <tr class="separator:aeead829154e4476de425df06d94773af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5014bf88d1f0213bd732dc279baa65de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a5014bf88d1f0213bd732dc279baa65de">findVars</a> (const BDD_ID &amp;root) override</td></tr>
-<tr class="separator:a5014bf88d1f0213bd732dc279baa65de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde55f30bc18d74013de50e8459b45cf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#afde55f30bc18d74013de50e8459b45cf">findVars</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root) override</td></tr>
+<tr class="separator:afde55f30bc18d74013de50e8459b45cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0724a85292854fe2179b92d6c1aaf2ed"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a0724a85292854fe2179b92d6c1aaf2ed">uniqueTableSize</a> () override</td></tr>
 <tr class="separator:a0724a85292854fe2179b92d6c1aaf2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e1303f9b5f47c2361d7693e2e35dbf0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a8e1303f9b5f47c2361d7693e2e35dbf0">ucache_hits</a> () override</td></tr>
 <tr class="separator:a8e1303f9b5f47c2361d7693e2e35dbf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae58d6671fadb240920533be3e0405ebf"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae58d6671fadb240920533be3e0405ebf">pcache_hits</a> () override</td></tr>
 <tr class="separator:ae58d6671fadb240920533be3e0405ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a530cc60bfb6c5f403e5500f65c83b856"><td class="memItemLeft" align="right" valign="top"><a id="a530cc60bfb6c5f403e5500f65c83b856" name="a530cc60bfb6c5f403e5500f65c83b856"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD_internal</b> (std::ofstream &amp;file, BDD_ID &amp;root)</td></tr>
-<tr class="separator:a530cc60bfb6c5f403e5500f65c83b856"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4618c45ca6d89e7c27e09203b64ad835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a4618c45ca6d89e7c27e09203b64ad835">visualizeBDD</a> (std::string filepath, BDD_ID &amp;root, bool test_result) override</td></tr>
-<tr class="separator:a4618c45ca6d89e7c27e09203b64ad835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0e16c0f57a22c95ea2dd58c17f2ee4f"><td class="memItemLeft" align="right" valign="top"><a id="ac0e16c0f57a22c95ea2dd58c17f2ee4f" name="ac0e16c0f57a22c95ea2dd58c17f2ee4f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph_internal</b> (std::ofstream &amp;file, BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;printed_nodes)</td></tr>
-<tr class="separator:ac0e16c0f57a22c95ea2dd58c17f2ee4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ed8c19320938888a02b72fc2601bdb8"><td class="memItemLeft" align="right" valign="top"><a id="a2ed8c19320938888a02b72fc2601bdb8" name="a2ed8c19320938888a02b72fc2601bdb8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph</b> (std::string filepath, BDD_ID &amp;root)</td></tr>
-<tr class="separator:a2ed8c19320938888a02b72fc2601bdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bffb683d1401e9de59e58e0ec7d75e5"><td class="memItemLeft" align="right" valign="top"><a id="a6bffb683d1401e9de59e58e0ec7d75e5" name="a6bffb683d1401e9de59e58e0ec7d75e5"></a>
-const std::shared_ptr&lt; <a class="el" href="structClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNode</b> (const BDD_ID &amp;id) const</td></tr>
-<tr class="separator:a6bffb683d1401e9de59e58e0ec7d75e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab101acd3fbe6a5e29973d88f9862b8b4"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ab101acd3fbe6a5e29973d88f9862b8b4">createVar</a> (const std::string &amp;label)=0</td></tr>
-<tr class="separator:ab101acd3fbe6a5e29973d88f9862b8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e65237eb52237387f677e76c8457e00"><td class="memItemLeft" align="right" valign="top">virtual const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e65237eb52237387f677e76c8457e00">True</a> ()=0</td></tr>
-<tr class="separator:a8e65237eb52237387f677e76c8457e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4f5331132785ad1e418c77d2eb91900"><td class="memItemLeft" align="right" valign="top">virtual const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ae4f5331132785ad1e418c77d2eb91900">False</a> ()=0</td></tr>
-<tr class="separator:ae4f5331132785ad1e418c77d2eb91900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4595e13104cdb6294df54b23393928e2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a4595e13104cdb6294df54b23393928e2">isConstant</a> (BDD_ID f)=0</td></tr>
-<tr class="separator:a4595e13104cdb6294df54b23393928e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2cf78319932123def1f0f0b02ae651b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad2cf78319932123def1f0f0b02ae651b">isVariable</a> (BDD_ID x)=0</td></tr>
-<tr class="separator:ad2cf78319932123def1f0f0b02ae651b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed5c34485c731e4d71ad633915830786"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#aed5c34485c731e4d71ad633915830786">topVar</a> (BDD_ID f)=0</td></tr>
-<tr class="separator:aed5c34485c731e4d71ad633915830786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a452e85ca74c513a42aae44e2b9512d72"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a452e85ca74c513a42aae44e2b9512d72">ite</a> (BDD_ID i, BDD_ID t, BDD_ID e)=0</td></tr>
-<tr class="separator:a452e85ca74c513a42aae44e2b9512d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25adecb52bd809c5fbd1ed0533609cef"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a25adecb52bd809c5fbd1ed0533609cef">coFactorTrue</a> (BDD_ID f, BDD_ID x)=0</td></tr>
-<tr class="separator:a25adecb52bd809c5fbd1ed0533609cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e4875bbf81687301ee138232f86389a"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e4875bbf81687301ee138232f86389a">coFactorFalse</a> (BDD_ID f, BDD_ID x)=0</td></tr>
-<tr class="separator:a8e4875bbf81687301ee138232f86389a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a182ca2b585df44b691fed7f82429326e"><td class="memItemLeft" align="right" valign="top"><a id="a182ca2b585df44b691fed7f82429326e" name="a182ca2b585df44b691fed7f82429326e"></a>
-virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>coFactorTrue</b> (BDD_ID f)=0</td></tr>
-<tr class="separator:a182ca2b585df44b691fed7f82429326e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cbca3227051f22cef6dd012550f634e"><td class="memItemLeft" align="right" valign="top"><a id="a1cbca3227051f22cef6dd012550f634e" name="a1cbca3227051f22cef6dd012550f634e"></a>
-virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>coFactorFalse</b> (BDD_ID f)=0</td></tr>
-<tr class="separator:a1cbca3227051f22cef6dd012550f634e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a588f4f52b9943055ec55095f5b67034d"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a588f4f52b9943055ec55095f5b67034d">and2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a588f4f52b9943055ec55095f5b67034d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e94ee4199e189b0c9243991cd86dfb"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a68e94ee4199e189b0c9243991cd86dfb">or2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a68e94ee4199e189b0c9243991cd86dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfeadcf9b96defdee3b113ca091d1fbf"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#acfeadcf9b96defdee3b113ca091d1fbf">xor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:acfeadcf9b96defdee3b113ca091d1fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e7b062caaef78d651a4057f136709fd"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e7b062caaef78d651a4057f136709fd">neg</a> (BDD_ID a)=0</td></tr>
-<tr class="separator:a8e7b062caaef78d651a4057f136709fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a650bcb03b7be6f306f0c28f3b0fd3299"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a650bcb03b7be6f306f0c28f3b0fd3299">nand2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a650bcb03b7be6f306f0c28f3b0fd3299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94d6df82dfd51cf8d4d1f5b2b62dca8"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad94d6df82dfd51cf8d4d1f5b2b62dca8">nor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:ad94d6df82dfd51cf8d4d1f5b2b62dca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ec3736db77110a248382825f71fce21"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a1ec3736db77110a248382825f71fce21">xnor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a1ec3736db77110a248382825f71fce21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afde45b2065361dfa6e61c1c7bc3fc1b4"><td class="memItemLeft" align="right" valign="top"><a id="afde45b2065361dfa6e61c1c7bc3fc1b4" name="afde45b2065361dfa6e61c1c7bc3fc1b4"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getTopVarName</b> (const BDD_ID &amp;root)=0</td></tr>
-<tr class="separator:afde45b2065361dfa6e61c1c7bc3fc1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae493a5b757b280750e728897e8856091"><td class="memItemLeft" align="right" valign="top"><a id="ae493a5b757b280750e728897e8856091" name="ae493a5b757b280750e728897e8856091"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD_internal</b> (std::ofstream &amp;file, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root)</td></tr>
+<tr class="separator:ae493a5b757b280750e728897e8856091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361788e687f5acda8dd6b2a6eca0180a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a361788e687f5acda8dd6b2a6eca0180a">visualizeBDD</a> (std::string filepath, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, bool test_result) override</td></tr>
+<tr class="separator:a361788e687f5acda8dd6b2a6eca0180a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e2d0d55400cfff83085fdd874fdf01"><td class="memItemLeft" align="right" valign="top"><a id="a68e2d0d55400cfff83085fdd874fdf01" name="a68e2d0d55400cfff83085fdd874fdf01"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph_internal</b> (std::ofstream &amp;file, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;printed_nodes)</td></tr>
+<tr class="separator:a68e2d0d55400cfff83085fdd874fdf01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcce71708477b62741b0b7d8cc0f6f4f"><td class="memItemLeft" align="right" valign="top"><a id="adcce71708477b62741b0b7d8cc0f6f4f" name="adcce71708477b62741b0b7d8cc0f6f4f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph</b> (std::string filepath, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root)</td></tr>
+<tr class="separator:adcce71708477b62741b0b7d8cc0f6f4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a0e260511d439a159a254c0de5e5608"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a1a0e260511d439a159a254c0de5e5608">getNode</a> (const BDD_ID &amp;id) const</td></tr>
+<tr class="separator:a1a0e260511d439a159a254c0de5e5608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad539d5963ea38a3018a860c811e11583"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad539d5963ea38a3018a860c811e11583">createVar</a> (const std::string &amp;label)=0</td></tr>
+<tr class="separator:ad539d5963ea38a3018a860c811e11583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cad7bac334f9e2a853b0044994dd27b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a9cad7bac334f9e2a853b0044994dd27b">True</a> ()=0</td></tr>
+<tr class="separator:a9cad7bac334f9e2a853b0044994dd27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc2de66817f64fcc4b4e38054df493b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#aebc2de66817f64fcc4b4e38054df493b">False</a> ()=0</td></tr>
+<tr class="separator:aebc2de66817f64fcc4b4e38054df493b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fee042705a925f072fe81965fe2d9a4"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a0fee042705a925f072fe81965fe2d9a4">ite</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;i, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;t, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;e)=0</td></tr>
+<tr class="separator:a0fee042705a925f072fe81965fe2d9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad30bed3586ca04c760724bab993c31ab"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad30bed3586ca04c760724bab993c31ab">coFactorTrue</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x)=0</td></tr>
+<tr class="separator:ad30bed3586ca04c760724bab993c31ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a389357427a56f7a80dc4d519a5aef9d5"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a389357427a56f7a80dc4d519a5aef9d5">coFactorFalse</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x)=0</td></tr>
+<tr class="separator:a389357427a56f7a80dc4d519a5aef9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1615dd2b165e555f8702acf169e1ccc"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad1615dd2b165e555f8702acf169e1ccc">and2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:ad1615dd2b165e555f8702acf169e1ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4141611aa7eded389a2747b5560828a7"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a4141611aa7eded389a2747b5560828a7">or2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a4141611aa7eded389a2747b5560828a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2655c52b28f7bda9f2c2fbd452a7f63"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#af2655c52b28f7bda9f2c2fbd452a7f63">xor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:af2655c52b28f7bda9f2c2fbd452a7f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453881f84431154cb24634da5e30e83b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a453881f84431154cb24634da5e30e83b">neg</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a)=0</td></tr>
+<tr class="separator:a453881f84431154cb24634da5e30e83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aeac219d22e6ba156797234cf450c2f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a9aeac219d22e6ba156797234cf450c2f">nand2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a9aeac219d22e6ba156797234cf450c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fae8c86f38d10f4d790ce667f2d535f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8fae8c86f38d10f4d790ce667f2d535f">nor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a8fae8c86f38d10f4d790ce667f2d535f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a51eeb683c5da857e58b6e85d2d3a7"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a05a51eeb683c5da857e58b6e85d2d3a7">xnor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a05a51eeb683c5da857e58b6e85d2d3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb62087d3129c8c28c421487d77c889"><td class="memItemLeft" align="right" valign="top"><a id="a8bb62087d3129c8c28c421487d77c889" name="a8bb62087d3129c8c28c421487d77c889"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findNodes</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;nodes_of_root)=0</td></tr>
+<tr class="separator:a8bb62087d3129c8c28c421487d77c889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab460e331ffdb85d4128574b3aae72c1e"><td class="memItemLeft" align="right" valign="top"><a id="ab460e331ffdb85d4128574b3aae72c1e" name="ab460e331ffdb85d4128574b3aae72c1e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findNodes</b> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;nodes_of_root)=0</td></tr>
 <tr class="separator:ab460e331ffdb85d4128574b3aae72c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc4d76f7e0f9cad715382a9bf7aca63c"><td class="memItemLeft" align="right" valign="top"><a id="abc4d76f7e0f9cad715382a9bf7aca63c" name="abc4d76f7e0f9cad715382a9bf7aca63c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;vars_of_root)=0</td></tr>
+<tr class="separator:abc4d76f7e0f9cad715382a9bf7aca63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab94feabca2125d334e542e502ae0186d"><td class="memItemLeft" align="right" valign="top"><a id="ab94feabca2125d334e542e502ae0186d" name="ab94feabca2125d334e542e502ae0186d"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;vars_of_root)=0</td></tr>
 <tr class="separator:ab94feabca2125d334e542e502ae0186d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf5bb1af5098f15257ff1733a8a39b61"><td class="memItemLeft" align="right" valign="top"><a id="aaf5bb1af5098f15257ff1733a8a39b61" name="aaf5bb1af5098f15257ff1733a8a39b61"></a>
-virtual std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const BDD_ID &amp;root)=0</td></tr>
-<tr class="separator:aaf5bb1af5098f15257ff1733a8a39b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d004af142aa91f19492b458faf7fba"><td class="memItemLeft" align="right" valign="top"><a id="a91d004af142aa91f19492b458faf7fba" name="a91d004af142aa91f19492b458faf7fba"></a>
+virtual std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root)=0</td></tr>
+<tr class="separator:a91d004af142aa91f19492b458faf7fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memItemLeft" align="right" valign="top"><a id="a85cac80444b26e5b80eb96b9f1231c0e" name="a85cac80444b26e5b80eb96b9f1231c0e"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>uniqueTableSize</b> ()=0</td></tr>
 <tr class="separator:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,9 +249,12 @@ virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucache_hits
 <tr class="memitem:ab8fee09628ebd5492e72349d41a7fb35"><td class="memItemLeft" align="right" valign="top"><a id="ab8fee09628ebd5492e72349d41a7fb35" name="ab8fee09628ebd5492e72349d41a7fb35"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pcache_hits</b> ()=0</td></tr>
 <tr class="separator:ab8fee09628ebd5492e72349d41a7fb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memItemLeft" align="right" valign="top"><a id="a2db009b980a7225a5eb2e8c88eab5e5d" name="a2db009b980a7225a5eb2e8c88eab5e5d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, BDD_ID &amp;root, bool test_result)=0</td></tr>
-<tr class="separator:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d71dd74406d0c45e48a38ac2e5f151"><td class="memItemLeft" align="right" valign="top"><a id="a40d71dd74406d0c45e48a38ac2e5f151" name="a40d71dd74406d0c45e48a38ac2e5f151"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, bool test_result)=0</td></tr>
+<tr class="separator:a40d71dd74406d0c45e48a38ac2e5f151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7f67ed0ea67995051b73bb90964736"><td class="memItemLeft" align="right" valign="top"><a id="a4a7f67ed0ea67995051b73bb90964736" name="a4a7f67ed0ea67995051b73bb90964736"></a>
+virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getNode</b> (const BDD_ID &amp;id) const =0</td></tr>
+<tr class="separator:a4a7f67ed0ea67995051b73bb90964736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -282,7 +264,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucache_hit</b> = 0<
 <tr class="memitem:a3faf857f7af0c70e64d6f1b162936f80"><td class="memItemLeft" align="right" valign="top"><a id="a3faf857f7af0c70e64d6f1b162936f80" name="a3faf857f7af0c70e64d6f1b162936f80"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pcache_hit</b> = 0</td></tr>
 <tr class="separator:a3faf857f7af0c70e64d6f1b162936f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26973d2e91be545a2df82a771bbf0edd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="structClassProject_1_1Node.html">Node</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a26973d2e91be545a2df82a771bbf0edd">nodes</a></td></tr>
+<tr class="memitem:a26973d2e91be545a2df82a771bbf0edd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a26973d2e91be545a2df82a771bbf0edd">nodes</a></td></tr>
 <tr class="memdesc:a26973d2e91be545a2df82a771bbf0edd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique table The unique table is a vector of nodes The index of the vector is the id of the node.  <a href="classClassProject_1_1Manager.html#a26973d2e91be545a2df82a771bbf0edd">More...</a><br /></td></tr>
 <tr class="separator:a26973d2e91be545a2df82a771bbf0edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60df8f8ce892e5c1db4e0708033fd5c1"><td class="memItemLeft" align="right" valign="top"><a id="a60df8f8ce892e5c1db4e0708033fd5c1" name="a60df8f8ce892e5c1db4e0708033fd5c1"></a>
@@ -294,8 +276,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 <tr class="separator:a370543c0c019be0dea6271ab3eca46b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6779517434ccdf0daeadf3baecbb18a6" name="a6779517434ccdf0daeadf3baecbb18a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6779517434ccdf0daeadf3baecbb18a6">&#9670;&#160;</a></span>and2()</h2>
+<a id="ac85cb1a20e33d3b5a3b729e3f1161b47" name="ac85cb1a20e33d3b5a3b729e3f1161b47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac85cb1a20e33d3b5a3b729e3f1161b47">&#9670;&#160;</a></span>and2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -304,15 +286,15 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::and2 </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::and2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -342,8 +324,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="af008f4e40323c448d02f5d48776fed7b" name="af008f4e40323c448d02f5d48776fed7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af008f4e40323c448d02f5d48776fed7b">&#9670;&#160;</a></span>coFactorFalse() <span class="overload">[1/2]</span></h2>
+<a id="a93f1dc66e51e6a96203cd18b59d1524a" name="a93f1dc66e51e6a96203cd18b59d1524a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93f1dc66e51e6a96203cd18b59d1524a">&#9670;&#160;</a></span>coFactorFalse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,43 +334,15 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::coFactorFalse </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::coFactorFalse </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
-
-</div>
-</div>
-<a id="a6c5433d4af6b5670c6f2ddc240dbdeb7" name="a6c5433d4af6b5670c6f2ddc240dbdeb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c5433d4af6b5670c6f2ddc240dbdeb7">&#9670;&#160;</a></span>coFactorFalse() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::coFactorFalse </td>
-          <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -419,8 +373,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="af83bf8daea4d95af8f151e5605172a12" name="af83bf8daea4d95af8f151e5605172a12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af83bf8daea4d95af8f151e5605172a12">&#9670;&#160;</a></span>coFactorTrue() <span class="overload">[1/2]</span></h2>
+<a id="aa5512ac5b9639f343c4705b57ca56408" name="aa5512ac5b9639f343c4705b57ca56408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5512ac5b9639f343c4705b57ca56408">&#9670;&#160;</a></span>coFactorTrue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -429,43 +383,15 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::coFactorTrue </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::coFactorTrue </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
-
-</div>
-</div>
-<a id="a1301b7b2ff95d997f95d907370cac068" name="a1301b7b2ff95d997f95d907370cac068"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1301b7b2ff95d997f95d907370cac068">&#9670;&#160;</a></span>coFactorTrue() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::coFactorTrue </td>
-          <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -496,8 +422,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="a7d26cfdb6120d2a31fd5767f68ebe3c5" name="a7d26cfdb6120d2a31fd5767f68ebe3c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d26cfdb6120d2a31fd5767f68ebe3c5">&#9670;&#160;</a></span>createVar()</h2>
+<a id="a7a589cf02b078a0aeae807470f1610d4" name="a7a589cf02b078a0aeae807470f1610d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a589cf02b078a0aeae807470f1610d4">&#9670;&#160;</a></span>createVar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -506,7 +432,7 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::createVar </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::createVar </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>label</em></td><td>)</td>
@@ -533,8 +459,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="a6e95dba944ce72f9685f17a7b668f1c8" name="a6e95dba944ce72f9685f17a7b668f1c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e95dba944ce72f9685f17a7b668f1c8">&#9670;&#160;</a></span>False()</h2>
+<a id="a00c55375e32dfbc7da2cca12e71d38a6" name="a00c55375e32dfbc7da2cca12e71d38a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c55375e32dfbc7da2cca12e71d38a6">&#9670;&#160;</a></span>False()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -543,7 +469,7 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const BDD_ID &amp; ClassProject::Manager::False </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::False </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -564,7 +490,7 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 </div>
 </div>
 <a id="ae8fa8dd136cab3bcc13183106c24896f" name="ae8fa8dd136cab3bcc13183106c24896f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8fa8dd136cab3bcc13183106c24896f">&#9670;&#160;</a></span>findNodes()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fa8dd136cab3bcc13183106c24896f">&#9670;&#160;</a></span>findNodes() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,8 +527,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="a5014bf88d1f0213bd732dc279baa65de" name="a5014bf88d1f0213bd732dc279baa65de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5014bf88d1f0213bd732dc279baa65de">&#9670;&#160;</a></span>findVars() <span class="overload">[1/2]</span></h2>
+<a id="a4fe7a8f2bc25a358a6ba4d4d44e57dfa" name="a4fe7a8f2bc25a358a6ba4d4d44e57dfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fe7a8f2bc25a358a6ba4d4d44e57dfa">&#9670;&#160;</a></span>findNodes() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -611,11 +537,21 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; BDD_ID &gt; ClassProject::Manager::findVars </td>
+          <td class="memname">void ClassProject::Manager::findNodes </td>
           <td>(</td>
-          <td class="paramtype">const BDD_ID &amp;&#160;</td>
-          <td class="paramname"><em>root</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>nodes_of_root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -630,7 +566,7 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 </div>
 </div>
 <a id="aeead829154e4476de425df06d94773af" name="aeead829154e4476de425df06d94773af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeead829154e4476de425df06d94773af">&#9670;&#160;</a></span>findVars() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeead829154e4476de425df06d94773af">&#9670;&#160;</a></span>findVars() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -667,8 +603,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="af2dc7afe27497b80c5f1f3f63977f69a" name="af2dc7afe27497b80c5f1f3f63977f69a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2dc7afe27497b80c5f1f3f63977f69a">&#9670;&#160;</a></span>getTopVarName()</h2>
+<a id="afde55f30bc18d74013de50e8459b45cf" name="afde55f30bc18d74013de50e8459b45cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde55f30bc18d74013de50e8459b45cf">&#9670;&#160;</a></span>findVars() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -677,9 +613,9 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string ClassProject::Manager::getTopVarName </td>
+          <td class="memname">std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; ClassProject::Manager::findVars </td>
           <td>(</td>
-          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>root</em></td><td>)</td>
           <td></td>
         </tr>
@@ -695,8 +631,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="ae36938ae525ced7bdc16d3a7353827dd" name="ae36938ae525ced7bdc16d3a7353827dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae36938ae525ced7bdc16d3a7353827dd">&#9670;&#160;</a></span>isConstant()</h2>
+<a id="a87e816bcaf33463b24e0ef8feed07392" name="a87e816bcaf33463b24e0ef8feed07392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e816bcaf33463b24e0ef8feed07392">&#9670;&#160;</a></span>findVars() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -705,11 +641,21 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ClassProject::Manager::isConstant </td>
+          <td class="memname">void ClassProject::Manager::findVars </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vars_of_root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -719,21 +665,12 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 </table>
 </div><div class="memdoc">
 
-<p>Check if a node is a constant. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>ID of the node </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the node is a constant, False otherwise </dd></dl>
-
 <p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
 
 </div>
 </div>
-<a id="a36a24053561d59b05e671a14e85d1965" name="a36a24053561d59b05e671a14e85d1965"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36a24053561d59b05e671a14e85d1965">&#9670;&#160;</a></span>isVariable()</h2>
+<a id="a1a0e260511d439a159a254c0de5e5608" name="a1a0e260511d439a159a254c0de5e5608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a0e260511d439a159a254c0de5e5608">&#9670;&#160;</a></span>getNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -742,35 +679,26 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ClassProject::Manager::isVariable </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::getNode </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Check if a node is a variable. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>ID of the node </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the node is a variable, False otherwise </dd></dl>
 
 <p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
 
 </div>
 </div>
-<a id="a4d79fa44b2e066c3ab3ff0bdbb8716de" name="a4d79fa44b2e066c3ab3ff0bdbb8716de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d79fa44b2e066c3ab3ff0bdbb8716de">&#9670;&#160;</a></span>ite()</h2>
+<a id="a2e9ff82c1dea0b823b54c4c0db122669" name="a2e9ff82c1dea0b823b54c4c0db122669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e9ff82c1dea0b823b54c4c0db122669">&#9670;&#160;</a></span>ite()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -779,21 +707,21 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::ite </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::ite </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>&#160;</td>
         </tr>
         <tr>
@@ -825,8 +753,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="a223561e193b8b718420be9982c9ef256" name="a223561e193b8b718420be9982c9ef256"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a223561e193b8b718420be9982c9ef256">&#9670;&#160;</a></span>nand2()</h2>
+<a id="a0131a4789d8aa407bd02a92681792215" name="a0131a4789d8aa407bd02a92681792215"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0131a4789d8aa407bd02a92681792215">&#9670;&#160;</a></span>nand2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -835,15 +763,15 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::nand2 </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::nand2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -873,8 +801,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="a8a2163b4373123d53bc7e4a7073f416d" name="a8a2163b4373123d53bc7e4a7073f416d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a2163b4373123d53bc7e4a7073f416d">&#9670;&#160;</a></span>neg()</h2>
+<a id="af4396d944f265fc4998b9644940cc590" name="af4396d944f265fc4998b9644940cc590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4396d944f265fc4998b9644940cc590">&#9670;&#160;</a></span>neg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -883,9 +811,9 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::neg </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::neg </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -910,8 +838,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="ae09155687f57f9f919a7b8f54d7b4739" name="ae09155687f57f9f919a7b8f54d7b4739"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae09155687f57f9f919a7b8f54d7b4739">&#9670;&#160;</a></span>nor2()</h2>
+<a id="aab45b0dd75caa03b82e65117aca6f404" name="aab45b0dd75caa03b82e65117aca6f404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab45b0dd75caa03b82e65117aca6f404">&#9670;&#160;</a></span>nor2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -920,15 +848,15 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::nor2 </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::nor2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -958,8 +886,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="ae72d444aa17398a80e00de65fc35681a" name="ae72d444aa17398a80e00de65fc35681a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae72d444aa17398a80e00de65fc35681a">&#9670;&#160;</a></span>or2()</h2>
+<a id="af766318df6562f0b8faf4bc441bd9f2c" name="af766318df6562f0b8faf4bc441bd9f2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af766318df6562f0b8faf4bc441bd9f2c">&#9670;&#160;</a></span>or2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -968,15 +896,15 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::or2 </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::or2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -1033,8 +961,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="aa6c0a7885a3dd6b4d7ffc646563cb01b" name="aa6c0a7885a3dd6b4d7ffc646563cb01b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6c0a7885a3dd6b4d7ffc646563cb01b">&#9670;&#160;</a></span>topVar()</h2>
+<a id="a6c8db5f653120b73ff4ec90214fb10eb" name="a6c8db5f653120b73ff4ec90214fb10eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c8db5f653120b73ff4ec90214fb10eb">&#9670;&#160;</a></span>True()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1043,44 +971,7 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::topVar </td>
-          <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the top variable of a node. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>ID of the node </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>ID of the top variable of the node </dd></dl>
-
-<p>Implements <a class="el" href="classClassProject_1_1ManagerInterface.html">ClassProject::ManagerInterface</a>.</p>
-
-</div>
-</div>
-<a id="a26272d05caa88d6770484c0d4154fda7" name="a26272d05caa88d6770484c0d4154fda7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26272d05caa88d6770484c0d4154fda7">&#9670;&#160;</a></span>True()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const BDD_ID &amp; ClassProject::Manager::True </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::True </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1154,8 +1045,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="a4618c45ca6d89e7c27e09203b64ad835" name="a4618c45ca6d89e7c27e09203b64ad835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4618c45ca6d89e7c27e09203b64ad835">&#9670;&#160;</a></span>visualizeBDD()</h2>
+<a id="a361788e687f5acda8dd6b2a6eca0180a" name="a361788e687f5acda8dd6b2a6eca0180a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a361788e687f5acda8dd6b2a6eca0180a">&#9670;&#160;</a></span>visualizeBDD()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1172,7 +1063,7 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
@@ -1198,8 +1089,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="a8f92b481f60e904a80a664392ab73066" name="a8f92b481f60e904a80a664392ab73066"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f92b481f60e904a80a664392ab73066">&#9670;&#160;</a></span>xnor2()</h2>
+<a id="afe34cf4ef036b17ce6e03f7fc5df44c7" name="afe34cf4ef036b17ce6e03f7fc5df44c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe34cf4ef036b17ce6e03f7fc5df44c7">&#9670;&#160;</a></span>xnor2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1208,15 +1099,15 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::xnor2 </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::xnor2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -1246,8 +1137,8 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
 
 </div>
 </div>
-<a id="a3f2106e10b57fddc4c31a9e90e1846a9" name="a3f2106e10b57fddc4c31a9e90e1846a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f2106e10b57fddc4c31a9e90e1846a9">&#9670;&#160;</a></span>xor2()</h2>
+<a id="a17e985579f616b3f66dbd9ea229bba39" name="a17e985579f616b3f66dbd9ea229bba39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e985579f616b3f66dbd9ea229bba39">&#9670;&#160;</a></span>xor2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1256,15 +1147,15 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Manager::xor2 </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Manager::xor2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -1305,7 +1196,7 @@ std::unordered_map&lt; Key, BDD_ID, <a class="el" href="structClassProject_1_1Tu
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="structClassProject_1_1Node.html">Node</a>&gt; &gt; ClassProject::Manager::nodes</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classClassProject_1_1Node.html">Node</a>&gt; &gt; ClassProject::Manager::nodes</td>
         </tr>
       </table>
   </td>

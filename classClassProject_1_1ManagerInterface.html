@@ -111,56 +111,47 @@ Inheritance diagram for ClassProject::ManagerInterface:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab101acd3fbe6a5e29973d88f9862b8b4"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ab101acd3fbe6a5e29973d88f9862b8b4">createVar</a> (const std::string &amp;label)=0</td></tr>
-<tr class="separator:ab101acd3fbe6a5e29973d88f9862b8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e65237eb52237387f677e76c8457e00"><td class="memItemLeft" align="right" valign="top">virtual const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e65237eb52237387f677e76c8457e00">True</a> ()=0</td></tr>
-<tr class="separator:a8e65237eb52237387f677e76c8457e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4f5331132785ad1e418c77d2eb91900"><td class="memItemLeft" align="right" valign="top">virtual const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ae4f5331132785ad1e418c77d2eb91900">False</a> ()=0</td></tr>
-<tr class="separator:ae4f5331132785ad1e418c77d2eb91900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4595e13104cdb6294df54b23393928e2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a4595e13104cdb6294df54b23393928e2">isConstant</a> (BDD_ID f)=0</td></tr>
-<tr class="separator:a4595e13104cdb6294df54b23393928e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2cf78319932123def1f0f0b02ae651b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad2cf78319932123def1f0f0b02ae651b">isVariable</a> (BDD_ID x)=0</td></tr>
-<tr class="separator:ad2cf78319932123def1f0f0b02ae651b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed5c34485c731e4d71ad633915830786"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#aed5c34485c731e4d71ad633915830786">topVar</a> (BDD_ID f)=0</td></tr>
-<tr class="separator:aed5c34485c731e4d71ad633915830786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a452e85ca74c513a42aae44e2b9512d72"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a452e85ca74c513a42aae44e2b9512d72">ite</a> (BDD_ID i, BDD_ID t, BDD_ID e)=0</td></tr>
-<tr class="separator:a452e85ca74c513a42aae44e2b9512d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25adecb52bd809c5fbd1ed0533609cef"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a25adecb52bd809c5fbd1ed0533609cef">coFactorTrue</a> (BDD_ID f, BDD_ID x)=0</td></tr>
-<tr class="separator:a25adecb52bd809c5fbd1ed0533609cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e4875bbf81687301ee138232f86389a"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e4875bbf81687301ee138232f86389a">coFactorFalse</a> (BDD_ID f, BDD_ID x)=0</td></tr>
-<tr class="separator:a8e4875bbf81687301ee138232f86389a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a182ca2b585df44b691fed7f82429326e"><td class="memItemLeft" align="right" valign="top"><a id="a182ca2b585df44b691fed7f82429326e" name="a182ca2b585df44b691fed7f82429326e"></a>
-virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>coFactorTrue</b> (BDD_ID f)=0</td></tr>
-<tr class="separator:a182ca2b585df44b691fed7f82429326e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cbca3227051f22cef6dd012550f634e"><td class="memItemLeft" align="right" valign="top"><a id="a1cbca3227051f22cef6dd012550f634e" name="a1cbca3227051f22cef6dd012550f634e"></a>
-virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>coFactorFalse</b> (BDD_ID f)=0</td></tr>
-<tr class="separator:a1cbca3227051f22cef6dd012550f634e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a588f4f52b9943055ec55095f5b67034d"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a588f4f52b9943055ec55095f5b67034d">and2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a588f4f52b9943055ec55095f5b67034d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e94ee4199e189b0c9243991cd86dfb"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a68e94ee4199e189b0c9243991cd86dfb">or2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a68e94ee4199e189b0c9243991cd86dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfeadcf9b96defdee3b113ca091d1fbf"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#acfeadcf9b96defdee3b113ca091d1fbf">xor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:acfeadcf9b96defdee3b113ca091d1fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e7b062caaef78d651a4057f136709fd"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e7b062caaef78d651a4057f136709fd">neg</a> (BDD_ID a)=0</td></tr>
-<tr class="separator:a8e7b062caaef78d651a4057f136709fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a650bcb03b7be6f306f0c28f3b0fd3299"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a650bcb03b7be6f306f0c28f3b0fd3299">nand2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a650bcb03b7be6f306f0c28f3b0fd3299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94d6df82dfd51cf8d4d1f5b2b62dca8"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad94d6df82dfd51cf8d4d1f5b2b62dca8">nor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:ad94d6df82dfd51cf8d4d1f5b2b62dca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ec3736db77110a248382825f71fce21"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a1ec3736db77110a248382825f71fce21">xnor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a1ec3736db77110a248382825f71fce21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afde45b2065361dfa6e61c1c7bc3fc1b4"><td class="memItemLeft" align="right" valign="top"><a id="afde45b2065361dfa6e61c1c7bc3fc1b4" name="afde45b2065361dfa6e61c1c7bc3fc1b4"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getTopVarName</b> (const BDD_ID &amp;root)=0</td></tr>
-<tr class="separator:afde45b2065361dfa6e61c1c7bc3fc1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad539d5963ea38a3018a860c811e11583"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad539d5963ea38a3018a860c811e11583">createVar</a> (const std::string &amp;label)=0</td></tr>
+<tr class="separator:ad539d5963ea38a3018a860c811e11583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cad7bac334f9e2a853b0044994dd27b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a9cad7bac334f9e2a853b0044994dd27b">True</a> ()=0</td></tr>
+<tr class="separator:a9cad7bac334f9e2a853b0044994dd27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc2de66817f64fcc4b4e38054df493b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#aebc2de66817f64fcc4b4e38054df493b">False</a> ()=0</td></tr>
+<tr class="separator:aebc2de66817f64fcc4b4e38054df493b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fee042705a925f072fe81965fe2d9a4"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a0fee042705a925f072fe81965fe2d9a4">ite</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;i, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;t, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;e)=0</td></tr>
+<tr class="separator:a0fee042705a925f072fe81965fe2d9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad30bed3586ca04c760724bab993c31ab"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad30bed3586ca04c760724bab993c31ab">coFactorTrue</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x)=0</td></tr>
+<tr class="separator:ad30bed3586ca04c760724bab993c31ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a389357427a56f7a80dc4d519a5aef9d5"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a389357427a56f7a80dc4d519a5aef9d5">coFactorFalse</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x)=0</td></tr>
+<tr class="separator:a389357427a56f7a80dc4d519a5aef9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1615dd2b165e555f8702acf169e1ccc"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad1615dd2b165e555f8702acf169e1ccc">and2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:ad1615dd2b165e555f8702acf169e1ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4141611aa7eded389a2747b5560828a7"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a4141611aa7eded389a2747b5560828a7">or2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a4141611aa7eded389a2747b5560828a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2655c52b28f7bda9f2c2fbd452a7f63"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#af2655c52b28f7bda9f2c2fbd452a7f63">xor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:af2655c52b28f7bda9f2c2fbd452a7f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453881f84431154cb24634da5e30e83b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a453881f84431154cb24634da5e30e83b">neg</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a)=0</td></tr>
+<tr class="separator:a453881f84431154cb24634da5e30e83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aeac219d22e6ba156797234cf450c2f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a9aeac219d22e6ba156797234cf450c2f">nand2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a9aeac219d22e6ba156797234cf450c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fae8c86f38d10f4d790ce667f2d535f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8fae8c86f38d10f4d790ce667f2d535f">nor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a8fae8c86f38d10f4d790ce667f2d535f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a51eeb683c5da857e58b6e85d2d3a7"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a05a51eeb683c5da857e58b6e85d2d3a7">xnor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a05a51eeb683c5da857e58b6e85d2d3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb62087d3129c8c28c421487d77c889"><td class="memItemLeft" align="right" valign="top"><a id="a8bb62087d3129c8c28c421487d77c889" name="a8bb62087d3129c8c28c421487d77c889"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findNodes</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;nodes_of_root)=0</td></tr>
+<tr class="separator:a8bb62087d3129c8c28c421487d77c889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab460e331ffdb85d4128574b3aae72c1e"><td class="memItemLeft" align="right" valign="top"><a id="ab460e331ffdb85d4128574b3aae72c1e" name="ab460e331ffdb85d4128574b3aae72c1e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findNodes</b> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;nodes_of_root)=0</td></tr>
 <tr class="separator:ab460e331ffdb85d4128574b3aae72c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc4d76f7e0f9cad715382a9bf7aca63c"><td class="memItemLeft" align="right" valign="top"><a id="abc4d76f7e0f9cad715382a9bf7aca63c" name="abc4d76f7e0f9cad715382a9bf7aca63c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;vars_of_root)=0</td></tr>
+<tr class="separator:abc4d76f7e0f9cad715382a9bf7aca63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab94feabca2125d334e542e502ae0186d"><td class="memItemLeft" align="right" valign="top"><a id="ab94feabca2125d334e542e502ae0186d" name="ab94feabca2125d334e542e502ae0186d"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;vars_of_root)=0</td></tr>
 <tr class="separator:ab94feabca2125d334e542e502ae0186d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf5bb1af5098f15257ff1733a8a39b61"><td class="memItemLeft" align="right" valign="top"><a id="aaf5bb1af5098f15257ff1733a8a39b61" name="aaf5bb1af5098f15257ff1733a8a39b61"></a>
-virtual std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const BDD_ID &amp;root)=0</td></tr>
-<tr class="separator:aaf5bb1af5098f15257ff1733a8a39b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d004af142aa91f19492b458faf7fba"><td class="memItemLeft" align="right" valign="top"><a id="a91d004af142aa91f19492b458faf7fba" name="a91d004af142aa91f19492b458faf7fba"></a>
+virtual std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root)=0</td></tr>
+<tr class="separator:a91d004af142aa91f19492b458faf7fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memItemLeft" align="right" valign="top"><a id="a85cac80444b26e5b80eb96b9f1231c0e" name="a85cac80444b26e5b80eb96b9f1231c0e"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>uniqueTableSize</b> ()=0</td></tr>
 <tr class="separator:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,13 +161,16 @@ virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucache_hits
 <tr class="memitem:ab8fee09628ebd5492e72349d41a7fb35"><td class="memItemLeft" align="right" valign="top"><a id="ab8fee09628ebd5492e72349d41a7fb35" name="ab8fee09628ebd5492e72349d41a7fb35"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pcache_hits</b> ()=0</td></tr>
 <tr class="separator:ab8fee09628ebd5492e72349d41a7fb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memItemLeft" align="right" valign="top"><a id="a2db009b980a7225a5eb2e8c88eab5e5d" name="a2db009b980a7225a5eb2e8c88eab5e5d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, BDD_ID &amp;root, bool test_result)=0</td></tr>
-<tr class="separator:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d71dd74406d0c45e48a38ac2e5f151"><td class="memItemLeft" align="right" valign="top"><a id="a40d71dd74406d0c45e48a38ac2e5f151" name="a40d71dd74406d0c45e48a38ac2e5f151"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, bool test_result)=0</td></tr>
+<tr class="separator:a40d71dd74406d0c45e48a38ac2e5f151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7f67ed0ea67995051b73bb90964736"><td class="memItemLeft" align="right" valign="top"><a id="a4a7f67ed0ea67995051b73bb90964736" name="a4a7f67ed0ea67995051b73bb90964736"></a>
+virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getNode</b> (const BDD_ID &amp;id) const =0</td></tr>
+<tr class="separator:a4a7f67ed0ea67995051b73bb90964736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a588f4f52b9943055ec55095f5b67034d" name="a588f4f52b9943055ec55095f5b67034d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a588f4f52b9943055ec55095f5b67034d">&#9670;&#160;</a></span>and2()</h2>
+<a id="ad1615dd2b165e555f8702acf169e1ccc" name="ad1615dd2b165e555f8702acf169e1ccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1615dd2b165e555f8702acf169e1ccc">&#9670;&#160;</a></span>and2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,15 +179,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::and2 </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::and2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -209,12 +203,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a6779517434ccdf0daeadf3baecbb18a6">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#ac85cb1a20e33d3b5a3b729e3f1161b47">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="a8e4875bbf81687301ee138232f86389a" name="a8e4875bbf81687301ee138232f86389a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e4875bbf81687301ee138232f86389a">&#9670;&#160;</a></span>coFactorFalse()</h2>
+<a id="a389357427a56f7a80dc4d519a5aef9d5" name="a389357427a56f7a80dc4d519a5aef9d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a389357427a56f7a80dc4d519a5aef9d5">&#9670;&#160;</a></span>coFactorFalse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,15 +217,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::coFactorFalse </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::coFactorFalse </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -247,12 +241,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a6c5433d4af6b5670c6f2ddc240dbdeb7">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a93f1dc66e51e6a96203cd18b59d1524a">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="a25adecb52bd809c5fbd1ed0533609cef" name="a25adecb52bd809c5fbd1ed0533609cef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25adecb52bd809c5fbd1ed0533609cef">&#9670;&#160;</a></span>coFactorTrue()</h2>
+<a id="ad30bed3586ca04c760724bab993c31ab" name="ad30bed3586ca04c760724bab993c31ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad30bed3586ca04c760724bab993c31ab">&#9670;&#160;</a></span>coFactorTrue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,15 +255,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::coFactorTrue </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::coFactorTrue </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
@@ -285,12 +279,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a1301b7b2ff95d997f95d907370cac068">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#aa5512ac5b9639f343c4705b57ca56408">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="ab101acd3fbe6a5e29973d88f9862b8b4" name="ab101acd3fbe6a5e29973d88f9862b8b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab101acd3fbe6a5e29973d88f9862b8b4">&#9670;&#160;</a></span>createVar()</h2>
+<a id="ad539d5963ea38a3018a860c811e11583" name="ad539d5963ea38a3018a860c811e11583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad539d5963ea38a3018a860c811e11583">&#9670;&#160;</a></span>createVar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -299,7 +293,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::createVar </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::createVar </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>label</em></td><td>)</td>
@@ -313,12 +307,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a7d26cfdb6120d2a31fd5767f68ebe3c5">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a7a589cf02b078a0aeae807470f1610d4">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="ae4f5331132785ad1e418c77d2eb91900" name="ae4f5331132785ad1e418c77d2eb91900"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4f5331132785ad1e418c77d2eb91900">&#9670;&#160;</a></span>False()</h2>
+<a id="aebc2de66817f64fcc4b4e38054df493b" name="aebc2de66817f64fcc4b4e38054df493b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebc2de66817f64fcc4b4e38054df493b">&#9670;&#160;</a></span>False()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +321,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const BDD_ID &amp; ClassProject::ManagerInterface::False </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::False </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -340,12 +334,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a6e95dba944ce72f9685f17a7b668f1c8">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a00c55375e32dfbc7da2cca12e71d38a6">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="a4595e13104cdb6294df54b23393928e2" name="a4595e13104cdb6294df54b23393928e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4595e13104cdb6294df54b23393928e2">&#9670;&#160;</a></span>isConstant()</h2>
+<a id="a0fee042705a925f072fe81965fe2d9a4" name="a0fee042705a925f072fe81965fe2d9a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fee042705a925f072fe81965fe2d9a4">&#9670;&#160;</a></span>ite()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,77 +348,21 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool ClassProject::ManagerInterface::isConstant </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::ite </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#ae36938ae525ced7bdc16d3a7353827dd">ClassProject::Manager</a>.</p>
-
-</div>
-</div>
-<a id="ad2cf78319932123def1f0f0b02ae651b" name="ad2cf78319932123def1f0f0b02ae651b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2cf78319932123def1f0f0b02ae651b">&#9670;&#160;</a></span>isVariable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool ClassProject::ManagerInterface::isVariable </td>
-          <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a36a24053561d59b05e671a14e85d1965">ClassProject::Manager</a>.</p>
-
-</div>
-</div>
-<a id="a452e85ca74c513a42aae44e2b9512d72" name="a452e85ca74c513a42aae44e2b9512d72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a452e85ca74c513a42aae44e2b9512d72">&#9670;&#160;</a></span>ite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::ite </td>
-          <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>&#160;</td>
         </tr>
         <tr>
@@ -440,12 +378,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a4d79fa44b2e066c3ab3ff0bdbb8716de">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a2e9ff82c1dea0b823b54c4c0db122669">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="a650bcb03b7be6f306f0c28f3b0fd3299" name="a650bcb03b7be6f306f0c28f3b0fd3299"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a650bcb03b7be6f306f0c28f3b0fd3299">&#9670;&#160;</a></span>nand2()</h2>
+<a id="a9aeac219d22e6ba156797234cf450c2f" name="a9aeac219d22e6ba156797234cf450c2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aeac219d22e6ba156797234cf450c2f">&#9670;&#160;</a></span>nand2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -454,15 +392,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::nand2 </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::nand2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -478,12 +416,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a223561e193b8b718420be9982c9ef256">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a0131a4789d8aa407bd02a92681792215">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="a8e7b062caaef78d651a4057f136709fd" name="a8e7b062caaef78d651a4057f136709fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e7b062caaef78d651a4057f136709fd">&#9670;&#160;</a></span>neg()</h2>
+<a id="a453881f84431154cb24634da5e30e83b" name="a453881f84431154cb24634da5e30e83b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a453881f84431154cb24634da5e30e83b">&#9670;&#160;</a></span>neg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -492,9 +430,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::neg </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::neg </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -506,12 +444,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a8a2163b4373123d53bc7e4a7073f416d">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#af4396d944f265fc4998b9644940cc590">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="ad94d6df82dfd51cf8d4d1f5b2b62dca8" name="ad94d6df82dfd51cf8d4d1f5b2b62dca8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad94d6df82dfd51cf8d4d1f5b2b62dca8">&#9670;&#160;</a></span>nor2()</h2>
+<a id="a8fae8c86f38d10f4d790ce667f2d535f" name="a8fae8c86f38d10f4d790ce667f2d535f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fae8c86f38d10f4d790ce667f2d535f">&#9670;&#160;</a></span>nor2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -520,15 +458,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::nor2 </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::nor2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -544,12 +482,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#ae09155687f57f9f919a7b8f54d7b4739">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#aab45b0dd75caa03b82e65117aca6f404">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="a68e94ee4199e189b0c9243991cd86dfb" name="a68e94ee4199e189b0c9243991cd86dfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68e94ee4199e189b0c9243991cd86dfb">&#9670;&#160;</a></span>or2()</h2>
+<a id="a4141611aa7eded389a2747b5560828a7" name="a4141611aa7eded389a2747b5560828a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4141611aa7eded389a2747b5560828a7">&#9670;&#160;</a></span>or2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -558,15 +496,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::or2 </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::or2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -582,12 +520,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#ae72d444aa17398a80e00de65fc35681a">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#af766318df6562f0b8faf4bc441bd9f2c">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="aed5c34485c731e4d71ad633915830786" name="aed5c34485c731e4d71ad633915830786"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed5c34485c731e4d71ad633915830786">&#9670;&#160;</a></span>topVar()</h2>
+<a id="a9cad7bac334f9e2a853b0044994dd27b" name="a9cad7bac334f9e2a853b0044994dd27b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cad7bac334f9e2a853b0044994dd27b">&#9670;&#160;</a></span>True()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -596,35 +534,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::topVar </td>
-          <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#aa6c0a7885a3dd6b4d7ffc646563cb01b">ClassProject::Manager</a>.</p>
-
-</div>
-</div>
-<a id="a8e65237eb52237387f677e76c8457e00" name="a8e65237eb52237387f677e76c8457e00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e65237eb52237387f677e76c8457e00">&#9670;&#160;</a></span>True()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const BDD_ID &amp; ClassProject::ManagerInterface::True </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::True </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -637,12 +547,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a6c8db5f653120b73ff4ec90214fb10eb">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="a1ec3736db77110a248382825f71fce21" name="a1ec3736db77110a248382825f71fce21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ec3736db77110a248382825f71fce21">&#9670;&#160;</a></span>xnor2()</h2>
+<a id="a05a51eeb683c5da857e58b6e85d2d3a7" name="a05a51eeb683c5da857e58b6e85d2d3a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05a51eeb683c5da857e58b6e85d2d3a7">&#9670;&#160;</a></span>xnor2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -651,15 +561,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::xnor2 </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::xnor2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -675,12 +585,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a8f92b481f60e904a80a664392ab73066">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#afe34cf4ef036b17ce6e03f7fc5df44c7">ClassProject::Manager</a>.</p>
 
 </div>
 </div>
-<a id="acfeadcf9b96defdee3b113ca091d1fbf" name="acfeadcf9b96defdee3b113ca091d1fbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfeadcf9b96defdee3b113ca091d1fbf">&#9670;&#160;</a></span>xor2()</h2>
+<a id="af2655c52b28f7bda9f2c2fbd452a7f63" name="af2655c52b28f7bda9f2c2fbd452a7f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2655c52b28f7bda9f2c2fbd452a7f63">&#9670;&#160;</a></span>xor2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -689,15 +599,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual BDD_ID ClassProject::ManagerInterface::xor2 </td>
+          <td class="memname">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::ManagerInterface::xor2 </td>
           <td>(</td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BDD_ID&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -713,7 +623,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD<
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a3f2106e10b57fddc4c31a9e90e1846a9">ClassProject::Manager</a>.</p>
+<p>Implemented in <a class="el" href="classClassProject_1_1Manager.html#a17e985579f616b3f66dbd9ea229bba39">ClassProject::Manager</a>.</p>
 
 </div>
 </div>

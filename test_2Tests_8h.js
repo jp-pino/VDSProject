@@ -17,5 +17,6 @@ var test_2Tests_8h =
     [ "TEST_F", "test_2Tests_8h.html#a078c4b021bf4e1574c22cd3ca6b6694c", null ],
     [ "TEST_F", "test_2Tests_8h.html#a45645c89e9574b9f8cd1f22e4e8c19ec", null ],
     [ "TEST_F", "test_2Tests_8h.html#a1952e81e13009e1336468313e8d4ace0", null ],
+    [ "TEST_F", "test_2Tests_8h.html#a20a7875ca036b08638d5aa1dba93ea6b", null ],
     [ "TEST_F", "test_2Tests_8h.html#a3cb2de460a59b0cc8f90841c28a601c0", null ]
 ];

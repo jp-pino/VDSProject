@@ -115,10 +115,11 @@ Collaboration diagram for ClassProject::Reachability:</div>
 <div class="dyncontent">
 <div class="center"><img src="classClassProject_1_1Reachability__coll__graph.png" border="0" usemap="#aClassProject_1_1Reachability_coll__map" alt="Collaboration graph"/></div>
 <map name="aClassProject_1_1Reachability_coll__map" id="aClassProject_1_1Reachability_coll__map">
-<area shape="rect" title=" " alt="" coords="21,240,193,265"/>
-<area shape="rect" href="classClassProject_1_1ReachabilityInterface.html" title=" " alt="" coords="21,152,193,192"/>
-<area shape="rect" href="classClassProject_1_1Manager.html" title=" " alt="" coords="31,79,183,104"/>
-<area shape="rect" href="classClassProject_1_1ManagerInterface.html" title=" " alt="" coords="5,5,208,31"/>
+<area shape="rect" title=" " alt="" coords="72,281,244,307"/>
+<area shape="rect" href="classClassProject_1_1ReachabilityInterface.html" title=" " alt="" coords="5,192,177,232"/>
+<area shape="rect" href="classClassProject_1_1Manager.html" title=" " alt="" coords="31,93,183,119"/>
+<area shape="rect" href="classClassProject_1_1ManagerInterface.html" title=" " alt="" coords="65,5,267,31"/>
+<area shape="rect" href="classClassProject_1_1Node.html" title=" " alt="" coords="158,143,291,168"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -126,28 +127,28 @@ Collaboration diagram for ClassProject::Reachability:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a40ae7cf9fbdd356b194b1626906d4e20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a40ae7cf9fbdd356b194b1626906d4e20">Reachability</a> (unsigned int stateSize, unsigned int inputSize=0)</td></tr>
 <tr class="separator:a40ae7cf9fbdd356b194b1626906d4e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54768baec207ca527ea0b9b689e81e6f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; BDD_ID &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a54768baec207ca527ea0b9b689e81e6f">getStates</a> () const override</td></tr>
-<tr class="separator:a54768baec207ca527ea0b9b689e81e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa50a9117d7a2873dee15f66deb46c708"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; BDD_ID &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#aa50a9117d7a2873dee15f66deb46c708">getInputs</a> () const override</td></tr>
-<tr class="separator:aa50a9117d7a2873dee15f66deb46c708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa324c96135c7e365efacefb7b77e2759"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#aa324c96135c7e365efacefb7b77e2759">getStates</a> () const override</td></tr>
+<tr class="separator:aa324c96135c7e365efacefb7b77e2759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa790424c68fb0dcf955d03fb510228b8"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#aa790424c68fb0dcf955d03fb510228b8">getInputs</a> () const override</td></tr>
+<tr class="separator:aa790424c68fb0dcf955d03fb510228b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cfd3aacef0fdfe1ef4960922ad9c915"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a0cfd3aacef0fdfe1ef4960922ad9c915">isReachable</a> (const std::vector&lt; bool &gt; &amp;stateVector) override</td></tr>
 <tr class="separator:a0cfd3aacef0fdfe1ef4960922ad9c915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5ea365f78183befbe1898f250b2c9c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#af5ea365f78183befbe1898f250b2c9c5">stateDistance</a> (const std::vector&lt; bool &gt; &amp;stateVector) override</td></tr>
 <tr class="separator:af5ea365f78183befbe1898f250b2c9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fe43e8cf96bc77322baaefc6fd3c0d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a5fe43e8cf96bc77322baaefc6fd3c0d8">setTransitionFunctions</a> (const std::vector&lt; BDD_ID &gt; &amp;transitionFunctions) override</td></tr>
-<tr class="separator:a5fe43e8cf96bc77322baaefc6fd3c0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a240551142b0fccfcd91b2dba144f7098"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a240551142b0fccfcd91b2dba144f7098">setTransitionFunctions</a> (const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;transitionFunctions) override</td></tr>
+<tr class="separator:a240551142b0fccfcd91b2dba144f7098"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf4cb0e98de3182f13c707d101a2011b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#acf4cb0e98de3182f13c707d101a2011b">setInitState</a> (const std::vector&lt; bool &gt; &amp;stateVector) override</td></tr>
 <tr class="separator:acf4cb0e98de3182f13c707d101a2011b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31316003dcd3214d3280958cb94cdadf"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; BDD_ID &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#a31316003dcd3214d3280958cb94cdadf">getStates</a> () const =0</td></tr>
-<tr class="separator:a31316003dcd3214d3280958cb94cdadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c44fc2fab773236c8f71c88c36badd9"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; BDD_ID &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#a8c44fc2fab773236c8f71c88c36badd9">getInputs</a> () const =0</td></tr>
-<tr class="separator:a8c44fc2fab773236c8f71c88c36badd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74b51fb4d6cdf0d21072e89821327bec"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#a74b51fb4d6cdf0d21072e89821327bec">getStates</a> () const =0</td></tr>
+<tr class="separator:a74b51fb4d6cdf0d21072e89821327bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7334210401e98f9ae4832ad4ee819de5"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#a7334210401e98f9ae4832ad4ee819de5">getInputs</a> () const =0</td></tr>
+<tr class="separator:a7334210401e98f9ae4832ad4ee819de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6528cd5862c24697a85b6d22152b6562"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#a6528cd5862c24697a85b6d22152b6562">isReachable</a> (const std::vector&lt; bool &gt; &amp;stateVector)=0</td></tr>
 <tr class="separator:a6528cd5862c24697a85b6d22152b6562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05972ef1ab85639d0fb64b868025cad3"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#a05972ef1ab85639d0fb64b868025cad3">stateDistance</a> (const std::vector&lt; bool &gt; &amp;stateVector)=0</td></tr>
 <tr class="separator:a05972ef1ab85639d0fb64b868025cad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedfa48bde7d9a6b955447dcc1bdd0fc4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#aedfa48bde7d9a6b955447dcc1bdd0fc4">setTransitionFunctions</a> (const std::vector&lt; BDD_ID &gt; &amp;transitionFunctions)=0</td></tr>
-<tr class="separator:aedfa48bde7d9a6b955447dcc1bdd0fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6633f562bf4f3828eb491de8af629f6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#ab6633f562bf4f3828eb491de8af629f6">setTransitionFunctions</a> (const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;transitionFunctions)=0</td></tr>
+<tr class="separator:ab6633f562bf4f3828eb491de8af629f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba0d83184a185d146ba6cc497d4e917d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ReachabilityInterface.html#aba0d83184a185d146ba6cc497d4e917d">setInitState</a> (const std::vector&lt; bool &gt; &amp;stateVector)=0</td></tr>
 <tr class="separator:aba0d83184a185d146ba6cc497d4e917d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classClassProject_1_1Manager"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classClassProject_1_1Manager')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classClassProject_1_1Manager.html">ClassProject::Manager</a></td></tr>
@@ -155,142 +156,121 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Manager</b> ()</td></tr>
 <tr class="memdesc:a85fce20557dc45950ae3493d6f9f14ea inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor Creates the constant nodes True and False. <br /></td></tr>
 <tr class="separator:a85fce20557dc45950ae3493d6f9f14ea inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d26cfdb6120d2a31fd5767f68ebe3c5 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a7d26cfdb6120d2a31fd5767f68ebe3c5">createVar</a> (const std::string &amp;label) override</td></tr>
-<tr class="memdesc:a7d26cfdb6120d2a31fd5767f68ebe3c5 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new variable Creates a new variable with the given label and returns its ID.  <a href="classClassProject_1_1Manager.html#a7d26cfdb6120d2a31fd5767f68ebe3c5">More...</a><br /></td></tr>
-<tr class="separator:a7d26cfdb6120d2a31fd5767f68ebe3c5 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2d6ee5e91d44494dc1512ec40166e33 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="aa2d6ee5e91d44494dc1512ec40166e33" name="aa2d6ee5e91d44494dc1512ec40166e33"></a>
-BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>createVar</b> (const std::string &amp;label, const BDD_ID &amp;top, const BDD_ID &amp;high, const BDD_ID &amp;low)</td></tr>
-<tr class="separator:aa2d6ee5e91d44494dc1512ec40166e33 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26272d05caa88d6770484c0d4154fda7 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7">True</a> () override</td></tr>
-<tr class="memdesc:a26272d05caa88d6770484c0d4154fda7 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant True.  <a href="classClassProject_1_1Manager.html#a26272d05caa88d6770484c0d4154fda7">More...</a><br /></td></tr>
-<tr class="separator:a26272d05caa88d6770484c0d4154fda7 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e95dba944ce72f9685f17a7b668f1c8 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a6e95dba944ce72f9685f17a7b668f1c8">False</a> () override</td></tr>
-<tr class="memdesc:a6e95dba944ce72f9685f17a7b668f1c8 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant False.  <a href="classClassProject_1_1Manager.html#a6e95dba944ce72f9685f17a7b668f1c8">More...</a><br /></td></tr>
-<tr class="separator:a6e95dba944ce72f9685f17a7b668f1c8 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae36938ae525ced7bdc16d3a7353827dd inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae36938ae525ced7bdc16d3a7353827dd">isConstant</a> (BDD_ID f) override</td></tr>
-<tr class="memdesc:ae36938ae525ced7bdc16d3a7353827dd inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a node is a constant.  <a href="classClassProject_1_1Manager.html#ae36938ae525ced7bdc16d3a7353827dd">More...</a><br /></td></tr>
-<tr class="separator:ae36938ae525ced7bdc16d3a7353827dd inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36a24053561d59b05e671a14e85d1965 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a36a24053561d59b05e671a14e85d1965">isVariable</a> (BDD_ID x) override</td></tr>
-<tr class="memdesc:a36a24053561d59b05e671a14e85d1965 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a node is a variable.  <a href="classClassProject_1_1Manager.html#a36a24053561d59b05e671a14e85d1965">More...</a><br /></td></tr>
-<tr class="separator:a36a24053561d59b05e671a14e85d1965 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6c0a7885a3dd6b4d7ffc646563cb01b inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aa6c0a7885a3dd6b4d7ffc646563cb01b">topVar</a> (BDD_ID f) override</td></tr>
-<tr class="memdesc:aa6c0a7885a3dd6b4d7ffc646563cb01b inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the top variable of a node.  <a href="classClassProject_1_1Manager.html#aa6c0a7885a3dd6b4d7ffc646563cb01b">More...</a><br /></td></tr>
-<tr class="separator:aa6c0a7885a3dd6b4d7ffc646563cb01b inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d79fa44b2e066c3ab3ff0bdbb8716de inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a4d79fa44b2e066c3ab3ff0bdbb8716de">ite</a> (BDD_ID i, BDD_ID t, BDD_ID e) override</td></tr>
-<tr class="memdesc:a4d79fa44b2e066c3ab3ff0bdbb8716de inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the if-then-else of three nodes.  <a href="classClassProject_1_1Manager.html#a4d79fa44b2e066c3ab3ff0bdbb8716de">More...</a><br /></td></tr>
-<tr class="separator:a4d79fa44b2e066c3ab3ff0bdbb8716de inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1301b7b2ff95d997f95d907370cac068 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a1301b7b2ff95d997f95d907370cac068">coFactorTrue</a> (BDD_ID f, BDD_ID x) override</td></tr>
-<tr class="memdesc:a1301b7b2ff95d997f95d907370cac068 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the true co-factor of a node.  <a href="classClassProject_1_1Manager.html#a1301b7b2ff95d997f95d907370cac068">More...</a><br /></td></tr>
-<tr class="separator:a1301b7b2ff95d997f95d907370cac068 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c5433d4af6b5670c6f2ddc240dbdeb7 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a6c5433d4af6b5670c6f2ddc240dbdeb7">coFactorFalse</a> (BDD_ID f, BDD_ID x) override</td></tr>
-<tr class="memdesc:a6c5433d4af6b5670c6f2ddc240dbdeb7 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the false co-factor of a node.  <a href="classClassProject_1_1Manager.html#a6c5433d4af6b5670c6f2ddc240dbdeb7">More...</a><br /></td></tr>
-<tr class="separator:a6c5433d4af6b5670c6f2ddc240dbdeb7 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af83bf8daea4d95af8f151e5605172a12 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af83bf8daea4d95af8f151e5605172a12">coFactorTrue</a> (BDD_ID f) override</td></tr>
-<tr class="separator:af83bf8daea4d95af8f151e5605172a12 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af008f4e40323c448d02f5d48776fed7b inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af008f4e40323c448d02f5d48776fed7b">coFactorFalse</a> (BDD_ID f) override</td></tr>
-<tr class="separator:af008f4e40323c448d02f5d48776fed7b inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6779517434ccdf0daeadf3baecbb18a6 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a6779517434ccdf0daeadf3baecbb18a6">and2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:a6779517434ccdf0daeadf3baecbb18a6 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the AND of two nodes.  <a href="classClassProject_1_1Manager.html#a6779517434ccdf0daeadf3baecbb18a6">More...</a><br /></td></tr>
-<tr class="separator:a6779517434ccdf0daeadf3baecbb18a6 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae72d444aa17398a80e00de65fc35681a inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae72d444aa17398a80e00de65fc35681a">or2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:ae72d444aa17398a80e00de65fc35681a inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the OR of two nodes.  <a href="classClassProject_1_1Manager.html#ae72d444aa17398a80e00de65fc35681a">More...</a><br /></td></tr>
-<tr class="separator:ae72d444aa17398a80e00de65fc35681a inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f2106e10b57fddc4c31a9e90e1846a9 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a3f2106e10b57fddc4c31a9e90e1846a9">xor2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:a3f2106e10b57fddc4c31a9e90e1846a9 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the XOR of two nodes.  <a href="classClassProject_1_1Manager.html#a3f2106e10b57fddc4c31a9e90e1846a9">More...</a><br /></td></tr>
-<tr class="separator:a3f2106e10b57fddc4c31a9e90e1846a9 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a2163b4373123d53bc7e4a7073f416d inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a8a2163b4373123d53bc7e4a7073f416d">neg</a> (BDD_ID a) override</td></tr>
-<tr class="memdesc:a8a2163b4373123d53bc7e4a7073f416d inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the negation of a node.  <a href="classClassProject_1_1Manager.html#a8a2163b4373123d53bc7e4a7073f416d">More...</a><br /></td></tr>
-<tr class="separator:a8a2163b4373123d53bc7e4a7073f416d inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a223561e193b8b718420be9982c9ef256 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a223561e193b8b718420be9982c9ef256">nand2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:a223561e193b8b718420be9982c9ef256 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the NAND of two nodes.  <a href="classClassProject_1_1Manager.html#a223561e193b8b718420be9982c9ef256">More...</a><br /></td></tr>
-<tr class="separator:a223561e193b8b718420be9982c9ef256 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae09155687f57f9f919a7b8f54d7b4739 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae09155687f57f9f919a7b8f54d7b4739">nor2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:ae09155687f57f9f919a7b8f54d7b4739 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the NOR of two nodes.  <a href="classClassProject_1_1Manager.html#ae09155687f57f9f919a7b8f54d7b4739">More...</a><br /></td></tr>
-<tr class="separator:ae09155687f57f9f919a7b8f54d7b4739 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f92b481f60e904a80a664392ab73066 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a8f92b481f60e904a80a664392ab73066">xnor2</a> (BDD_ID a, BDD_ID b) override</td></tr>
-<tr class="memdesc:a8f92b481f60e904a80a664392ab73066 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the XNOR of two nodes.  <a href="classClassProject_1_1Manager.html#a8f92b481f60e904a80a664392ab73066">More...</a><br /></td></tr>
-<tr class="separator:a8f92b481f60e904a80a664392ab73066 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a589cf02b078a0aeae807470f1610d4 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a7a589cf02b078a0aeae807470f1610d4">createVar</a> (const std::string &amp;label) override</td></tr>
+<tr class="memdesc:a7a589cf02b078a0aeae807470f1610d4 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new variable Creates a new variable with the given label and returns its ID.  <a href="classClassProject_1_1Manager.html#a7a589cf02b078a0aeae807470f1610d4">More...</a><br /></td></tr>
+<tr class="separator:a7a589cf02b078a0aeae807470f1610d4 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a7f1f69eb6bb5ca2ca501a011d898e inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="a18a7f1f69eb6bb5ca2ca501a011d898e" name="a18a7f1f69eb6bb5ca2ca501a011d898e"></a>
+const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>createVar</b> (const std::string &amp;label, const BDD_ID &amp;top, const BDD_ID &amp;high, const BDD_ID &amp;low)</td></tr>
+<tr class="separator:a18a7f1f69eb6bb5ca2ca501a011d898e inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8db5f653120b73ff4ec90214fb10eb inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a6c8db5f653120b73ff4ec90214fb10eb">True</a> () override</td></tr>
+<tr class="memdesc:a6c8db5f653120b73ff4ec90214fb10eb inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant True.  <a href="classClassProject_1_1Manager.html#a6c8db5f653120b73ff4ec90214fb10eb">More...</a><br /></td></tr>
+<tr class="separator:a6c8db5f653120b73ff4ec90214fb10eb inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00c55375e32dfbc7da2cca12e71d38a6 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a00c55375e32dfbc7da2cca12e71d38a6">False</a> () override</td></tr>
+<tr class="memdesc:a00c55375e32dfbc7da2cca12e71d38a6 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the constant False.  <a href="classClassProject_1_1Manager.html#a00c55375e32dfbc7da2cca12e71d38a6">More...</a><br /></td></tr>
+<tr class="separator:a00c55375e32dfbc7da2cca12e71d38a6 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e9ff82c1dea0b823b54c4c0db122669 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a2e9ff82c1dea0b823b54c4c0db122669">ite</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;i, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;t, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;e) override</td></tr>
+<tr class="memdesc:a2e9ff82c1dea0b823b54c4c0db122669 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the if-then-else of three nodes.  <a href="classClassProject_1_1Manager.html#a2e9ff82c1dea0b823b54c4c0db122669">More...</a><br /></td></tr>
+<tr class="separator:a2e9ff82c1dea0b823b54c4c0db122669 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5512ac5b9639f343c4705b57ca56408 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aa5512ac5b9639f343c4705b57ca56408">coFactorTrue</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x) override</td></tr>
+<tr class="memdesc:aa5512ac5b9639f343c4705b57ca56408 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the true co-factor of a node.  <a href="classClassProject_1_1Manager.html#aa5512ac5b9639f343c4705b57ca56408">More...</a><br /></td></tr>
+<tr class="separator:aa5512ac5b9639f343c4705b57ca56408 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f1dc66e51e6a96203cd18b59d1524a inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a93f1dc66e51e6a96203cd18b59d1524a">coFactorFalse</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x) override</td></tr>
+<tr class="memdesc:a93f1dc66e51e6a96203cd18b59d1524a inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the false co-factor of a node.  <a href="classClassProject_1_1Manager.html#a93f1dc66e51e6a96203cd18b59d1524a">More...</a><br /></td></tr>
+<tr class="separator:a93f1dc66e51e6a96203cd18b59d1524a inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac85cb1a20e33d3b5a3b729e3f1161b47 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ac85cb1a20e33d3b5a3b729e3f1161b47">and2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:ac85cb1a20e33d3b5a3b729e3f1161b47 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the AND of two nodes.  <a href="classClassProject_1_1Manager.html#ac85cb1a20e33d3b5a3b729e3f1161b47">More...</a><br /></td></tr>
+<tr class="separator:ac85cb1a20e33d3b5a3b729e3f1161b47 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af766318df6562f0b8faf4bc441bd9f2c inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af766318df6562f0b8faf4bc441bd9f2c">or2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:af766318df6562f0b8faf4bc441bd9f2c inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the OR of two nodes.  <a href="classClassProject_1_1Manager.html#af766318df6562f0b8faf4bc441bd9f2c">More...</a><br /></td></tr>
+<tr class="separator:af766318df6562f0b8faf4bc441bd9f2c inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e985579f616b3f66dbd9ea229bba39 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a17e985579f616b3f66dbd9ea229bba39">xor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:a17e985579f616b3f66dbd9ea229bba39 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the XOR of two nodes.  <a href="classClassProject_1_1Manager.html#a17e985579f616b3f66dbd9ea229bba39">More...</a><br /></td></tr>
+<tr class="separator:a17e985579f616b3f66dbd9ea229bba39 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4396d944f265fc4998b9644940cc590 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af4396d944f265fc4998b9644940cc590">neg</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a) override</td></tr>
+<tr class="memdesc:af4396d944f265fc4998b9644940cc590 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the negation of a node.  <a href="classClassProject_1_1Manager.html#af4396d944f265fc4998b9644940cc590">More...</a><br /></td></tr>
+<tr class="separator:af4396d944f265fc4998b9644940cc590 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0131a4789d8aa407bd02a92681792215 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a0131a4789d8aa407bd02a92681792215">nand2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:a0131a4789d8aa407bd02a92681792215 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the NAND of two nodes.  <a href="classClassProject_1_1Manager.html#a0131a4789d8aa407bd02a92681792215">More...</a><br /></td></tr>
+<tr class="separator:a0131a4789d8aa407bd02a92681792215 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab45b0dd75caa03b82e65117aca6f404 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aab45b0dd75caa03b82e65117aca6f404">nor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:aab45b0dd75caa03b82e65117aca6f404 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the NOR of two nodes.  <a href="classClassProject_1_1Manager.html#aab45b0dd75caa03b82e65117aca6f404">More...</a><br /></td></tr>
+<tr class="separator:aab45b0dd75caa03b82e65117aca6f404 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe34cf4ef036b17ce6e03f7fc5df44c7 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#afe34cf4ef036b17ce6e03f7fc5df44c7">xnor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b) override</td></tr>
+<tr class="memdesc:afe34cf4ef036b17ce6e03f7fc5df44c7 inherit pub_methods_classClassProject_1_1Manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the XNOR of two nodes.  <a href="classClassProject_1_1Manager.html#afe34cf4ef036b17ce6e03f7fc5df44c7">More...</a><br /></td></tr>
+<tr class="separator:afe34cf4ef036b17ce6e03f7fc5df44c7 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3f3402334e2ca7a96c3732d6c89f08 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="aae3f3402334e2ca7a96c3732d6c89f08" name="aae3f3402334e2ca7a96c3732d6c89f08"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> ()</td></tr>
 <tr class="separator:aae3f3402334e2ca7a96c3732d6c89f08 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2dc7afe27497b80c5f1f3f63977f69a inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#af2dc7afe27497b80c5f1f3f63977f69a">getTopVarName</a> (const BDD_ID &amp;root) override</td></tr>
-<tr class="separator:af2dc7afe27497b80c5f1f3f63977f69a inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe7a8f2bc25a358a6ba4d4d44e57dfa inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a4fe7a8f2bc25a358a6ba4d4d44e57dfa">findNodes</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;nodes_of_root) override</td></tr>
+<tr class="separator:a4fe7a8f2bc25a358a6ba4d4d44e57dfa inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8fa8dd136cab3bcc13183106c24896f inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae8fa8dd136cab3bcc13183106c24896f">findNodes</a> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;nodes_of_root) override</td></tr>
 <tr class="separator:ae8fa8dd136cab3bcc13183106c24896f inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87e816bcaf33463b24e0ef8feed07392 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a87e816bcaf33463b24e0ef8feed07392">findVars</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;vars_of_root) override</td></tr>
+<tr class="separator:a87e816bcaf33463b24e0ef8feed07392 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeead829154e4476de425df06d94773af inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#aeead829154e4476de425df06d94773af">findVars</a> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;vars_of_root) override</td></tr>
 <tr class="separator:aeead829154e4476de425df06d94773af inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5014bf88d1f0213bd732dc279baa65de inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a5014bf88d1f0213bd732dc279baa65de">findVars</a> (const BDD_ID &amp;root) override</td></tr>
-<tr class="separator:a5014bf88d1f0213bd732dc279baa65de inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde55f30bc18d74013de50e8459b45cf inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#afde55f30bc18d74013de50e8459b45cf">findVars</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root) override</td></tr>
+<tr class="separator:afde55f30bc18d74013de50e8459b45cf inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0724a85292854fe2179b92d6c1aaf2ed inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a0724a85292854fe2179b92d6c1aaf2ed">uniqueTableSize</a> () override</td></tr>
 <tr class="separator:a0724a85292854fe2179b92d6c1aaf2ed inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e1303f9b5f47c2361d7693e2e35dbf0 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a8e1303f9b5f47c2361d7693e2e35dbf0">ucache_hits</a> () override</td></tr>
 <tr class="separator:a8e1303f9b5f47c2361d7693e2e35dbf0 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae58d6671fadb240920533be3e0405ebf inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#ae58d6671fadb240920533be3e0405ebf">pcache_hits</a> () override</td></tr>
 <tr class="separator:ae58d6671fadb240920533be3e0405ebf inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a530cc60bfb6c5f403e5500f65c83b856 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="a530cc60bfb6c5f403e5500f65c83b856" name="a530cc60bfb6c5f403e5500f65c83b856"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD_internal</b> (std::ofstream &amp;file, BDD_ID &amp;root)</td></tr>
-<tr class="separator:a530cc60bfb6c5f403e5500f65c83b856 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4618c45ca6d89e7c27e09203b64ad835 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a4618c45ca6d89e7c27e09203b64ad835">visualizeBDD</a> (std::string filepath, BDD_ID &amp;root, bool test_result) override</td></tr>
-<tr class="separator:a4618c45ca6d89e7c27e09203b64ad835 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0e16c0f57a22c95ea2dd58c17f2ee4f inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="ac0e16c0f57a22c95ea2dd58c17f2ee4f" name="ac0e16c0f57a22c95ea2dd58c17f2ee4f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph_internal</b> (std::ofstream &amp;file, BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;printed_nodes)</td></tr>
-<tr class="separator:ac0e16c0f57a22c95ea2dd58c17f2ee4f inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ed8c19320938888a02b72fc2601bdb8 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="a2ed8c19320938888a02b72fc2601bdb8" name="a2ed8c19320938888a02b72fc2601bdb8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph</b> (std::string filepath, BDD_ID &amp;root)</td></tr>
-<tr class="separator:a2ed8c19320938888a02b72fc2601bdb8 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bffb683d1401e9de59e58e0ec7d75e5 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="a6bffb683d1401e9de59e58e0ec7d75e5" name="a6bffb683d1401e9de59e58e0ec7d75e5"></a>
-const std::shared_ptr&lt; <a class="el" href="structClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNode</b> (const BDD_ID &amp;id) const</td></tr>
-<tr class="separator:a6bffb683d1401e9de59e58e0ec7d75e5 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab101acd3fbe6a5e29973d88f9862b8b4"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ab101acd3fbe6a5e29973d88f9862b8b4">createVar</a> (const std::string &amp;label)=0</td></tr>
-<tr class="separator:ab101acd3fbe6a5e29973d88f9862b8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e65237eb52237387f677e76c8457e00"><td class="memItemLeft" align="right" valign="top">virtual const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e65237eb52237387f677e76c8457e00">True</a> ()=0</td></tr>
-<tr class="separator:a8e65237eb52237387f677e76c8457e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4f5331132785ad1e418c77d2eb91900"><td class="memItemLeft" align="right" valign="top">virtual const BDD_ID &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ae4f5331132785ad1e418c77d2eb91900">False</a> ()=0</td></tr>
-<tr class="separator:ae4f5331132785ad1e418c77d2eb91900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4595e13104cdb6294df54b23393928e2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a4595e13104cdb6294df54b23393928e2">isConstant</a> (BDD_ID f)=0</td></tr>
-<tr class="separator:a4595e13104cdb6294df54b23393928e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2cf78319932123def1f0f0b02ae651b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad2cf78319932123def1f0f0b02ae651b">isVariable</a> (BDD_ID x)=0</td></tr>
-<tr class="separator:ad2cf78319932123def1f0f0b02ae651b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed5c34485c731e4d71ad633915830786"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#aed5c34485c731e4d71ad633915830786">topVar</a> (BDD_ID f)=0</td></tr>
-<tr class="separator:aed5c34485c731e4d71ad633915830786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a452e85ca74c513a42aae44e2b9512d72"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a452e85ca74c513a42aae44e2b9512d72">ite</a> (BDD_ID i, BDD_ID t, BDD_ID e)=0</td></tr>
-<tr class="separator:a452e85ca74c513a42aae44e2b9512d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25adecb52bd809c5fbd1ed0533609cef"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a25adecb52bd809c5fbd1ed0533609cef">coFactorTrue</a> (BDD_ID f, BDD_ID x)=0</td></tr>
-<tr class="separator:a25adecb52bd809c5fbd1ed0533609cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e4875bbf81687301ee138232f86389a"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e4875bbf81687301ee138232f86389a">coFactorFalse</a> (BDD_ID f, BDD_ID x)=0</td></tr>
-<tr class="separator:a8e4875bbf81687301ee138232f86389a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a182ca2b585df44b691fed7f82429326e"><td class="memItemLeft" align="right" valign="top"><a id="a182ca2b585df44b691fed7f82429326e" name="a182ca2b585df44b691fed7f82429326e"></a>
-virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>coFactorTrue</b> (BDD_ID f)=0</td></tr>
-<tr class="separator:a182ca2b585df44b691fed7f82429326e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cbca3227051f22cef6dd012550f634e"><td class="memItemLeft" align="right" valign="top"><a id="a1cbca3227051f22cef6dd012550f634e" name="a1cbca3227051f22cef6dd012550f634e"></a>
-virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>coFactorFalse</b> (BDD_ID f)=0</td></tr>
-<tr class="separator:a1cbca3227051f22cef6dd012550f634e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a588f4f52b9943055ec55095f5b67034d"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a588f4f52b9943055ec55095f5b67034d">and2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a588f4f52b9943055ec55095f5b67034d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e94ee4199e189b0c9243991cd86dfb"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a68e94ee4199e189b0c9243991cd86dfb">or2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a68e94ee4199e189b0c9243991cd86dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfeadcf9b96defdee3b113ca091d1fbf"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#acfeadcf9b96defdee3b113ca091d1fbf">xor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:acfeadcf9b96defdee3b113ca091d1fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e7b062caaef78d651a4057f136709fd"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8e7b062caaef78d651a4057f136709fd">neg</a> (BDD_ID a)=0</td></tr>
-<tr class="separator:a8e7b062caaef78d651a4057f136709fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a650bcb03b7be6f306f0c28f3b0fd3299"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a650bcb03b7be6f306f0c28f3b0fd3299">nand2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a650bcb03b7be6f306f0c28f3b0fd3299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94d6df82dfd51cf8d4d1f5b2b62dca8"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad94d6df82dfd51cf8d4d1f5b2b62dca8">nor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:ad94d6df82dfd51cf8d4d1f5b2b62dca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ec3736db77110a248382825f71fce21"><td class="memItemLeft" align="right" valign="top">virtual BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a1ec3736db77110a248382825f71fce21">xnor2</a> (BDD_ID a, BDD_ID b)=0</td></tr>
-<tr class="separator:a1ec3736db77110a248382825f71fce21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afde45b2065361dfa6e61c1c7bc3fc1b4"><td class="memItemLeft" align="right" valign="top"><a id="afde45b2065361dfa6e61c1c7bc3fc1b4" name="afde45b2065361dfa6e61c1c7bc3fc1b4"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getTopVarName</b> (const BDD_ID &amp;root)=0</td></tr>
-<tr class="separator:afde45b2065361dfa6e61c1c7bc3fc1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae493a5b757b280750e728897e8856091 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="ae493a5b757b280750e728897e8856091" name="ae493a5b757b280750e728897e8856091"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD_internal</b> (std::ofstream &amp;file, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root)</td></tr>
+<tr class="separator:ae493a5b757b280750e728897e8856091 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361788e687f5acda8dd6b2a6eca0180a inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a361788e687f5acda8dd6b2a6eca0180a">visualizeBDD</a> (std::string filepath, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, bool test_result) override</td></tr>
+<tr class="separator:a361788e687f5acda8dd6b2a6eca0180a inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e2d0d55400cfff83085fdd874fdf01 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="a68e2d0d55400cfff83085fdd874fdf01" name="a68e2d0d55400cfff83085fdd874fdf01"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph_internal</b> (std::ofstream &amp;file, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;printed_nodes)</td></tr>
+<tr class="separator:a68e2d0d55400cfff83085fdd874fdf01 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcce71708477b62741b0b7d8cc0f6f4f inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top"><a id="adcce71708477b62741b0b7d8cc0f6f4f" name="adcce71708477b62741b0b7d8cc0f6f4f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mermaidGraph</b> (std::string filepath, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root)</td></tr>
+<tr class="separator:adcce71708477b62741b0b7d8cc0f6f4f inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a0e260511d439a159a254c0de5e5608 inherit pub_methods_classClassProject_1_1Manager"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Manager.html#a1a0e260511d439a159a254c0de5e5608">getNode</a> (const BDD_ID &amp;id) const</td></tr>
+<tr class="separator:a1a0e260511d439a159a254c0de5e5608 inherit pub_methods_classClassProject_1_1Manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad539d5963ea38a3018a860c811e11583"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad539d5963ea38a3018a860c811e11583">createVar</a> (const std::string &amp;label)=0</td></tr>
+<tr class="separator:ad539d5963ea38a3018a860c811e11583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cad7bac334f9e2a853b0044994dd27b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a9cad7bac334f9e2a853b0044994dd27b">True</a> ()=0</td></tr>
+<tr class="separator:a9cad7bac334f9e2a853b0044994dd27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc2de66817f64fcc4b4e38054df493b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#aebc2de66817f64fcc4b4e38054df493b">False</a> ()=0</td></tr>
+<tr class="separator:aebc2de66817f64fcc4b4e38054df493b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fee042705a925f072fe81965fe2d9a4"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a0fee042705a925f072fe81965fe2d9a4">ite</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;i, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;t, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;e)=0</td></tr>
+<tr class="separator:a0fee042705a925f072fe81965fe2d9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad30bed3586ca04c760724bab993c31ab"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad30bed3586ca04c760724bab993c31ab">coFactorTrue</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x)=0</td></tr>
+<tr class="separator:ad30bed3586ca04c760724bab993c31ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a389357427a56f7a80dc4d519a5aef9d5"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a389357427a56f7a80dc4d519a5aef9d5">coFactorFalse</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;x)=0</td></tr>
+<tr class="separator:a389357427a56f7a80dc4d519a5aef9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1615dd2b165e555f8702acf169e1ccc"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#ad1615dd2b165e555f8702acf169e1ccc">and2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:ad1615dd2b165e555f8702acf169e1ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4141611aa7eded389a2747b5560828a7"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a4141611aa7eded389a2747b5560828a7">or2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a4141611aa7eded389a2747b5560828a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2655c52b28f7bda9f2c2fbd452a7f63"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#af2655c52b28f7bda9f2c2fbd452a7f63">xor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:af2655c52b28f7bda9f2c2fbd452a7f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453881f84431154cb24634da5e30e83b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a453881f84431154cb24634da5e30e83b">neg</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a)=0</td></tr>
+<tr class="separator:a453881f84431154cb24634da5e30e83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aeac219d22e6ba156797234cf450c2f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a9aeac219d22e6ba156797234cf450c2f">nand2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a9aeac219d22e6ba156797234cf450c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fae8c86f38d10f4d790ce667f2d535f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a8fae8c86f38d10f4d790ce667f2d535f">nor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a8fae8c86f38d10f4d790ce667f2d535f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a51eeb683c5da857e58b6e85d2d3a7"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1ManagerInterface.html#a05a51eeb683c5da857e58b6e85d2d3a7">xnor2</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;a, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;b)=0</td></tr>
+<tr class="separator:a05a51eeb683c5da857e58b6e85d2d3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb62087d3129c8c28c421487d77c889"><td class="memItemLeft" align="right" valign="top"><a id="a8bb62087d3129c8c28c421487d77c889" name="a8bb62087d3129c8c28c421487d77c889"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findNodes</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;nodes_of_root)=0</td></tr>
+<tr class="separator:a8bb62087d3129c8c28c421487d77c889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab460e331ffdb85d4128574b3aae72c1e"><td class="memItemLeft" align="right" valign="top"><a id="ab460e331ffdb85d4128574b3aae72c1e" name="ab460e331ffdb85d4128574b3aae72c1e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findNodes</b> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;nodes_of_root)=0</td></tr>
 <tr class="separator:ab460e331ffdb85d4128574b3aae72c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc4d76f7e0f9cad715382a9bf7aca63c"><td class="memItemLeft" align="right" valign="top"><a id="abc4d76f7e0f9cad715382a9bf7aca63c" name="abc4d76f7e0f9cad715382a9bf7aca63c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, std::set&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;vars_of_root)=0</td></tr>
+<tr class="separator:abc4d76f7e0f9cad715382a9bf7aca63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab94feabca2125d334e542e502ae0186d"><td class="memItemLeft" align="right" valign="top"><a id="ab94feabca2125d334e542e502ae0186d" name="ab94feabca2125d334e542e502ae0186d"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const BDD_ID &amp;root, std::set&lt; BDD_ID &gt; &amp;vars_of_root)=0</td></tr>
 <tr class="separator:ab94feabca2125d334e542e502ae0186d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf5bb1af5098f15257ff1733a8a39b61"><td class="memItemLeft" align="right" valign="top"><a id="aaf5bb1af5098f15257ff1733a8a39b61" name="aaf5bb1af5098f15257ff1733a8a39b61"></a>
-virtual std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const BDD_ID &amp;root)=0</td></tr>
-<tr class="separator:aaf5bb1af5098f15257ff1733a8a39b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d004af142aa91f19492b458faf7fba"><td class="memItemLeft" align="right" valign="top"><a id="a91d004af142aa91f19492b458faf7fba" name="a91d004af142aa91f19492b458faf7fba"></a>
+virtual std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findVars</b> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root)=0</td></tr>
+<tr class="separator:a91d004af142aa91f19492b458faf7fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memItemLeft" align="right" valign="top"><a id="a85cac80444b26e5b80eb96b9f1231c0e" name="a85cac80444b26e5b80eb96b9f1231c0e"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>uniqueTableSize</b> ()=0</td></tr>
 <tr class="separator:a85cac80444b26e5b80eb96b9f1231c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -300,48 +280,51 @@ virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ucache_hits
 <tr class="memitem:ab8fee09628ebd5492e72349d41a7fb35"><td class="memItemLeft" align="right" valign="top"><a id="ab8fee09628ebd5492e72349d41a7fb35" name="ab8fee09628ebd5492e72349d41a7fb35"></a>
 virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pcache_hits</b> ()=0</td></tr>
 <tr class="separator:ab8fee09628ebd5492e72349d41a7fb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memItemLeft" align="right" valign="top"><a id="a2db009b980a7225a5eb2e8c88eab5e5d" name="a2db009b980a7225a5eb2e8c88eab5e5d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, BDD_ID &amp;root, bool test_result)=0</td></tr>
-<tr class="separator:a2db009b980a7225a5eb2e8c88eab5e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d71dd74406d0c45e48a38ac2e5f151"><td class="memItemLeft" align="right" valign="top"><a id="a40d71dd74406d0c45e48a38ac2e5f151" name="a40d71dd74406d0c45e48a38ac2e5f151"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visualizeBDD</b> (std::string filepath, const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;root, bool test_result)=0</td></tr>
+<tr class="separator:a40d71dd74406d0c45e48a38ac2e5f151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7f67ed0ea67995051b73bb90964736"><td class="memItemLeft" align="right" valign="top"><a id="a4a7f67ed0ea67995051b73bb90964736" name="a4a7f67ed0ea67995051b73bb90964736"></a>
+virtual const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getNode</b> (const BDD_ID &amp;id) const =0</td></tr>
+<tr class="separator:a4a7f67ed0ea67995051b73bb90964736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ab085180e833de0160ecce09f06c82eea"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#ab085180e833de0160ecce09f06c82eea">existential_quantification</a> (const BDD_ID &amp;f, const std::vector&lt; BDD_ID &gt; &amp;v)</td></tr>
-<tr class="memdesc:ab085180e833de0160ecce09f06c82eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Existential quantification operator.  <a href="classClassProject_1_1Reachability.html#ab085180e833de0160ecce09f06c82eea">More...</a><br /></td></tr>
-<tr class="separator:ab085180e833de0160ecce09f06c82eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a814dfb37fa950931ccded9ee0429989d"><td class="memItemLeft" align="right" valign="top">BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a814dfb37fa950931ccded9ee0429989d">restrict</a> (const BDD_ID &amp;f, const std::vector&lt; bool &gt; &amp;k, const std::vector&lt; BDD_ID &gt; &amp;v)</td></tr>
-<tr class="memdesc:a814dfb37fa950931ccded9ee0429989d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict operator.  <a href="classClassProject_1_1Reachability.html#a814dfb37fa950931ccded9ee0429989d">More...</a><br /></td></tr>
-<tr class="separator:a814dfb37fa950931ccded9ee0429989d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada4619b81d0a4f439b7f3d5dcf378c7b"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; BDD_ID, std::unordered_map&lt; BDD_ID, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#ada4619b81d0a4f439b7f3d5dcf378c7b">try_restrict</a> (const BDD_ID &amp;f)</td></tr>
-<tr class="memdesc:ada4619b81d0a4f439b7f3d5dcf378c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to restrict a BDD to a constant.  <a href="classClassProject_1_1Reachability.html#ada4619b81d0a4f439b7f3d5dcf378c7b">More...</a><br /></td></tr>
-<tr class="separator:ada4619b81d0a4f439b7f3d5dcf378c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad43f70e326cb00cd2c316c7a0ef3771e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#ad43f70e326cb00cd2c316c7a0ef3771e">test_reachability</a> (const BDD_ID &amp;cr, const std::vector&lt; bool &gt; &amp;stateVector)</td></tr>
-<tr class="memdesc:ad43f70e326cb00cd2c316c7a0ef3771e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test reachability of a state.  <a href="classClassProject_1_1Reachability.html#ad43f70e326cb00cd2c316c7a0ef3771e">More...</a><br /></td></tr>
-<tr class="separator:ad43f70e326cb00cd2c316c7a0ef3771e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8ea21d331459d337733b1e38b10c4b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#ada8ea21d331459d337733b1e38b10c4b">existential_quantification</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;v)</td></tr>
+<tr class="memdesc:ada8ea21d331459d337733b1e38b10c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Existential quantification operator.  <a href="classClassProject_1_1Reachability.html#ada8ea21d331459d337733b1e38b10c4b">More...</a><br /></td></tr>
+<tr class="separator:ada8ea21d331459d337733b1e38b10c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0995002a0ca2bdf0a62880306f4db6ba"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a0995002a0ca2bdf0a62880306f4db6ba">restrict</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f, const std::vector&lt; bool &gt; &amp;k, const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;v)</td></tr>
+<tr class="memdesc:a0995002a0ca2bdf0a62880306f4db6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict operator.  <a href="classClassProject_1_1Reachability.html#a0995002a0ca2bdf0a62880306f4db6ba">More...</a><br /></td></tr>
+<tr class="separator:a0995002a0ca2bdf0a62880306f4db6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae67bf9f413a8f41f123814f098528ded"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a>, std::unordered_map&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a>, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#ae67bf9f413a8f41f123814f098528ded">try_restrict</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;f)</td></tr>
+<tr class="memdesc:ae67bf9f413a8f41f123814f098528ded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to restrict a BDD to a constant.  <a href="classClassProject_1_1Reachability.html#ae67bf9f413a8f41f123814f098528ded">More...</a><br /></td></tr>
+<tr class="separator:ae67bf9f413a8f41f123814f098528ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a622a91043609d047ae79b375ebab586b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassProject_1_1Reachability.html#a622a91043609d047ae79b375ebab586b">test_reachability</a> (const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;cr, const std::vector&lt; bool &gt; &amp;stateVector)</td></tr>
+<tr class="memdesc:a622a91043609d047ae79b375ebab586b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test reachability of a state.  <a href="classClassProject_1_1Reachability.html#a622a91043609d047ae79b375ebab586b">More...</a><br /></td></tr>
+<tr class="separator:a622a91043609d047ae79b375ebab586b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a1f72f16f4f15ec4a6d764d738982adde"><td class="memItemLeft" align="right" valign="top"><a id="a1f72f16f4f15ec4a6d764d738982adde" name="a1f72f16f4f15ec4a6d764d738982adde"></a>
-std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>states</b></td></tr>
-<tr class="separator:a1f72f16f4f15ec4a6d764d738982adde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8715ff707515d0ffbb253b519a0c019"><td class="memItemLeft" align="right" valign="top"><a id="aa8715ff707515d0ffbb253b519a0c019" name="aa8715ff707515d0ffbb253b519a0c019"></a>
-std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inputs</b></td></tr>
-<tr class="separator:aa8715ff707515d0ffbb253b519a0c019"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc9fc113be7f26905adef1633fc3af91"><td class="memItemLeft" align="right" valign="top"><a id="acc9fc113be7f26905adef1633fc3af91" name="acc9fc113be7f26905adef1633fc3af91"></a>
-std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>next_states</b></td></tr>
-<tr class="separator:acc9fc113be7f26905adef1633fc3af91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d5235e3a401e3edb8cc49e220c1b343"><td class="memItemLeft" align="right" valign="top"><a id="a4d5235e3a401e3edb8cc49e220c1b343" name="a4d5235e3a401e3edb8cc49e220c1b343"></a>
+std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>states</b></td></tr>
+<tr class="separator:a4d5235e3a401e3edb8cc49e220c1b343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a4460111a2967676169409a3e2552d"><td class="memItemLeft" align="right" valign="top"><a id="a99a4460111a2967676169409a3e2552d" name="a99a4460111a2967676169409a3e2552d"></a>
+std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inputs</b></td></tr>
+<tr class="separator:a99a4460111a2967676169409a3e2552d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692ac006adc365dff78e6a706a2fcd27"><td class="memItemLeft" align="right" valign="top"><a id="a692ac006adc365dff78e6a706a2fcd27" name="a692ac006adc365dff78e6a706a2fcd27"></a>
+std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>next_states</b></td></tr>
+<tr class="separator:a692ac006adc365dff78e6a706a2fcd27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb7fd0a0a15f48d6949cafde538cf568"><td class="memItemLeft" align="right" valign="top"><a id="adb7fd0a0a15f48d6949cafde538cf568" name="adb7fd0a0a15f48d6949cafde538cf568"></a>
 std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>init_state</b></td></tr>
 <tr class="separator:adb7fd0a0a15f48d6949cafde538cf568"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59c220ef0e384576d878bce2db6e2ee2"><td class="memItemLeft" align="right" valign="top"><a id="a59c220ef0e384576d878bce2db6e2ee2" name="a59c220ef0e384576d878bce2db6e2ee2"></a>
-std::vector&lt; BDD_ID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transitionFunctions</b></td></tr>
-<tr class="separator:a59c220ef0e384576d878bce2db6e2ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4864bc2c9c694f1a4e22fa05a58d71a8"><td class="memItemLeft" align="right" valign="top"><a id="a4864bc2c9c694f1a4e22fa05a58d71a8" name="a4864bc2c9c694f1a4e22fa05a58d71a8"></a>
-BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>tau</b></td></tr>
-<tr class="separator:a4864bc2c9c694f1a4e22fa05a58d71a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5602fa18986c3bd6bd74cd8657fc40d"><td class="memItemLeft" align="right" valign="top"><a id="ae5602fa18986c3bd6bd74cd8657fc40d" name="ae5602fa18986c3bd6bd74cd8657fc40d"></a>
-BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
-<tr class="separator:ae5602fa18986c3bd6bd74cd8657fc40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbc935f9d97727b37556877393cca958"><td class="memItemLeft" align="right" valign="top"><a id="adbc935f9d97727b37556877393cca958" name="adbc935f9d97727b37556877393cca958"></a>
+std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transitionFunctions</b></td></tr>
+<tr class="separator:adbc935f9d97727b37556877393cca958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c5bb5996f43b4abfce55478341c5372"><td class="memItemLeft" align="right" valign="top"><a id="a4c5bb5996f43b4abfce55478341c5372" name="a4c5bb5996f43b4abfce55478341c5372"></a>
+<a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tau</b></td></tr>
+<tr class="separator:a4c5bb5996f43b4abfce55478341c5372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c29b4716a3acfe73560700735a4795"><td class="memItemLeft" align="right" valign="top"><a id="ab7c29b4716a3acfe73560700735a4795" name="ab7c29b4716a3acfe73560700735a4795"></a>
+<a class="el" href="classClassProject_1_1Node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
+<tr class="separator:ab7c29b4716a3acfe73560700735a4795"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a40ae7cf9fbdd356b194b1626906d4e20" name="a40ae7cf9fbdd356b194b1626906d4e20"></a>
@@ -395,8 +378,8 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab085180e833de0160ecce09f06c82eea" name="ab085180e833de0160ecce09f06c82eea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab085180e833de0160ecce09f06c82eea">&#9670;&#160;</a></span>existential_quantification()</h2>
+<a id="ada8ea21d331459d337733b1e38b10c4b" name="ada8ea21d331459d337733b1e38b10c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada8ea21d331459d337733b1e38b10c4b">&#9670;&#160;</a></span>existential_quantification()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,15 +388,15 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Reachability::existential_quantification </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Reachability::existential_quantification </td>
           <td>(</td>
-          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; BDD_ID &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
@@ -432,17 +415,17 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 <p>Existential quantification operator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>BDD_ID Characteristic function </td></tr>
-    <tr><td class="paramname">v</td><td>std::vector&lt;BDD_ID&gt; Vector of variables to quantify </td></tr>
+    <tr><td class="paramname">f</td><td><a class="el" href="classClassProject_1_1Node.html">Node</a> Characteristic function </td></tr>
+    <tr><td class="paramname">v</td><td>std::vector&lt;Node&gt; Vector of variables to quantify </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>BDD_ID Disjunction of the cofactors of f w.r.t list of variables </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classClassProject_1_1Node.html">Node</a> Disjunction of the cofactors of f w.r.t list of variables </dd></dl>
 
 </div>
 </div>
-<a id="aa50a9117d7a2873dee15f66deb46c708" name="aa50a9117d7a2873dee15f66deb46c708"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa50a9117d7a2873dee15f66deb46c708">&#9670;&#160;</a></span>getInputs()</h2>
+<a id="aa790424c68fb0dcf955d03fb510228b8" name="aa790424c68fb0dcf955d03fb510228b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa790424c68fb0dcf955d03fb510228b8">&#9670;&#160;</a></span>getInputs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -451,7 +434,7 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt; BDD_ID &gt; &amp; ClassProject::Reachability::getInputs </td>
+          <td class="memname">const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp; ClassProject::Reachability::getInputs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -464,14 +447,14 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 </table>
 </div><div class="memdoc">
 <p >Returns a vector containing all input bits of the state machine.</p>
-<dl class="section return"><dt>Returns</dt><dd>vector with the BDD_ID of each input bit </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>vector with the <a class="el" href="classClassProject_1_1Node.html">Node</a> of each input bit </dd></dl>
 
-<p>Implements <a class="el" href="classClassProject_1_1ReachabilityInterface.html#a8c44fc2fab773236c8f71c88c36badd9">ClassProject::ReachabilityInterface</a>.</p>
+<p>Implements <a class="el" href="classClassProject_1_1ReachabilityInterface.html#a7334210401e98f9ae4832ad4ee819de5">ClassProject::ReachabilityInterface</a>.</p>
 
 </div>
 </div>
-<a id="a54768baec207ca527ea0b9b689e81e6f" name="a54768baec207ca527ea0b9b689e81e6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54768baec207ca527ea0b9b689e81e6f">&#9670;&#160;</a></span>getStates()</h2>
+<a id="aa324c96135c7e365efacefb7b77e2759" name="aa324c96135c7e365efacefb7b77e2759"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa324c96135c7e365efacefb7b77e2759">&#9670;&#160;</a></span>getStates()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,7 +463,7 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt; BDD_ID &gt; &amp; ClassProject::Reachability::getStates </td>
+          <td class="memname">const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp; ClassProject::Reachability::getStates </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -493,9 +476,9 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 </table>
 </div><div class="memdoc">
 <p >Returns a vector containing all state bits of the state machine.</p>
-<dl class="section return"><dt>Returns</dt><dd>vector with the BDD_ID of each state bit </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>vector with the <a class="el" href="classClassProject_1_1Node.html">Node</a> of each state bit </dd></dl>
 
-<p>Implements <a class="el" href="classClassProject_1_1ReachabilityInterface.html#a31316003dcd3214d3280958cb94cdadf">ClassProject::ReachabilityInterface</a>.</p>
+<p>Implements <a class="el" href="classClassProject_1_1ReachabilityInterface.html#a74b51fb4d6cdf0d21072e89821327bec">ClassProject::ReachabilityInterface</a>.</p>
 
 </div>
 </div>
@@ -541,8 +524,8 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 
 </div>
 </div>
-<a id="a814dfb37fa950931ccded9ee0429989d" name="a814dfb37fa950931ccded9ee0429989d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a814dfb37fa950931ccded9ee0429989d">&#9670;&#160;</a></span>restrict()</h2>
+<a id="a0995002a0ca2bdf0a62880306f4db6ba" name="a0995002a0ca2bdf0a62880306f4db6ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0995002a0ca2bdf0a62880306f4db6ba">&#9670;&#160;</a></span>restrict()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -551,9 +534,9 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BDD_ID ClassProject::Reachability::restrict </td>
+          <td class="memname">const <a class="el" href="classClassProject_1_1Node.html">Node</a> ClassProject::Reachability::restrict </td>
           <td>(</td>
-          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
@@ -565,7 +548,7 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; BDD_ID &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
@@ -585,13 +568,13 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 <p >Shannon cofactor of f w.r.t variable v</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>BDD_ID Characteristic function to restrict </td></tr>
+    <tr><td class="paramname">f</td><td><a class="el" href="classClassProject_1_1Node.html">Node</a> Characteristic function to restrict </td></tr>
     <tr><td class="paramname">k</td><td>std::vector&lt;bool&gt; Constants to restrict the function </td></tr>
-    <tr><td class="paramname">v</td><td>std::vector&lt;BDD_ID&gt; List of variables to restrict the function </td></tr>
+    <tr><td class="paramname">v</td><td>std::vector&lt;Node&gt; List of variables to restrict the function </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>BDD_ID of the resulting BDD after the restriction </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classClassProject_1_1Node.html">Node</a> of the resulting BDD after the restriction </dd></dl>
 
 </div>
 </div>
@@ -636,8 +619,8 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 
 </div>
 </div>
-<a id="a5fe43e8cf96bc77322baaefc6fd3c0d8" name="a5fe43e8cf96bc77322baaefc6fd3c0d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fe43e8cf96bc77322baaefc6fd3c0d8">&#9670;&#160;</a></span>setTransitionFunctions()</h2>
+<a id="a240551142b0fccfcd91b2dba144f7098" name="a240551142b0fccfcd91b2dba144f7098"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a240551142b0fccfcd91b2dba144f7098">&#9670;&#160;</a></span>setTransitionFunctions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -648,7 +631,7 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
         <tr>
           <td class="memname">void ClassProject::Reachability::setTransitionFunctions </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; BDD_ID &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>transitionFunctions</em></td><td>)</td>
           <td></td>
         </tr>
@@ -676,7 +659,7 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classClassProject_1_1ReachabilityInterface.html#aedfa48bde7d9a6b955447dcc1bdd0fc4">ClassProject::ReachabilityInterface</a>.</p>
+<p>Implements <a class="el" href="classClassProject_1_1ReachabilityInterface.html#ab6633f562bf4f3828eb491de8af629f6">ClassProject::ReachabilityInterface</a>.</p>
 
 </div>
 </div>
@@ -721,8 +704,8 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 
 </div>
 </div>
-<a id="ad43f70e326cb00cd2c316c7a0ef3771e" name="ad43f70e326cb00cd2c316c7a0ef3771e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad43f70e326cb00cd2c316c7a0ef3771e">&#9670;&#160;</a></span>test_reachability()</h2>
+<a id="a622a91043609d047ae79b375ebab586b" name="a622a91043609d047ae79b375ebab586b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a622a91043609d047ae79b375ebab586b">&#9670;&#160;</a></span>test_reachability()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -733,7 +716,7 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
         <tr>
           <td class="memname">bool ClassProject::Reachability::test_reachability </td>
           <td>(</td>
-          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>cr</em>, </td>
         </tr>
         <tr>
@@ -758,7 +741,7 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 <p>Test reachability of a state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cr</td><td>BDD_ID Characteristic function to restrict </td></tr>
+    <tr><td class="paramname">cr</td><td><a class="el" href="classClassProject_1_1Node.html">Node</a> Characteristic function to restrict </td></tr>
     <tr><td class="paramname">stateVector</td><td>std::vector&lt;bool&gt; State to test reachability </td></tr>
   </table>
   </dd>
@@ -767,8 +750,8 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 
 </div>
 </div>
-<a id="ada4619b81d0a4f439b7f3d5dcf378c7b" name="ada4619b81d0a4f439b7f3d5dcf378c7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada4619b81d0a4f439b7f3d5dcf378c7b">&#9670;&#160;</a></span>try_restrict()</h2>
+<a id="ae67bf9f413a8f41f123814f098528ded" name="ae67bf9f413a8f41f123814f098528ded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae67bf9f413a8f41f123814f098528ded">&#9670;&#160;</a></span>try_restrict()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -777,9 +760,9 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::tuple&lt; BDD_ID, std::unordered_map&lt; BDD_ID, bool &gt; &gt; ClassProject::Reachability::try_restrict </td>
+          <td class="memname">std::tuple&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a>, std::unordered_map&lt; <a class="el" href="classClassProject_1_1Node.html">Node</a>, bool &gt; &gt; ClassProject::Reachability::try_restrict </td>
           <td>(</td>
-          <td class="paramtype">const BDD_ID &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classClassProject_1_1Node.html">Node</a> &amp;&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -795,11 +778,11 @@ BDD_ID&#160;</td><td class="memItemRight" valign="bottom"><b>cs0</b></td></tr>
 <p >The function tries to restrict the given BDD to the smallest BDD that's not False and returns the combination of variables that lead to this result. The variables it uses are the top variables of the BDD.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>BDD_ID Characteristic function to restrict </td></tr>
+    <tr><td class="paramname">f</td><td><a class="el" href="classClassProject_1_1Node.html">Node</a> Characteristic function to restrict </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::tuple&lt;BDD_ID, std::unordered_map&lt;BDD_ID, bool&gt;&gt; Resulting BDD and the values of the variables that result in the restriction </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::tuple&lt;Node, std::unordered_map&lt;Node, bool&gt;&gt; Resulting BDD and the values of the variables that result in the restriction </dd></dl>
 
 </div>
 </div>
