@@ -6,6 +6,8 @@
 #include <fstream>
 #include <iostream>
 
+#include "Node.h"
+
 #ifndef DEBUG
 #define DEBUG 0
 #endif
@@ -173,7 +175,7 @@ const Node Manager::nor2(const Node& a, const Node& b) {
 
 const Node Manager::xnor2(const Node& a, const Node& b) {
   spdlog::trace(">>>>>>> xnor2({}, {})", GET_NAME(a), GET_NAME(b));
-  auto node = nodes[neg(xor2(a, b)).id()];
+  auto node = nodes[ite(a, b, neg(b)).id()];
   if (node->isConstant() || node->isVariable()) return *node;
   node->label(fmt::format("!({} x {})", GET_NAME(a), GET_NAME(b)));
   return *node;

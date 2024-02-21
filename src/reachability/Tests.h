@@ -62,7 +62,7 @@ TEST_F(ReachabilityTest, StateDistanceTest) {
 
   // FSM describes a counter
   transitionFunctions.push_back(!s0);
-  transitionFunctions.push_back(fsm->ite(s0, (!s1), s1));
+  transitionFunctions.push_back(s0 ^ s1);
 
   fsm->setTransitionFunctions(transitionFunctions);
   fsm->setInitState({false, false});
@@ -97,7 +97,7 @@ TEST_F(ReachabilityTest, ExceptionsTest) {
 
   transitionFunctions.push_back(!s0);
   transitionFunctions.push_back(!s0);
-  transitionFunctions.push_back(fsm->ite(s0, (!s1), s1));
+  transitionFunctions.push_back(s0 ^ s1);
 
   EXPECT_THROW(fsm->setTransitionFunctions(transitionFunctions),
                std::runtime_error);
@@ -128,9 +128,9 @@ TEST_F(ReachabilityTest3States, StateDistance) {
 
   transitionFunctions.push_back(!s0);  // s0'
   // s1 = s0 ? !s1 : s1
-  transitionFunctions.push_back(fsm->ite(s0, (!s1), s1));  // s1'
+  transitionFunctions.push_back(s0 ^ s1);  // s1'
   // s2 = s1 & s0 ? !s2 : s2
-  transitionFunctions.push_back(fsm->ite((s1 * s0), !(s2), s2));  // s2'
+  transitionFunctions.push_back((s1 * s0) ^ s2);  // s2'
   fsm->setTransitionFunctions(transitionFunctions);
 
   fsm->setInitState({false, false, false});

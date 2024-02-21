@@ -46,17 +46,19 @@ int Reachability::stateDistance(const std::vector<bool> &stateVector) {
   spdlog::debug("cr: {}", cr.id());
   do {
     // Compute BBD for image of next states
-    auto img_next = existential_quantification(
-        existential_quantification(cr * tau, states), inputs);
+    auto img_next = (cr * tau)
+                        .existential_quantification(states)
+                        .existential_quantification(inputs);
 
     // Rename next state as current state
     auto img = True();
     for (size_t i = 0; i < stateVector.size(); i++) {
-      img *= !(states[i] ^ next_states[i]);
+      img *= states[i].tseitin(next_states[i]);
     }
 
-    img = existential_quantification(
-        existential_quantification(img * img_next, next_states), inputs);
+    img = (img * img_next)
+              .existential_quantification(next_states)
+              .existential_quantification(inputs);
 
     prev = cr;
     cr += img;
@@ -89,7 +91,7 @@ void Reachability::setTransitionFunctions(
   // Compute Transition Relation tau
   tau = True();
   for (size_t i = 0; i < this->transitionFunctions.size(); i++) {
-    tau *= !(next_states[i] ^ this->transitionFunctions[i]);
+    tau *= next_states[i].tseitin(this->transitionFunctions[i]);
   }
 }
 
@@ -103,31 +105,13 @@ void Reachability::setInitState(const std::vector<bool> &stateVector) {
   // Compute Characteristic Function for Initial State (CS0)
   cs0 = True();
   for (size_t i = 0; i < init_state.size(); i++) {
-    cs0 = cs0 * !(states[i] ^ (init_state[i] ? True() : False()));
+    cs0 *= states[i].tseitin(init_state[i] ? True() : False());
   }
-}
-
-const Node Reachability::existential_quantification(
-    const Node &f, const std::vector<Node> &v) {
-  auto temp = f;
-  for (int64_t i = v.size() - 1; i >= 0; i--) {
-    temp = (temp << v[i]) + (temp >> v[i]);
-  }
-  return temp;
-}
-
-const Node Reachability::restrict(const Node &f, const std::vector<bool> &k,
-                                  const std::vector<Node> &v) {
-  auto temp = f;
-  for (int64_t i = k.size() - 1; i >= 0; i--) {
-    temp = k[i] ? (temp << v[i]) : (temp >> v[i]);
-  }
-  return temp;
 }
 
 bool Reachability::test_reachability(const Node &cr,
                                      const std::vector<bool> &stateVector) {
-  auto result = restrict(cr, stateVector, states);
+  auto result = cr.restrict(stateVector, states);
 
   spdlog::debug(
       "\n  incoming cr:             {}"
