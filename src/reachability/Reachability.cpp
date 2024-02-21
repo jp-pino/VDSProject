@@ -65,8 +65,6 @@ int Reachability::stateDistance(const std::vector<bool> &stateVector) {
     distance++;
 
     // Check if the state is reachable at this iteration
-    spdlog::info("cr: {}", cr.id());
-    spdlog::info("prev: {}", prev.id());
   } while (!test_reachability(prev, stateVector) && cr != prev);
 
   return test_reachability(cr, stateVector) ? distance - 1 : -1;

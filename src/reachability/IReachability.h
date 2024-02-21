@@ -3,8 +3,7 @@
 // Refactored by deutschmann on 19.04.21
 //
 
-#ifndef VDSPROJECT_IReachability_H
-#define VDSPROJECT_IReachability_H
+#pragma once
 
 #include "../Manager.h"
 
@@ -89,5 +88,3 @@ class IReachability : public Manager {
   virtual void setInitState(const std::vector<bool> &stateVector) = 0;
 };
 }  // namespace ClassProject
-
-#endif

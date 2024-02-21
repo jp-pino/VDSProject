@@ -1,5 +1,4 @@
-#ifndef VDSPROJECT_REACHABILITY_H
-#define VDSPROJECT_REACHABILITY_H
+#pragma once
 
 #include <tuple>
 #include <vector>
@@ -57,4 +56,3 @@ class Reachability : public IReachability {
 };
 
 }  // namespace ClassProject
-#endif

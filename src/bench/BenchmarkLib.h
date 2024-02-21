@@ -5,8 +5,7 @@
  *      Author: villarraga
  */
 
-#ifndef BENCHMARKLIB_H_
-#define BENCHMARKLIB_H_
+#pragma once
 
 /*
  * Taken from: Minisat-1.14 Global.h library
@@ -61,5 +60,3 @@ int memReadStats(int field);
 long long memUsing();
 
 void process_mem_usage(double& vm_usage, double& resident_set);
-
-#endif /* BENCHMARKLIB_H_ */
