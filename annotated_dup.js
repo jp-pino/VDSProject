@@ -4,11 +4,12 @@ var annotated_dup =
       [ "bench_node_type", "structbench__format_1_1bench__node__type.html", null ]
     ] ],
     [ "ClassProject", null, [
+      [ "Cofactor", "structClassProject_1_1Cofactor.html", null ],
+      [ "IManager", "classClassProject_1_1IManager.html", null ],
+      [ "IReachability", "classClassProject_1_1IReachability.html", "classClassProject_1_1IReachability" ],
       [ "Manager", "classClassProject_1_1Manager.html", "classClassProject_1_1Manager" ],
-      [ "ManagerInterface", "classClassProject_1_1ManagerInterface.html", null ],
       [ "Node", "classClassProject_1_1Node.html", "classClassProject_1_1Node" ],
       [ "Reachability", "classClassProject_1_1Reachability.html", "classClassProject_1_1Reachability" ],
-      [ "ReachabilityInterface", "classClassProject_1_1ReachabilityInterface.html", "classClassProject_1_1ReachabilityInterface" ],
       [ "TupleHasher", "structClassProject_1_1TupleHasher.html", null ]
     ] ],
     [ "skip_p", null, [

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['node_0',['Node',['../classClassProject_1_1Node.html',1,'ClassProject']]],
-  ['node_1',['node',['../structnode.html',1,'']]]
+  ['manager_0',['Manager',['../classClassProject_1_1Manager.html',1,'ClassProject']]],
+  ['managertest_1',['ManagerTest',['../classManagerTest.html',1,'']]]
 ];

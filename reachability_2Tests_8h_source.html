@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('reachability_2Tests_8h_source.html',''
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using namespace </span>ClassProject;</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structReachabilityTest.html">   10</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structReachabilityTest.html">ReachabilityTest</a> : testing::Test {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  std::unique_ptr&lt;ClassProject::ReachabilityInterface&gt; fsm =</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  std::unique_ptr&lt;ClassProject::IReachability&gt; fsm =</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>      std::make_unique&lt;ClassProject::Reachability&gt;(2, 2);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  std::vector&lt;Node&gt; inputVars = fsm-&gt;getInputs();</div>
@@ -158,7 +158,7 @@ $(document).ready(function(){initNavTree('reachability_2Tests_8h_source.html',''
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="comment">// FSM describes a counter</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  transitionFunctions.push_back(!s0);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  transitionFunctions.push_back(fsm-&gt;ite(s0, (!s1), s1));</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  transitionFunctions.push_back(s0 ^ s1);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  fsm-&gt;setTransitionFunctions(transitionFunctions);</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  fsm-&gt;setInitState({<span class="keyword">false</span>, <span class="keyword">false</span>});</div>
@@ -193,7 +193,7 @@ $(document).ready(function(){initNavTree('reachability_2Tests_8h_source.html',''
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  transitionFunctions.push_back(!s0);</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  transitionFunctions.push_back(!s0);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  transitionFunctions.push_back(fsm-&gt;ite(s0, (!s1), s1));</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  transitionFunctions.push_back(s0 ^ s1);</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  EXPECT_THROW(fsm-&gt;setTransitionFunctions(transitionFunctions),</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>               std::runtime_error);</div>
@@ -203,7 +203,7 @@ $(document).ready(function(){initNavTree('reachability_2Tests_8h_source.html',''
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="structReachabilityTest3States.html">  109</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structReachabilityTest3States.html">ReachabilityTest3States</a> : testing::Test {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  std::unique_ptr&lt;ClassProject::ReachabilityInterface&gt; fsm =</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  std::unique_ptr&lt;ClassProject::IReachability&gt; fsm =</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>      std::make_unique&lt;ClassProject::Reachability&gt;(3);</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  std::vector&lt;Node&gt; inputVars = fsm-&gt;getInputs();</div>
@@ -224,9 +224,9 @@ $(document).ready(function(){initNavTree('reachability_2Tests_8h_source.html',''
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  transitionFunctions.push_back(!s0);  <span class="comment">// s0&#39;</span></div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <span class="comment">// s1 = s0 ? !s1 : s1</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  transitionFunctions.push_back(fsm-&gt;ite(s0, (!s1), s1));  <span class="comment">// s1&#39;</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  transitionFunctions.push_back(s0 ^ s1);  <span class="comment">// s1&#39;</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  <span class="comment">// s2 = s1 &amp; s0 ? !s2 : s2</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  transitionFunctions.push_back(fsm-&gt;ite((s1 * s0), !(s2), s2));  <span class="comment">// s2&#39;</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  transitionFunctions.push_back((s1 * s0) ^ s2);  <span class="comment">// s2&#39;</span></div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  fsm-&gt;setTransitionFunctions(transitionFunctions);</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  fsm-&gt;setInitState({<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>});</div>
@@ -242,7 +242,7 @@ $(document).ready(function(){initNavTree('reachability_2Tests_8h_source.html',''
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>TEST(Group06_Test, DefaultStates) {</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  std::unique_ptr&lt;ClassProject::ReachabilityInterface&gt; fsm1 =</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  std::unique_ptr&lt;ClassProject::IReachability&gt; fsm1 =</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      std::make_unique&lt;ClassProject::Reachability&gt;(1);</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  ASSERT_TRUE(fsm1-&gt;isReachable({false}));</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  ASSERT_FALSE(fsm1-&gt;isReachable({true}));</div>

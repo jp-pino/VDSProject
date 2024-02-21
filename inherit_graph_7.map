@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classClassProject_1_1Node.html" title=" " alt="" coords="5,5,139,31"/>
+<area shape="rect" id="node1" href="$classClassProject_1_1IManager.html" title=" " alt="" coords="5,5,161,31"/>
+<area shape="rect" id="node2" href="$classClassProject_1_1Manager.html" title=" " alt="" coords="209,5,361,31"/>
+<area shape="rect" id="node3" href="$classClassProject_1_1IReachability.html" title=" " alt="" coords="409,5,585,31"/>
+<area shape="rect" id="node4" href="$classClassProject_1_1Reachability.html" title=" " alt="" coords="633,5,805,31"/>
 </map>

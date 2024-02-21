@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['manager_0',['Manager',['../classClassProject_1_1Manager.html',1,'ClassProject']]],
-  ['managerinterface_1',['ManagerInterface',['../classClassProject_1_1ManagerInterface.html',1,'ClassProject']]],
-  ['managertest_2',['ManagerTest',['../classManagerTest.html',1,'']]]
+  ['imanager_0',['IManager',['../classClassProject_1_1IManager.html',1,'ClassProject']]],
+  ['ireachability_1',['IReachability',['../classClassProject_1_1IReachability.html',1,'ClassProject']]]
 ];

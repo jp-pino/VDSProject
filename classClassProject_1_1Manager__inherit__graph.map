@@ -1,6 +1,6 @@
 <map id="ClassProject::Manager" name="ClassProject::Manager">
-<area shape="rect" id="node1" title=" " alt="" coords="31,79,183,104"/>
-<area shape="rect" id="node3" href="$classClassProject_1_1ReachabilityInterface.html" title=" " alt="" coords="21,152,193,192"/>
-<area shape="rect" id="node2" href="$classClassProject_1_1ManagerInterface.html" title=" " alt="" coords="5,5,208,31"/>
-<area shape="rect" id="node4" href="$classClassProject_1_1Reachability.html" title=" " alt="" coords="21,240,193,265"/>
+<area shape="rect" id="node1" title=" " alt="" coords="17,79,169,104"/>
+<area shape="rect" id="node3" href="$classClassProject_1_1IReachability.html" title=" " alt="" coords="5,152,181,177"/>
+<area shape="rect" id="node2" href="$classClassProject_1_1IManager.html" title=" " alt="" coords="15,5,171,31"/>
+<area shape="rect" id="node4" href="$classClassProject_1_1Reachability.html" title=" " alt="" coords="7,225,179,251"/>
 </map>

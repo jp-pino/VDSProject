@@ -4,5 +4,5 @@ var searchData=
   ['test_5freachability_1',['test_reachability',['../classClassProject_1_1Reachability.html#a622a91043609d047ae79b375ebab586b',1,'ClassProject::Reachability']]],
   ['topologicalsortkahnsalgorithm_2',['TopologicalSortKahnsAlgorithm',['../classBenchParser.html#aa8c1d7b57fe14572e74e6da4ae1c9b67',1,'BenchParser']]],
   ['true_3',['True',['../classClassProject_1_1Manager.html#a6c8db5f653120b73ff4ec90214fb10eb',1,'ClassProject::Manager']]],
-  ['try_5frestrict_4',['try_restrict',['../classClassProject_1_1Reachability.html#ae67bf9f413a8f41f123814f098528ded',1,'ClassProject::Reachability']]]
+  ['tseitin_4',['tseitin',['../classClassProject_1_1Node.html#aae6d3943fda0adcf851a0d5165f0fd62',1,'ClassProject::Node']]]
 ];

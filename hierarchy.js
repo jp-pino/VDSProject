@@ -5,12 +5,13 @@ var hierarchy =
     [ "circuit_node_t", "structcircuit__node__t.html", null ],
     [ "circuit_node_type", "structcircuit__node__type.html", null ],
     [ "CircuitToBDD", "classCircuitToBDD.html", null ],
+    [ "ClassProject::Cofactor", "structClassProject_1_1Cofactor.html", null ],
     [ "boost::spirit::qi::grammar", null, [
       [ "skip_p::skip_grammar< Iterator >", "structskip__p_1_1skip__grammar.html", null ]
     ] ],
-    [ "ClassProject::ManagerInterface", "classClassProject_1_1ManagerInterface.html", [
+    [ "ClassProject::IManager", "classClassProject_1_1IManager.html", [
       [ "ClassProject::Manager", "classClassProject_1_1Manager.html", [
-        [ "ClassProject::ReachabilityInterface", "classClassProject_1_1ReachabilityInterface.html", [
+        [ "ClassProject::IReachability", "classClassProject_1_1IReachability.html", [
           [ "ClassProject::Reachability", "classClassProject_1_1Reachability.html", null ]
         ] ]
       ] ]
