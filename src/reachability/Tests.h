@@ -8,7 +8,7 @@
 using namespace ClassProject;
 
 struct ReachabilityTest : testing::Test {
-  std::unique_ptr<ClassProject::ReachabilityInterface> fsm =
+  std::unique_ptr<ClassProject::IReachability> fsm =
       std::make_unique<ClassProject::Reachability>(2, 2);
 
   std::vector<Node> inputVars = fsm->getInputs();
@@ -107,7 +107,7 @@ TEST_F(ReachabilityTest, ExceptionsTest) {
 }
 
 struct ReachabilityTest3States : testing::Test {
-  std::unique_ptr<ClassProject::ReachabilityInterface> fsm =
+  std::unique_ptr<ClassProject::IReachability> fsm =
       std::make_unique<ClassProject::Reachability>(3);
 
   std::vector<Node> inputVars = fsm->getInputs();
@@ -146,7 +146,7 @@ TEST_F(ReachabilityTest3States, StateDistance) {
 }
 
 TEST(Group06_Test, DefaultStates) {
-  std::unique_ptr<ClassProject::ReachabilityInterface> fsm1 =
+  std::unique_ptr<ClassProject::IReachability> fsm1 =
       std::make_unique<ClassProject::Reachability>(1);
   ASSERT_TRUE(fsm1->isReachable({false}));
   ASSERT_FALSE(fsm1->isReachable({true}));

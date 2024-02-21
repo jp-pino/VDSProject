@@ -3,16 +3,16 @@
 // Refactored by deutschmann on 19.04.21
 //
 
-#ifndef VDSPROJECT_REACHABILITYINTERFACE_H
-#define VDSPROJECT_REACHABILITYINTERFACE_H
+#ifndef VDSPROJECT_IReachability_H
+#define VDSPROJECT_IReachability_H
 
 #include "../Manager.h"
 
 namespace ClassProject {
-class ReachabilityInterface : public Manager {
+class IReachability : public Manager {
  public:
-  //   ReachabilityInterface() = delete;
-  virtual ~ReachabilityInterface() = default;
+  //   IReachability() = delete;
+  virtual ~IReachability() = default;
 
   /**
    * Returns a vector containing all state bits of the state machine.

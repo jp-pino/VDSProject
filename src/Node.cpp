@@ -1,6 +1,6 @@
 #include "Node.h"
 
-#include "ManagerInterface.h"
+#include "IManager.h"
 
 namespace ClassProject {
 
@@ -15,7 +15,7 @@ Node Node::high(BDD_ID high) {
   return this->high();
 }
 
-Node Node::high(const Node high) {
+Node Node::high(const Node& high) {
   _high = high._id;
   return this->high();
 }
@@ -25,7 +25,7 @@ Node Node::low(BDD_ID low) {
   return this->low();
 }
 
-Node Node::low(const Node low) {
+Node Node::low(const Node& low) {
   _low = low._id;
   return this->low();
 }
@@ -35,7 +35,7 @@ Node Node::top(BDD_ID top) {
   return this->top();
 }
 
-Node Node::top(const Node top) {
+Node Node::top(const Node& top) {
   _top = top._id;
   return this->top();
 }
@@ -60,27 +60,25 @@ void Node::dump() const {
       (long)id(), label(), top().id(), high().id(), low().id());
 }
 
+// Comparison operators
 bool Node::operator==(const Node& rhs) const {
   return _high == rhs._high && _low == rhs._low && _top == rhs._top;
 }
-
 bool Node::operator==(const BDD_ID& rhs) const {
   auto node = manager->getNode(rhs);
   return *this == node;
 }
-
 bool Node::operator!=(const Node& rhs) const { return !(*this == rhs); }
-
 bool Node::operator>(const BDD_ID& rhs) const { return _id > rhs; }
 bool Node::operator>=(const BDD_ID& rhs) const { return _id >= rhs; }
 bool Node::operator<(const BDD_ID& rhs) const { return _id < rhs; }
 bool Node::operator<=(const BDD_ID& rhs) const { return _id <= rhs; }
-
 bool Node::operator>(const Node& rhs) const { return _id > rhs.id(); }
 bool Node::operator>=(const Node& rhs) const { return _id >= rhs.id(); }
 bool Node::operator<(const Node& rhs) const { return _id < rhs.id(); }
 bool Node::operator<=(const Node& rhs) const { return _id <= rhs.id(); }
 
+// OR operators
 const Node Node::operator+(const Node& rhs) const {
   return manager->or2(*this, rhs);
 }
@@ -89,10 +87,15 @@ Node& Node::operator+=(const Node& rhs) {
   *this = *this + rhs;
   return *this;
 }
+Node& Node::operator|=(const Node& rhs) {
+  *this += rhs;
+  return *this;
+}
 const Node Node::nor(const Node& rhs) const {
   return manager->nor2(*this, rhs);
 }
 
+// AND operators
 const Node Node::operator*(const Node& rhs) const {
   return manager->and2(*this, rhs);
 }
@@ -101,10 +104,15 @@ Node& Node::operator*=(const Node& rhs) {
   *this = *this * rhs;
   return *this;
 }
+Node& Node::operator&=(const Node& rhs) {
+  *this *= rhs;
+  return *this;
+}
 const Node Node::nand(const Node& rhs) const {
   return manager->nand2(*this, rhs);
 }
 
+// XOR operators
 const Node Node::operator^(const Node& rhs) const {
   return manager->xor2(*this, rhs);
 }
@@ -112,18 +120,20 @@ Node& Node::operator^=(const Node& rhs) {
   *this = *this ^ rhs;
   return *this;
 }
-
 const Node Node::xnor(const Node& rhs) const {
   return manager->xnor2(*this, rhs);
 }
 
+// NOT operator
 const Node Node::operator!() const { return manager->neg(*this); }
 
+// Cofactor
 const Node Node::operator|(const Cofactor& rhs) const {
   if (rhs.type) return manager->coFactorTrue(*this, rhs.node);
   return manager->coFactorFalse(*this, rhs.node);
 }
 
+// Quantificators
 const Node Node::existential_quantification(const std::vector<Node>& v) const {
   auto temp = *this;
   for (int64_t i = v.size() - 1; i >= 0; i--) {
@@ -131,7 +141,6 @@ const Node Node::existential_quantification(const std::vector<Node>& v) const {
   }
   return temp;
 }
-
 const Node Node::universal_quantification(const std::vector<Node>& v) const {
   auto temp = *this;
   for (int64_t i = v.size() - 1; i >= 0; i--) {
@@ -140,8 +149,9 @@ const Node Node::universal_quantification(const std::vector<Node>& v) const {
   return temp;
 }
 
-const Node Node::restrict(const std::vector<bool>& k,
-                          const std::vector<Node>& v) const {
+// Restrict
+const Node Node::restrict(const std::vector<Node>& v,
+                          const std::vector<bool>& k) const {
   auto temp = *this;
   for (int64_t i = k.size() - 1; i >= 0; i--) {
     temp = temp | Cofactor(v[i], k[i]);
@@ -150,5 +160,17 @@ const Node Node::restrict(const std::vector<bool>& k,
 }
 
 const Node Node::tseitin(const Node& node) const { return this->xnor(node); }
+
+std::set<Node> Node::findNodes() const {
+  std::set<Node> nodes;
+  manager->findNodes(*this, nodes);
+  return nodes;
+}
+
+std::set<Node> Node::findVars() const {
+  std::set<Node> vars;
+  manager->findVars(*this, vars);
+  return vars;
+}
 
 }  // namespace ClassProject

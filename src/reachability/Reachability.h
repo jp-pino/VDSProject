@@ -5,11 +5,11 @@
 #include <vector>
 
 #include "../Manager.h"
-#include "ReachabilityInterface.h"
+#include "IReachability.h"
 
 namespace ClassProject {
 
-class Reachability : public ReachabilityInterface {
+class Reachability : public IReachability {
  private:
   std::vector<Node> states;
   std::vector<Node> inputs;
@@ -46,42 +46,6 @@ class Reachability : public ReachabilityInterface {
   void setInitState(const std::vector<bool> &stateVector) override;
 
  private:
-  /**
-   * @brief Existential quantification operator
-   * @param f Node Characteristic function
-   * @param v std::vector<Node> Vector of variables to quantify
-   * @return Node Disjunction of the cofactors of f w.r.t list of variables
-   */
-  const Node existential_quantification(const Node &f,
-                                        const std::vector<Node> &v);
-
-  /**
-   * @brief Restrict operator
-   *
-   * Shannon cofactor of f w.r.t variable v
-   *
-   * @param f Node Characteristic function to restrict
-   * @param k std::vector<bool> Constants to restrict the
-   * function
-   * @param v std::vector<Node> List of variables to restrict the function
-   * @return Node of the resulting BDD after the restriction
-   */
-  const Node restrict(const Node &f, const std::vector<bool> &k,
-                      const std::vector<Node> &v);
-
-  /**
-   * @brief Try to restrict a BDD to a constant
-   *
-   * The function tries to restrict the given BDD to the smallest BDD that's not
-   * False and returns the combination of variables that lead to this result.
-   * The variables it uses are the top variables of the BDD.
-   *
-   * @param f Node Characteristic function to restrict
-   * @return std::tuple<Node, std::unordered_map<Node, bool>> Resulting BDD
-   * and the values of the variables that result in the restriction
-   */
-  std::tuple<Node, std::unordered_map<Node, bool>> try_restrict(const Node &f);
-
   /**
    * @brief Test reachability of a state
    *

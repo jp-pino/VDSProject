@@ -111,7 +111,7 @@ void Reachability::setInitState(const std::vector<bool> &stateVector) {
 
 bool Reachability::test_reachability(const Node &cr,
                                      const std::vector<bool> &stateVector) {
-  auto result = cr.restrict(stateVector, states);
+  auto result = cr.restrict(states, stateVector);
 
   spdlog::debug(
       "\n  incoming cr:             {}"

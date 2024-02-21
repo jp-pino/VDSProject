@@ -21,8 +21,9 @@ class ManagerTest : public ::testing::Test {
   }
 
   void TearDown() override {
-    auto root = manager.getNode(manager.uniqueTableSize() - 1);
-    auto name = ::testing::UnitTest::GetInstance()->current_test_info()->name();
+    const auto root = manager.getNode(manager.uniqueTableSize() - 1);
+    const auto name =
+        ::testing::UnitTest::GetInstance()->current_test_info()->name();
     if (HasFailure()) {
       spdlog::error("Unique table size: {}", manager.uniqueTableSize());
       manager.dump();
@@ -52,6 +53,44 @@ TEST_F(ManagerTest, True) { EXPECT_EQ(manager.True(), 1); }
  */
 TEST_F(ManagerTest, False) { EXPECT_EQ(manager.False(), 0); }
 
+TEST_F(ManagerTest, OrOperatorsEquivalence) {
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
+  const auto f = manager.or2(a, b);
+
+  EXPECT_EQ(f, a + b);
+  EXPECT_EQ(f, a | b);
+
+  auto c = manager.False();
+  c += a;
+  c += b;
+  EXPECT_EQ(f, c);
+
+  c = manager.False();
+  c |= a;
+  c |= b;
+  EXPECT_EQ(f, c);
+}
+
+TEST_F(ManagerTest, AndOperatorsEquivalence) {
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
+  const auto f = manager.and2(a, b);
+
+  EXPECT_EQ(f, a * b);
+  EXPECT_EQ(f, a & b);
+
+  auto c = manager.True();
+  c *= a;
+  c *= b;
+  EXPECT_EQ(f, c);
+
+  c = manager.True();
+  c &= a;
+  c &= b;
+  EXPECT_EQ(f, c);
+}
+
 /**
  * @brief Test that True and False are constants
  * \dotfile isConstant.dot
@@ -67,8 +106,8 @@ TEST_F(ManagerTest, isConstant) {
  * \dotfile isVariable.dot
  */
 TEST_F(ManagerTest, isVariable) {
-  auto a = manager.createVar("A");
-  auto b = manager.createVar("B");
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
 
   EXPECT_TRUE(a.isVariable());
   EXPECT_TRUE(b.isVariable());
@@ -81,7 +120,7 @@ TEST_F(ManagerTest, isVariable) {
  * \dotfile topVar.dot
  */
 TEST_F(ManagerTest, topVar) {
-  auto a = manager.createVar("A");
+  const auto a = manager.createVar("A");
   EXPECT_EQ(manager.False().top(), manager.False());
   EXPECT_EQ(manager.True().top(), manager.True());
   EXPECT_EQ(a.top(), a);
@@ -110,7 +149,7 @@ TEST_F(ManagerTest, ite_false) {
  * \dotfile ite_same.dot
  */
 TEST_F(ManagerTest, ite_same) {
-  auto a = manager.createVar("A");
+  const auto a = manager.createVar("A");
   EXPECT_EQ(manager.ite(a, manager.True(), manager.True()), manager.True());
 }
 
@@ -119,7 +158,7 @@ TEST_F(ManagerTest, ite_same) {
  * \dotfile ite_true_false.dot
  */
 TEST_F(ManagerTest, ite_true_false) {
-  auto a = manager.createVar("A");
+  const auto a = manager.createVar("A");
   EXPECT_EQ(manager.ite(a, manager.True(), manager.False()), a);
 }
 
@@ -128,21 +167,21 @@ TEST_F(ManagerTest, ite_true_false) {
  * \dotfile ite_example.dot
  */
 TEST_F(ManagerTest, ite_example) {
-  auto a = manager.createVar("A");
-  auto b = manager.createVar("B");
-  auto c = manager.createVar("C");
-  auto d = manager.createVar("D");
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
+  const auto c = manager.createVar("C");
+  const auto d = manager.createVar("D");
 
-  auto a_or_b = a + b;
-  auto c_and_d = c * d;
-  auto f = a_or_b * c_and_d;
+  const auto a_or_b = a + b;
+  const auto c_and_d = c * d;
+  const auto f = a_or_b * c_and_d;
 
   EXPECT_EQ(f, 9);
   EXPECT_EQ(f.high(), c_and_d);
   EXPECT_EQ(f.low(), 8);
   EXPECT_EQ(f.top(), a);
 
-  auto node_8 = manager.getNode(8);
+  const auto node_8 = manager.getNode(8);
   EXPECT_EQ(node_8.high(), 7);
   EXPECT_EQ(node_8.low(), manager.False());
   EXPECT_EQ(node_8.top(), b);
@@ -161,15 +200,18 @@ TEST_F(ManagerTest, ite_example) {
  * \dotfile and2.dot
  */
 TEST_F(ManagerTest, and2) {
-  auto a = manager.createVar("A");
-  auto b = manager.createVar("B");
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
 
-  auto f = a * b;
+  const auto f = a * b;
 
   EXPECT_EQ(f, 4);
   EXPECT_EQ(f.high(), b);
   EXPECT_EQ(f.low(), manager.False());
   EXPECT_EQ(f.top(), a);
+
+  EXPECT_EQ(f.restrict({a}, {true}), b);
+  EXPECT_EQ(f.restrict({a}, {false}), manager.False());
 }
 
 /**
@@ -177,15 +219,18 @@ TEST_F(ManagerTest, and2) {
  * \dotfile or2.dot
  */
 TEST_F(ManagerTest, or2) {
-  auto a = manager.createVar("A");
-  auto b = manager.createVar("B");
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
 
-  auto f = a + b;
+  const auto f = a + b;
 
   EXPECT_EQ(f, 4);
   EXPECT_EQ(f.high(), manager.True());
   EXPECT_EQ(f.low(), b);
   EXPECT_EQ(f.top(), a);
+
+  EXPECT_EQ(f.restrict({a}, {true}), manager.True());
+  EXPECT_EQ(f.restrict({a}, {false}), b);
 }
 
 /**
@@ -193,15 +238,18 @@ TEST_F(ManagerTest, or2) {
  * \dotfile xor2.dot
  */
 TEST_F(ManagerTest, xor2) {
-  auto a = manager.createVar("A");
-  auto b = manager.createVar("B");
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
 
-  auto f = a ^ b;
+  const auto f = a ^ b;
 
   EXPECT_EQ(f, 5);
   EXPECT_EQ(f.high(), (!b));
   EXPECT_EQ(f.low(), b);
   EXPECT_EQ(f.top(), a);
+
+  EXPECT_EQ(f.restrict({a}, {true}), !b);
+  EXPECT_EQ(f.restrict({a}, {false}), b);
 }
 
 /**
@@ -209,14 +257,16 @@ TEST_F(ManagerTest, xor2) {
  * \dotfile neg.dot
  */
 TEST_F(ManagerTest, neg) {
-  auto a = manager.createVar("A");
+  const auto a = manager.createVar("A");
 
-  auto f = !a;
+  const auto f = !a;
 
   EXPECT_EQ(f, 3);
   EXPECT_EQ(f.high(), manager.False());
   EXPECT_EQ(f.low(), manager.True());
   EXPECT_EQ(f.top(), a);
+
+  EXPECT_EQ(f.restrict({a}, {true}), manager.False());
 }
 
 /**
@@ -224,21 +274,18 @@ TEST_F(ManagerTest, neg) {
  * \dotfile nand2.dot
  */
 TEST_F(ManagerTest, nand2) {
-  auto a = manager.createVar("A");
-  auto b = manager.createVar("B");
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
 
-  auto f = !(a * b);
-  auto a_and_b = (a * b);
+  const auto f = a.nand(b);
 
-  EXPECT_EQ(f, 6);
+  EXPECT_EQ(f, 5);
   EXPECT_EQ(f.high(), !b);
   EXPECT_EQ(f.low(), manager.True());
   EXPECT_EQ(f.top(), a);
 
-  EXPECT_EQ(a_and_b, 4);
-  EXPECT_EQ(a_and_b.high(), b);
-  EXPECT_EQ(a_and_b.low(), manager.False());
-  EXPECT_EQ(a_and_b.top(), a);
+  EXPECT_EQ(f.restrict({a}, {true}), !b);
+  EXPECT_EQ(f.restrict({a}, {false}), manager.True());
 }
 
 /**
@@ -246,21 +293,18 @@ TEST_F(ManagerTest, nand2) {
  * \dotfile nor2.dot
  */
 TEST_F(ManagerTest, nor2) {
-  auto a = manager.createVar("A");
-  auto b = manager.createVar("B");
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
 
-  auto f = !(a + b);
-  auto a_or_b = (a + b);
+  const auto f = a.nor(b);
 
-  EXPECT_EQ(f, 6);
+  EXPECT_EQ(f, 5);
   EXPECT_EQ(f.high(), manager.False());
   EXPECT_EQ(f.low(), !b);
   EXPECT_EQ(f.top(), a);
 
-  EXPECT_EQ(a_or_b, 4);
-  EXPECT_EQ(a_or_b.high(), manager.True());
-  EXPECT_EQ(a_or_b.low(), b);
-  EXPECT_EQ(a_or_b.top(), a);
+  EXPECT_EQ(f.restrict({a}, {true}), manager.False());
+  EXPECT_EQ(f.restrict({a}, {false}), !b);
 }
 
 /**
@@ -268,13 +312,16 @@ TEST_F(ManagerTest, nor2) {
  * \dotfile xnor2.dot
  */
 TEST_F(ManagerTest, xnor2) {
-  auto a = manager.createVar("A");
-  auto b = manager.createVar("B");
+  const auto a = manager.createVar("A");
+  const auto b = manager.createVar("B");
 
-  auto f = !(a ^ b);
+  const auto f = a.xnor(b);
 
-  EXPECT_EQ(f, 6);
+  EXPECT_EQ(f, 5);
   EXPECT_EQ(f.high(), b);
   EXPECT_EQ(f.low(), !b);
   EXPECT_EQ(f.top(), a);
+
+  EXPECT_EQ(f.restrict({a}, {true}), b);
+  EXPECT_EQ(f.restrict({a}, {false}), !b);
 }

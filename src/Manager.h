@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-#include "ManagerInterface.h"
+#include "IManager.h"
 
 namespace ClassProject {
 
@@ -33,9 +33,8 @@ struct TupleHasher {
   }
 };
 
-class Manager : public ManagerInterface {
+class Manager : public IManager {
  private:
-  size_t ucache_hit = 0, pcache_hit = 0;
   /**
    * @brief Unique table
    * The unique table is a vector of nodes
@@ -195,18 +194,9 @@ class Manager : public ManagerInterface {
   void dump();
 
   void findNodes(const Node& root, std::set<Node>& nodes_of_root) override;
-  void findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) override;
-
   void findVars(const Node& root, std::set<Node>& vars_of_root) override;
-  void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) override;
-  std::vector<Node> findVars(const Node& root) override;
 
   size_t uniqueTableSize() override;
-
-  size_t ucache_hits() override { return ucache_hit; }
-  size_t pcache_hits() override { return pcache_hit; }
-
-  // Not implemented yet
 
   void visualizeBDD_internal(std::ofstream& file, const Node& root);
   void visualizeBDD(std::string filepath, const Node& root,

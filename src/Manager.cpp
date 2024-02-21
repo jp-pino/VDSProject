@@ -58,7 +58,6 @@ const Node Manager::ite(const Node& i, const Node& t, const Node& e) {
   spdlog::trace("Checking if ite has already been computed");
   auto tuple_ite = std::make_tuple(i.id(), t.id(), e.id());
   if (computed_table.find(tuple_ite) != computed_table.end()) {
-    pcache_hit++;
     return getNode(computed_table[tuple_ite]);
   }
 
@@ -86,7 +85,6 @@ const Node Manager::ite(const Node& i, const Node& t, const Node& e) {
   spdlog::trace("Eliminating isomorphic sub-graphs");
   auto tuple_vgh = std::make_tuple(top.id(), high.id(), low.id());
   if (unique_table.find(tuple_vgh) != unique_table.end()) {
-    ucache_hit++;
     computed_table[tuple_ite] = unique_table[tuple_vgh];
     return getNode(unique_table[tuple_vgh]);
   }
@@ -159,7 +157,7 @@ const Node Manager::neg(const Node& a) {
 
 const Node Manager::nand2(const Node& a, const Node& b) {
   spdlog::trace(">>>>>>> nand2({}, {})", GET_NAME(a), GET_NAME(b));
-  auto node = nodes[neg(and2(a, b)).id()];
+  auto node = nodes[ite(a, neg(b), True()).id()];
   if (node->isConstant() || node->isVariable()) return *node;
   node->label(fmt::format("!({} * {})", GET_NAME(a), GET_NAME(b)));
   return *node;
@@ -167,7 +165,7 @@ const Node Manager::nand2(const Node& a, const Node& b) {
 
 const Node Manager::nor2(const Node& a, const Node& b) {
   spdlog::trace(">>>>>>> nor2({}, {})", GET_NAME(a), GET_NAME(b));
-  auto node = nodes[neg(or2(a, b)).id()];
+  auto node = nodes[ite(a, False(), neg(b)).id()];
   if (node->isConstant() || node->isVariable()) return *node;
   node->label(fmt::format("!({} + {})", GET_NAME(a), GET_NAME(b)));
   return *node;
@@ -239,7 +237,10 @@ void Manager::mermaidGraph(std::string filepath, const Node& root) {
   mermaidGraph_internal(file, root, printed_nodes);
 }
 
-const Node Manager::getNode(const BDD_ID& id) const { return *nodes[id]; }
+const Node Manager::getNode(const BDD_ID& id) const {
+  if (id >= nodes.size()) throw std::out_of_range("Node ID out of range");
+  return *nodes[id];
+}
 
 void Manager::findNodes(const Node& root, std::set<Node>& nodes_of_root) {
   nodes_of_root.insert(root);
@@ -250,14 +251,6 @@ void Manager::findNodes(const Node& root, std::set<Node>& nodes_of_root) {
   findNodes(root.high(), nodes_of_root);
 }
 
-void Manager::findNodes(const BDD_ID& root, std::set<BDD_ID>& nodes_of_root) {
-  std::set<Node> nodes;
-  findNodes(getNode(root), nodes);
-  for (auto node : nodes) {
-    nodes_of_root.insert(node.id());
-  }
-}
-
 void Manager::findVars(const Node& root, std::set<Node>& vars_of_root) {
   if (root.isConstant()) return;
 
@@ -265,20 +258,6 @@ void Manager::findVars(const Node& root, std::set<Node>& vars_of_root) {
 
   findVars(root.low(), vars_of_root);
   findVars(root.high(), vars_of_root);
-}
-
-void Manager::findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) {
-  std::set<Node> vars;
-  findVars(getNode(root), vars);
-  for (auto var : vars) {
-    vars_of_root.insert(var.id());
-  }
-}
-
-std::vector<Node> Manager::findVars(const Node& root) {
-  std::set<Node> vars_of_root;
-  findVars(root, vars_of_root);
-  return std::vector<Node>(vars_of_root.begin(), vars_of_root.end());
 }
 
 size_t Manager::uniqueTableSize() { return nodes.size(); }

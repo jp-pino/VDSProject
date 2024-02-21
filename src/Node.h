@@ -2,6 +2,7 @@
 
 #include <spdlog/spdlog.h>
 
+#include <set>
 #include <string>
 #include <vector>
 
@@ -9,10 +10,10 @@ namespace ClassProject {
 
 typedef size_t BDD_ID;
 
-class ManagerInterface;
+class IManager;
 class Cofactor;
 class Node {
-  mutable ManagerInterface* manager;
+  mutable IManager* manager;
 
   BDD_ID _id;
   BDD_ID _high;
@@ -21,7 +22,7 @@ class Node {
   std::string _label;
 
  public:
-  Node(ManagerInterface* manager, BDD_ID id, std::string label = "")
+  Node(IManager* manager, BDD_ID id, std::string label = "")
       : manager(manager), _id(id), _label(label){};
 
   const BDD_ID id() const;
@@ -31,13 +32,13 @@ class Node {
   const std::string label() const;
 
   Node high(BDD_ID high);
-  Node high(const Node high);
+  Node high(const Node& high);
 
   Node low(BDD_ID low);
-  Node low(const Node low);
+  Node low(const Node& low);
 
   Node top(BDD_ID top);
-  Node top(const Node top);
+  Node top(const Node& top);
 
   std::string label(std::string label);
 
@@ -46,16 +47,14 @@ class Node {
 
   void dump() const;
 
+  // Comparison operators
   bool operator==(const Node& rhs) const;
   bool operator==(const BDD_ID& rhs) const;
-
   bool operator!=(const Node& rhs) const;
-
   bool operator>(const BDD_ID& rhs) const;
   bool operator>=(const BDD_ID& rhs) const;
   bool operator<(const BDD_ID& rhs) const;
   bool operator<=(const BDD_ID& rhs) const;
-
   bool operator>(const Node& rhs) const;
   bool operator>=(const Node& rhs) const;
   bool operator<(const Node& rhs) const;
@@ -72,6 +71,16 @@ class Node {
   const Node operator+(const Node& rhs) const;
   const Node operator|(const Node& rhs) const;
   Node& operator+=(const Node& rhs);
+  Node& operator|=(const Node& rhs);
+
+  /**
+   * @brief Nor operator
+   *
+   * Creates a new node with the result of the nor operation
+   *
+   * @param rhs
+   * @return Node&
+   */
   const Node nor(const Node& rhs) const;
 
   /**
@@ -85,6 +94,16 @@ class Node {
   const Node operator*(const Node& rhs) const;
   const Node operator&(const Node& rhs) const;
   Node& operator*=(const Node& rhs);
+  Node& operator&=(const Node& rhs);
+
+  /**
+   * @brief Nand operator
+   *
+   * Creates a new node with the result of the nand operation
+   *
+   * @param rhs
+   * @return Node&
+   */
   const Node nand(const Node& rhs) const;
 
   /**
@@ -97,6 +116,15 @@ class Node {
    */
   const Node operator^(const Node& rhs) const;
   Node& operator^=(const Node& rhs);
+
+  /**
+   * @brief Xnor operator
+   *
+   * Creates a new node with the result of the xnor operation
+   *
+   * @param rhs
+   * @return Node&
+   */
   const Node xnor(const Node& rhs) const;
 
   /**
@@ -107,6 +135,7 @@ class Node {
    * @return Node&
    */
   const Node operator!() const;
+  const Node neg() const;
 
   /**
    * @brief Cofactor operator
@@ -140,13 +169,13 @@ class Node {
    *
    * Shannon cofactor of f w.r.t variable v
    *
+   * @param v std::vector<Node> List of variables to restrict the function
    * @param k std::vector<bool> Constants to restrict the
    * function
-   * @param v std::vector<Node> List of variables to restrict the function
    * @return Node of the resulting BDD after the restriction
    */
-  const Node restrict(const std::vector<bool>& k,
-                      const std::vector<Node>& v) const;
+  const Node restrict(const std::vector<Node>& v,
+                      const std::vector<bool>& k) const;
 
   /**
    * @brief Tseitin construction
@@ -155,6 +184,9 @@ class Node {
    * @return Node of the resulting BDD after the Tseitin construction
    */
   const Node tseitin(const Node& node) const;
+
+  std::set<Node> findNodes() const;
+  std::set<Node> findVars() const;
 };
 
 struct Cofactor {

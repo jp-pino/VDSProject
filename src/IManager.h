@@ -15,7 +15,7 @@ namespace ClassProject {
 
 class Node;
 
-class ManagerInterface {
+class IManager {
  public:
   virtual const Node createVar(const std::string& label) = 0;
 
@@ -44,17 +44,10 @@ class ManagerInterface {
   virtual const Node xnor2(const Node& a, const Node& b) = 0;
 
   virtual void findNodes(const Node& root, std::set<Node>& nodes_of_root) = 0;
-  virtual void findNodes(const BDD_ID& root,
-                         std::set<BDD_ID>& nodes_of_root) = 0;
 
   virtual void findVars(const Node& root, std::set<Node>& vars_of_root) = 0;
-  virtual void findVars(const BDD_ID& root, std::set<BDD_ID>& vars_of_root) = 0;
-
-  virtual std::vector<Node> findVars(const Node& root) = 0;
 
   virtual size_t uniqueTableSize() = 0;
-  virtual size_t ucache_hits() = 0;
-  virtual size_t pcache_hits() = 0;
 
   virtual void visualizeBDD(std::string filepath, const Node& root,
                             bool test_result) = 0;
